@@ -1,0 +1,11 @@
+/* CS109 Indepedence and Condition independence */ 
+The meaning of "if we condition on Fever, the events bacteria and malaria become dependent" is if we look into the world of people having Fever, bacteria or malaria becomes the casue of the Fever
+
+"They are dependent because if you tell me information about one it will change my belief of the other"
+
+"Current belief of the world" -> the empircal cause of the world/condition
+
+Condition means the world we are interested in
+Events are the empircal cause we are interested in 
+Dependent means the event/empircal potentially could be the cause/changes our belief/such condition might be casued by another event. If we further condition of such events, our belief will change again. i.e. when we look into malaria as a casue of fever by P(Bateria|Fever and Malaria), such probability will drop back to the base line again since Malaria is so frequent in the statistic s.t. Malaria is the casue and Bacteria is not the cause in such a world.
+
