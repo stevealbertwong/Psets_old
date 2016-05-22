@@ -14,3 +14,5 @@ Dependent means the event/empircal potentially could be the cause/changes our be
 
 If you tell me Malaria happen and causing such Fever, my belief that Bacteria is the cause goes back to the normal case.
 
+“When we condition on Fever, Bacteria and Malaria become dependent”
+
