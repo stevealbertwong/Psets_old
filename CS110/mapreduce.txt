@@ -13,5 +13,9 @@ with target server's port and host  */
 	return socket
 
 2. map-reduce-server.cc
+/*
 
-- 
+*/
+
+-
+ 
