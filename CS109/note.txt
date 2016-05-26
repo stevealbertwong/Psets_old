@@ -18,9 +18,15 @@ If you tell me Malaria happen and causing such Fever, my belief that Bacteria is
 “When we condition on Fever, Bacteria and Malaria become dependent”
 
 
-/* Logistic regression */
+/* Logistic regression */ aka sigmoidal classification
+
+Logistic Regression is most used classifier in ML -> either class 1 or 0
 Sigmoid function -> any S shape curve
-@Tx
+
+Sigmoid is chosen is 
+1. output between 0~1 from pheta transpose x
+2. smooth so that take derivative of sigmoid in easy way
+-> right now think of it as practical
 
 ?? what is e in sigmoid 
 
