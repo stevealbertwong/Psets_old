@@ -28,5 +28,11 @@ Sigmoid is chosen is
 2. smooth so that take derivative of sigmoid in easy way
 -> right now think of it as practical
 
+Steps of logistic regression
+1. make logistic regression assumption
+2. calculate log probability for all data -> optimize log likelihood with respect to theta
+i.e. choose photo that makes likelihood maximum
+3. to maximize, calculate the derivative of log probability with respect to theta
+
 ?? what is e in sigmoid 
 
