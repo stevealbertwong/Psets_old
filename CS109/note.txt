@@ -35,4 +35,8 @@ i.e. choose photo that makes likelihood maximum
 3. to maximize, calculate the derivative of log probability with respect to theta
 
 ?? what is e in sigmoid 
+?? why log likelihood
 
+Logistic regression training pseudo code
+1. loop over training instance in dataset to add contribution to the "batch" gradient vector
+2. compute partial derivative of log likelihood with respect to theta
