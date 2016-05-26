@@ -1,4 +1,5 @@
 /* CS109 Indepedence and Condition independence */ 
+
 The meaning of "if we condition on Fever, the events bacteria and malaria become dependent" is if we look into the world of people having Fever, bacteria or malaria becomes the casue of the Fever
 
 "They are dependent because if you tell me information about one it will change my belief of the other"
@@ -15,4 +16,11 @@ Dependent means the event/empircal potentially could be the cause/changes our be
 If you tell me Malaria happen and causing such Fever, my belief that Bacteria is the cause goes back to the normal case.
 
 “When we condition on Fever, Bacteria and Malaria become dependent”
+
+
+/* Logistic regression */
+Sigmoid function -> any S shape curve
+@Tx
+
+?? what is e in sigmoid 
 
