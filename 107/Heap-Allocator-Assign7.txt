@@ -1,7 +1,7 @@
 
 /* 15-231 malloc recitation recitation */
 
-1. Marcos and inline functions
+1. Marcos:
 
 DEFIN:
 Marcos - mechanism in c before program gets compiled could do find and replace
@@ -27,9 +27,17 @@ USAGE:
 - useful for functions that are called frequently 
  
 
-3. Malloc
 
-3. Pointer review 
+3. Pointer review:
+i.e. casting, dereferencing, arithmetic
+
+CASTING:
+Casting from type a to type b
+
+Casting from type a to int/unsigned int 
+
+
+ 
 
 
 /* 107 heap allocator summary */
