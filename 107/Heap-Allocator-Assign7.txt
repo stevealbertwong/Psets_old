@@ -1,0 +1,35 @@
+
+/* 15-231 malloc recitation recitation */
+
+1. Marcos and inline functions
+
+DEFIN:
+Marcos - mechanism in c before program gets compiled could do find and replace
+e.g. 
+#DEFINE NUM_ENTRIES 100 // define constant 
+#DEFINE twice(x) (2*(x)) // define simple operation or function, wrap in () since naive search and replace
+
+
+USAGE:
+- faster than function calls -> since NO call queue, calling conventions with function calls: moving stuff into register, jump, stack pointer, when we are done undo all of that jump back to where we were before. 
+- search and replace -> allows us to updates all occurence at once.
+- e.g. macros ideal way for quick access to header information (payload size, valid, keep track of blocks of memory freed)
+
+
+2.Inline function:
+
+DEFIN:
+Inline an existing function -> at compile time replaces function calls with code-> so no need to do stack conventions as it is not making a call
+add inline at the beginning of the function
+
+USAGE:
+- getting full benefit of type checked arguments
+- useful for functions that are called frequently 
+ 
+
+3. Malloc
+
+3. Pointer review 
+
+
+/* 107 heap allocator summary */
