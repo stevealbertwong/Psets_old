@@ -1,0 +1,58 @@
+INTRO
+cs103 4 weeks
+cs41 2 weeks
+cs106a 2 weeks
+cs106b 3 weeks
+cs106l 2 weeks
+cs106x 2 weeks
+cs108 3 weeks
+cs109 3 weeks
+
+SYSTEM:
+cs1u 1 week
+cs107 4 weeks 
+cs110 4 weeks 
+cs140 4 weeks 
+cs240 4 weeks
+cs144 4 week
+cs244 4 weeks
+cs155 4 weeks
+
+DATA STRUCTURE
+cs161 4 weeks
+cs261 4 weeks
+cs166 4 weeks
+cs168 4 weeks
+cs167 4 weeks
+cs267 4 weeks
+
+MACHINE LEARNING
+cs228 4 weeks
+cs221 4 weeks
+Math51 4 weeks
+cs229 4 weeks
+cs231n 4 weeks
+cs224d 3 weeks
+cs224u 3 weeks
+cs224n 3 weeks
+Convex Optimization 5 weeks
+
+MOBILE AND WEB
+cs193p 4 weeks
+cs193a 3 weeks
+cs142 3 weeks
+
+OTHERS
+cs124
+cs246 4 weeks
+cs224w
+21 months
+
+
+Agile Development: 
+-1 hour work = 1 pt
+
+5-28: Read up assign7 -> 3 pts, pointer arithmetic, type casting, malloc, realloc, free -> 3 pts
+
+ 
+

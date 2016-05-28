@@ -1,5 +1,5 @@
 
-/* 15-231 malloc recitation recitation */
+/* 15-231 malloc recitation */
 
 1. Marcos:
 
@@ -32,12 +32,46 @@ USAGE:
 i.e. casting, dereferencing, arithmetic
 
 CASTING:
-Casting from type a to type b
+Casting from pointer type a to pointer type b
 
-Casting from type a to int/unsigned int 
+Casting from pointer type a to int/unsigned int 
 
+- all pointers are 8 types long interger in 64 bits system
+- just changing the intepretation what kind of pointer it is
+ 
+??? writing pointer into location as number you are manipulating 
+contructing pointer directly by doing arithmetic on them
+
+POINTER ARITHMETIC
+- pointer + 1 -> address of the pointer + 1*size of the pointer type 
+e.g. 
+int* pointer = something;
+(void*) pointer2 = (void*) (pointer+2);
+this is really computing -> pointer2 = pointer + (2*sizeof(int));
+in assembly -> lea (i.e. load effective address) lea (pointer, a, sizeof(int)), pointer2;
 
  
 
 
-/* 107 heap allocator summary */
+
+/* 107 heap allocator summary 
+Design and implement the malloc, realloc, free, validate_heap, init and provide their interface as the standard libc allocator
+
+*/
+
+TASKS:
+1. Error handling 
+- e.g. realloc stack addresses, free already freed pointer, overruns the end of allocated block
+- respond by crashing or corrupting heap
+- name mymalloc, myrealloc, myfree -> avoid crushing  
+
+2. Size of allocated block
+- INT_MAX bytes to limit maximum request size, if requested allocate block larger than maximum size -> return NULL
+- ALIGNMENT contant (8) 
+- every alllocated block must be aligned to an address that is a multiple of ALIGNMENT CONSTANT
+
+3. 
+
+ 
+ 
+ 
