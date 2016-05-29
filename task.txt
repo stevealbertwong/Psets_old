@@ -52,7 +52,17 @@ cs224w
 Agile Development: 
 -1 hour work = 1 pt
 
-5-28: Read up assign7 -> 3 pts, pointer arithmetic, type casting, malloc, realloc, free -> 3 pts
+5-28: 
+Read up assign7 -> 4 pts
+Read up CMU malloclab ->2 pts
 
+5-29:
+mycodeschool pointer arithmetic, type casting, void pointer -> 2 pts
+Learn C pointers -> 2 pts
+
+Reading design decisions -> 2 pts
+
+pointer arithmetic, type casting, malloc, realloc, free, sbrk, brk, mmap, memmove, memset-> 12 pts
+open(), 
  
 
