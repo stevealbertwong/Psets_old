@@ -91,10 +91,12 @@ segmentPtr->contentsPtr = vector_alloc(minNum);
 4. Static Global Data/Variable
 - limited to 500 bytes for heap housing keeping
 - store in heap segment	
-- e.g. block header/footer, data structure  
+- e.g. block header/footer, data structure, separate table/list of block information 
 - throughput counts the number of requests serviced per second 
 - utilization -> if 100 blocks fo size 32 is allocated and heap segment is size of one page 4k, utilization ratio is 32*100/4096 = 78%
 
+5. Design
+- 
 
  
  
