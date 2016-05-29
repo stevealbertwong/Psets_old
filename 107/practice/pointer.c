@@ -85,3 +85,15 @@ printf(*(*int_pp)); // 1025
 
 
 }
+
+/*
+EXAMPLE 3
+using pointer to print array
+
+Reference: Learn C ex. 15
+*/
+
+//TODO: your code
+
+
+
