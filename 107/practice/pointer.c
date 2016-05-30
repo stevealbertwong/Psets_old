@@ -192,4 +192,20 @@ free(int_p10);
 int_p10 = NULL; // cannot print/derefernce anymore
 
 
+/*
+Example 7
 
+header, payload
+*/
+
+
+
+int* p = malloc(n*sizeof(int));
+int size = n*sizeof(int);
+(int*)(p-1) = size;
+
+free(p);
+// how to keep track of free block vs allocated block? 
+// contructing hashmap using pointers?
+// pointer arithmetic i.e. header (address-1) and footer (address+)1 to store data + doubly linked list i.e. P+1 to store the size, P-1 to store the list_p pointing at it
+// using footer on the free list to keep track of the size, a for loop to see if malloc size = size in free list

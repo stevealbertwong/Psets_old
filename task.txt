@@ -59,13 +59,16 @@ Read up CMU malloclab ->2 pts
 5-29:
 mycodeschool pointer arithmetic, type casting, void pointer -> 2 pts
 Learn C pointers and struct and data structure -> 2 pts
+mycodeschool malloc, realloc, calloc, free() -> 3 pts
 
-
+5-30:
+finish up malloc recitiation ->2 pts
 
 
 Reading design decisions -> 2 pts
 
 pointer arithmetic, type casting, malloc, realloc, free, sbrk, brk, mmap, memmove, memset-> 12 pts
-open(), strdup() 
+open(), strdup(), typedef. 
+
  
 
