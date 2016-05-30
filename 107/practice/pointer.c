@@ -118,5 +118,36 @@ Heap and Stack Memory Allocation
 */
 
 
+/*
+EXAMPLE 6
+Malloc, Realloc, Calloc
+
+Reference: mycodeschool https://www.youtube.com/watch?v=xDVC3wKjS64
+
+void* malloc(size_t size)
+// _t means typedef/type i.e. size_t is the type used to specify memory size
+// typedef unsigned int size_t // rename unsigned int to size_t
+
+void* generic_p = malloc(size_t size)
+*generic_p = 2 // ERROR since cannot dereference void* 
+
+struct Person* who = malloc(sizeof(struct Person)); //malloc returns a void pointer to the 1st byte
+// assign the address of 1st byte to struct_person_ptr
+int* int_p = (int*)malloc(3*sizeof(int));
+*int_p = 2;
+*(int_p+1) = 3; // goes to 1st byte of malloc address + 4 bytes, gets the value and then assign 3 to it
+int_p[2] = 4;
+*(int_p+3) = 5;
+
+
+// malloc does not initialize the blocks
+// calloc initialize to all byte position to 0
+void* calloc (size_t numElem, size_t sizeDataType)
+int* int_p = (int*)calloc(3, sizeof(int));
+ 
+
+
+
+*/
 
 
