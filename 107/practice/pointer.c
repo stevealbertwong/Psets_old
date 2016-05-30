@@ -115,7 +115,20 @@ e.g. void print_name(struct person* who) printf(who->name); printf(who->age); et
 EXAMPLE 5
 Heap and Stack Memory Allocation
 
+
+
+Heap/malloc allocate memory on the fly dynamically 
+int n;
+printf("Enter a number of array elements\n");
+scanf("%d", &n);
+int* a = (int*) malloc(n*sizeof(int)); // dynamically allocated array
+
+
+
+
 */
+
+
 
 
 /*
@@ -145,6 +158,8 @@ int_p[2] = 4;
 void* calloc (size_t numElem, size_t sizeDataType)
 int* int_p = (int*)calloc(3, sizeof(int));
  
+
+void* realloc (void* ptr, size_t size) // starting address of existing block
 
 
 
