@@ -209,3 +209,12 @@ free(p);
 // contructing hashmap using pointers?
 // pointer arithmetic i.e. header (address-1) and footer (address+)1 to store data + doubly linked list i.e. P+1 to store the size, P-1 to store the list_p pointing at it
 // using footer on the free list to keep track of the size, a for loop to see if malloc size = size in free list
+// OR next malloc just use the size to calculate the address of next available blocks
+
+UPDATED SOLUTION:
+// singly linked list, address-1: free/allocated, address-2: previous block ptr, address+1: size
+// malloc() -> go to address p + size to allocate,  travese the list of ptr to see whether free blocks
+// free() -> mark ptr + 1 as free, then goes to next ptr to see if that is free, if yes coalesce by pointing the pointer to null, change the next ptr to point to the previous ptr, updated the size to be combined free size
+
+
+
