@@ -91,9 +91,32 @@ EXAMPLE 3
 using pointer to print array
 
 Reference: Learn C ex. 15
+
 */
 
 //TODO: your code
+
+
+/*
+EXAMPLE 4
+Creating Struct on the heap with malloc and pointer
+
+Struct allows you to pass compound data type into function and access individual parts
+e.g. void print_name(struct person* who) printf(who->name); printf(who->age); etc.
+1. get the base address of this data type block of memory
+2. look up who->name starting address
+3. dereference in char* type to get the value
+
+*/
+
+//TODO: your code
+
+/*
+EXAMPLE 5
+Heap and Stack Memory Allocation
+
+*/
+
 
 
 
