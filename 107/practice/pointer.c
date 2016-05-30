@@ -133,7 +133,7 @@ int* a = (int*) malloc(n*sizeof(int)); // dynamically allocated array
 
 /*
 EXAMPLE 6
-Malloc, Realloc, Calloc
+Malloc, Realloc, Calloc, free()
 
 Reference: mycodeschool https://www.youtube.com/watch?v=xDVC3wKjS64
 
@@ -161,8 +161,35 @@ int* int_p = (int*)calloc(3, sizeof(int));
 
 void* realloc (void* ptr, size_t size) // starting address of existing block
 
-
+// dynamically allocated remained allocated for the lifetime of the program
+free(generic_p) // parameter is the starting address of the memory
+// once free, those values become gabbage value 
+// depending on the machine, you might still know the value of the address and could read and write value into it 
+// free() erase the values pointer is pointing to but you still store the address of the allocated address
+generic_p = NULL; // to clear the address, NULL is a marco for address 0 + cannot be dereferenced, otherwise it will crash the program 
 
 */
+
+#include<stdio.h> //printf
+#include<stdlib.h> //malloc, realloc, free()
+
+int n;
+scanf("%d", &n);
+int* int_p = (int*)malloc(n*sizeof(int));
+int i;
+for (i=0, i<n, i++){
+	int_p[i] = i + 1;
+}
+int* int_p10 = (int*)realloc(10*sizeof(int));
+printf("The address before realloc %p", int_p);
+printf("The address after 10* realloc %d", int_p10);
+
+int j;
+for (j=0, j<10*n, j++){
+	printf("Dereferenced value equals %d", int_p10[j]);
+}
+free(int_p10);
+int_p10 = NULL; // cannot print/derefernce anymore
+
 
 
