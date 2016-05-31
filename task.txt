@@ -63,6 +63,9 @@ mycodeschool malloc, realloc, calloc, free() -> 3 pts
 
 5-30:
 finish up malloc recitiation ->3 pts
+starting reading on 110 mapreduce -> 1pt
+
+
 
 
 Reading design decisions -> 2 pts
