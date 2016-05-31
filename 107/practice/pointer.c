@@ -216,5 +216,9 @@ UPDATED SOLUTION:
 // malloc() -> go to address p + size to allocate,  travese the list of ptr to see whether free blocks
 // free() -> mark ptr + 1 as free, then goes to next ptr to see if that is free, if yes coalesce by pointing the pointer to null, change the next ptr to point to the previous ptr, updated the size to be combined free size
 
-
-
+????
+implict list
+explicit list 
+segregated list
+heap checker
+updating the makefile to generate profiling information

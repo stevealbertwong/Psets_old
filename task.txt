@@ -62,7 +62,7 @@ Learn C pointers and struct and data structure -> 2 pts
 mycodeschool malloc, realloc, calloc, free() -> 3 pts
 
 5-30:
-finish up malloc recitiation ->2 pts
+finish up malloc recitiation ->3 pts
 
 
 Reading design decisions -> 2 pts
