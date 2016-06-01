@@ -66,11 +66,12 @@ finish up malloc recitiation ->3 pts
 starting reading on 110 mapreduce -> 1pt
 
 5-31:
-reading 110 mapreduce-server.cc -> 2pts
+reading 110 mapreduce-server.cc -> 3 pts
 MapReduceServer Class 
 unsigned long extractPortNumber(const char* portArgument)
 void initializeFromConfigFile(const std::string& configFilename)
 void applyToServer(const std::string& key, const std::string& value)
+std::string ensureDirectoryExists(const std::string& key, const std::string& path)
 
 
 
