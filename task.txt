@@ -65,6 +65,13 @@ mycodeschool malloc, realloc, calloc, free() -> 3 pts
 finish up malloc recitiation ->3 pts
 starting reading on 110 mapreduce -> 1pt
 
+5-31:
+reading 110 mapreduce-server.cc -> 2pts
+MapReduceServer Class 
+unsigned long extractPortNumber(const char* portArgument)
+void initializeFromConfigFile(const std::string& configFilename)
+void applyToServer(const std::string& key, const std::string& value)
+
 
 
 
