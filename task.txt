@@ -73,7 +73,9 @@ void initializeFromConfigFile(const std::string& configFilename)
 void applyToServer(const std::string& key, const std::string& value)
 std::string ensureDirectoryExists(const std::string& key, const std::string& path)
 
-
+6-1:
+110 mapreduce-server.cc
+buildIPAddressMap ->1pt
 
 
 Reading design decisions -> 2 pts
