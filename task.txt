@@ -77,6 +77,13 @@ std::string ensureDirectoryExists(const std::string& key, const std::string& pat
 110 mapreduce-server.cc
 buildIPAddressMap ->1pt
 
+6-2:
+106b LinkedList::Add - 1pt
+void LinkedList::add(int value){
+while(current->next!=NULL){
+	current = current->next; // walk till the end of the list
+};
+current->next = new ListNode(value);
 
 Reading design decisions -> 2 pts
 
