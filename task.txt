@@ -78,7 +78,7 @@ std::string ensureDirectoryExists(const std::string& key, const std::string& pat
 buildIPAddressMap ->1pt
 
 6-2:
-106b LinkedList::add - 1pt
+106b LinkedList::add, get, insert - 3pts
 
 void LinkedList::add(int value){
 while(current->next!=NULL){
@@ -92,6 +92,15 @@ int LinkedList::get(int index){
 		current = current->next;		
 	}
 	return current->data // dereference pointer to retrieve value	
+};
+
+
+void LinkedList::insert(int index, int value){
+ListNode* current = front;
+for (int i = 0, i< index-1, i++){ // walk the list (int index - 1) steps
+	ListNode* temp = new ListNode(value);
+	temp->next = current->next // point the new node to next node
+	current->next = temp // update the current node to point to new node	
 };
 
 
