@@ -6,13 +6,13 @@ cs106b 3 weeks
 cs106l 2 weeks
 cs106x 2 weeks
 cs108 3 weeks
-cs109 3 weeks
+cs109 4 weeks
 
 SYSTEM:
 cs1u 1 week
 cs107 4 weeks 
 cs110 4 weeks 
-cs140 4 weeks 
+cs140 6 weeks 
 cs240 4 weeks
 cs144 4 week
 cs244 4 weeks
@@ -78,12 +78,27 @@ std::string ensureDirectoryExists(const std::string& key, const std::string& pat
 buildIPAddressMap ->1pt
 
 6-2:
-106b LinkedList::Add - 1pt
+106b LinkedList::add - 1pt
+
 void LinkedList::add(int value){
 while(current->next!=NULL){
 	current = current->next; // walk till the end of the list
 };
 current->next = new ListNode(value);
+
+int LinkedList::get(int index){
+	ListNode* current = front; 	
+	for (int i =0, i<index, i++){ // walk the list for (int index) steps 
+		current = current->next;		
+	}
+	return current->data // dereference pointer to retrieve value	
+};
+
+
+
+
+
+
 
 Reading design decisions -> 2 pts
 
