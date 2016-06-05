@@ -82,14 +82,20 @@ buildIPAddressMap ->1pt
 
 6-3:
 15-213 Virtual Memory6-3:
-15-213 Virtual Memory6-3:
-15-213 Virtual Memory6-3:
-15-213 Virtual Memory6-3:
-15-213 Virtual Memory6-3:
-15-213 Virtual Memory
 
+6-4: 
+106b BinaryTree::print, contains - 2pts
+110 int createServerSocket(unsigned short port, in backlog) - 1pt
 
-
+6-5:
+learn c ex18 function pointer as callback -1pt
+typedef int (*compare_callback)(int a, int b);
+int* bubble_sort(int a, int b, compare_callback c){
+	if c(a, b)>0{
+	do something..}
+};
+ 
+106b ifstream getline(input, file), open(), close()
 
 
 
