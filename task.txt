@@ -98,7 +98,9 @@ int* bubble_sort(int a, int b, compare_callback c){
 106b file/io ifstream getline(input, file), open(), close()- 1pt
 
 6-6:
-make -2pts
+makefile, files settings dependencies, libraries -2pts
+command make reads in the file Makefile from current directory
+
 
 
 
