@@ -95,7 +95,11 @@ int* bubble_sort(int a, int b, compare_callback c){
 	do something..}
 };
  
-106b ifstream getline(input, file), open(), close()
+106b file/io ifstream getline(input, file), open(), close()- 1pt
+
+6-6:
+make -2pts
+
 
 
 
