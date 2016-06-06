@@ -103,9 +103,16 @@ command make reads in the file Makefile from current directory
 make reassemble, make myprogram, make clean -> build specific target 
 gcc main.cc function1.cc function2.cc -o hello
 
-109 - pset5 titanic + estimating parameter -2pts
-
-
+109 - pset5 titanic + estimating parameter -3pts
+import csv
+open("titanic.csv") as csvfile
+readCSV= csv.reader(csvfile, delimiter=",")
+for row in readCSV // go through each row
+	if (row[3] == "w" && row[1] == "1") // go through each item in the row to get woman in first class
+		women1stClass++
+		if  (row[0] == 1)
+			survived ++
+p = survived / women1stClass
 
 
 Reading design decisions -> 2 pts
