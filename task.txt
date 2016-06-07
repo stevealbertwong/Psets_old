@@ -117,9 +117,12 @@ p = survived / women1stClass
 6-7
 109 parameter estimation, method of moments applied on poisson, bernoulli, normal, uniform distribution - 2pts
 106b - 3pts
+wget download all index on apache website-> 1pt
 
 
-write a program to crawl all the files on index -> 3 pts
+
+
+
 
 Reading design decisions -> 2 pts
 
