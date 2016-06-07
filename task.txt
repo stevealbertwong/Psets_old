@@ -116,7 +116,16 @@ p = survived / women1stClass
 
 6-7
 109 parameter estimation, method of moments applied on poisson, bernoulli, normal, uniform distribution - 2pts
-106b FirstProgram.cpp HamDaDaDa.cpp - 3pts
+106b FirstProgram.cpp HamDaDaDa.cpp -3pts 
+using namespace std = std::cout 
+C++ - #include<iostream>, no public static shit in c++
+java - printl("Hello" + "world); #import, public static int main();
+c++ - std::cout<< "hello" << "world" << std::endl // standard console output, pacman you are eating the output or less than less than, <<endl if not written then cursor just stay in the same line  
+c - printf
+getline();
+int main() return 0 -> C++ the int goes out to operating system whether program has executed or not, in java main is void 
+parametr sends information into method
+
 wget download all index on apache website-> 1pt
 
 
