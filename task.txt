@@ -114,6 +114,12 @@ for row in readCSV // go through each row
 			survived ++
 p = survived / women1stClass
 
+6-7
+109 parameter estimation - 2pts
+106b - 3pts
+
+
+write a program to crawl all the files on index -> 3 pts
 
 Reading design decisions -> 2 pts
 
