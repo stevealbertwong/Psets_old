@@ -132,6 +132,7 @@ wget download all index on apache website-> 1pt
 Matrix review - reduce echelon form, LU factorization, linearly dependent, inverse, diagonal, upper triangular, gaussian elimination, homogeneous system with trivial solution, generic system, augmented matrix, rank of matrix, gauss-jordan elimination - 1pt
 
 Google Developer tool https://www.youtube.com/watch?v=G74ll-6L4_o - 3pts
+element, networking, resources, console
 JS DataStructure and Algo - 3pts
 
 
