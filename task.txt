@@ -118,7 +118,7 @@ p = survived / women1stClass
 109 parameter estimation, method of moments applied on poisson, bernoulli, normal, uniform distribution - 2pts
 106b FirstProgram.cpp HamDaDaDa.cpp -3pts 
 using namespace std = std::cout 
-C++ - #include<iostream>, no public static shit in c++
+C++ - #include<iostream>, no public private static shit in c++
 java - printl("Hello" + "world); #import, public static int main();
 c++ - std::cout<< "hello" << "world" << std::endl // standard console output, pacman you are eating the output or less than less than, <<endl if not written then cursor just stay in the same line  
 c - printf
@@ -128,7 +128,8 @@ parametr sends information into method
 
 wget download all index on apache website-> 1pt
 
-
+6-8
+Matrix review - reduce echelon form, LU factorization, linearly dependent, inverse, diagonal, upper triangular, gaussian elimination, homogeneous system with trivial solution, generic system, augmented matrix, rank of matrix, gauss-jordan elimination
 
 
 
