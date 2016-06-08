@@ -129,7 +129,10 @@ parametr sends information into method
 wget download all index on apache website-> 1pt
 
 6-8
-Matrix review - reduce echelon form, LU factorization, linearly dependent, inverse, diagonal, upper triangular, gaussian elimination, homogeneous system with trivial solution, generic system, augmented matrix, rank of matrix, gauss-jordan elimination
+Matrix review - reduce echelon form, LU factorization, linearly dependent, inverse, diagonal, upper triangular, gaussian elimination, homogeneous system with trivial solution, generic system, augmented matrix, rank of matrix, gauss-jordan elimination - 1pt
+
+Google Developer tool https://www.youtube.com/watch?v=G74ll-6L4_o - 3pts
+JS DataStructure and Algo - 3pts
 
 
 
