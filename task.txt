@@ -133,9 +133,8 @@ Matrix review - reduce echelon form, LU factorization, linearly dependent, inver
 
 Google Developer tool https://www.youtube.com/watch?v=G74ll-6L4_o - 3pts
 element, networking, resources, console
-JS DataStructure and Algo - 3pts
-
-
+JS DataStructure and Algo - 1pt
+143 coursera -1pt
 
 
 Reading design decisions -> 2 pts
