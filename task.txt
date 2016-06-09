@@ -136,6 +136,9 @@ element, networking, resources, console
 JS DataStructure and Algo - 1pt
 143 coursera -1pt
 
+6-9
+CSE 351 data lab - 1pt
+
 
 Reading design decisions -> 2 pts
 
