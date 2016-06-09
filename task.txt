@@ -137,9 +137,9 @@ JS DataStructure and Algo - 1pt
 143 coursera -1pt
 
 6-9
-VM setup but failed - 1pt
+VM setup but no login in page, repair file system error- 1pt
 CSE 351 data lab - 1pt
-
+351 lab0 -1pt
 
 Reading design decisions -> 2 pts
 
