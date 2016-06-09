@@ -147,6 +147,7 @@ little -> least significant byte has lower address x86-> little endian
 pointer is a data object that contains an address that you intepret as an address 
 boolean in theory is 1 bit but in pratice we address data in 1 byte 
 
+Array represents adjacent locations in memory storing same type of data object
 
 Reading design decisions -> 2 pts
 
