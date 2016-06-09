@@ -140,6 +140,13 @@ JS DataStructure and Algo - 1pt
 VM setup but no login in page, repair file system error- 1pt
 CSE 351 data lab - 1pt
 351 lab0 -1pt
+351 hardware organization, electronic implementation of bits, one memory address correspond to each byte of memory,8 bytes are going ot group tgt to represent 64 bit addressfor x86 machine, address is the first byte of grouped address, 64bits represents word size of the machine/integer size, so we could have 8 gbs different addresses,  
+little vs big endian to order the byte within a word, IA32 vs x86
+big -> most significant byte has lower address i.e. highest order digit 1 in 0x123456 has lowest address
+little -> least significant byte has lower address x86-> little endian 
+pointer is a data object that contains an address that you intepret as an address 
+boolean in theory is 1 bit but in pratice we address data in 1 byte 
+
 
 Reading design decisions -> 2 pts
 
