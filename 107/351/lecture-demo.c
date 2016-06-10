@@ -38,5 +38,7 @@ char HP[13] = "Harry Potter";
 char null_string = HP[13]; // "\0"
 
 // printing data
-
+void show_bytes(){
+	
+}
 

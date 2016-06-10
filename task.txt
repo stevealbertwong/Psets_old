@@ -149,6 +149,9 @@ boolean in theory is 1 bit but in pratice we address data in 1 byte
 
 Array represents adjacent locations in memory storing same type of data object
 
+6-10
+CSE 351 - showbytes.c print address of pointer + hex representation of the value
+
 Reading design decisions -> 2 pts
 
 pointer arithmetic, type casting, malloc, realloc, free, sbrk, brk, mmap, memmove, memset-> 12 pts
