@@ -75,18 +75,33 @@ int main(int argc, char const *argv[])
 /*
 
 Bit-level operator
+& intersection
+| union
+^ symmetric difference
+~ complement
 
-Logic operator 
+Logic operator &&, ||, !
+anything non-zero is true
+zero is always false 
+false only if entire int vector is zero 
+
+null pointer = 0x00000000
+if (p && *p++) // is equal to if (p) {*p++};
 
 */
 
 // bitwise operator &, |, ^, ~
 
-char a,b,c;
+
+char a,b,c,d,e;
 a = (char) 0x00; // 00000000
 b = ~a; // 11111111
 a = (char)0x41; // 0x41 = 01000001
 b = ~a; // 10111110 = 0xBE
+b = (char) 0x55; //0x55 = 01010101
+c = a | b; // 0x55 01010101
+d = a & b; // 0x41 01000001
+e = a ^ b; // 11101011
 
 
 
