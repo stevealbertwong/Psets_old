@@ -150,11 +150,12 @@ boolean in theory is 1 bit but in pratice we address data in 1 byte
 Array represents adjacent locations in memory storing same type of data object
 
 6-10
-CSE 351 - showbytes.c print address of pointer + hex representation of the value
+CSE 351 - showbytes.c print address of pointer + hex representation of the value -1pt
 351 - Boolean algebra + bit level manipulating + bitwise operations
 DeMorgan's law ~(A|B) = ~A&~B intuition -> flip A/B flip to opposite i.e. ~A -> complement of A , | means 1+0 = 1, & means 1+0 =0 so we flip this rule as well
 Bit-level operation
-Logic operation
+Logic operation -1pt
+lab2 -1pt
 
 system architecture, networking, security, getting root access to NSA servers, database rollback
 
