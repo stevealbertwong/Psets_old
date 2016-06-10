@@ -156,8 +156,11 @@ DeMorgan's law ~(A|B) = ~A&~B intuition -> flip A/B flip to opposite i.e. ~A -> 
 Bit-level operation
 Logic operation -1pt
 lab2 -1pt
+x86 assembly -1pt
 
-system architecture, networking, security, getting root access to NSA servers, database rollback
+
+
+Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
 Reading design decisions -> 2 pts
 

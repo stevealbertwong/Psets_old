@@ -105,6 +105,33 @@ e = a ^ b; // 11101011
 
 
 
+/*
+Section 3
 
+1. ISA (instruction set architecture)
+e.g. x86 ISA 
+CISC i.e. complex instruction set computer
+
+- interface between hardware and software
+- set of instructions to compiler to machine code 
+- defines system's state (e.g. program counter, registers, all contents of memory)
+	>> program counter: instruction/program that is being executed 
+- defines instructions CPU can execute 
+	>> e.g. add, sub, mov
+- defines effect of each of instruction have on system state
+- encoding is mapping between add -> 10101 (instruction -> bit sequence that determines that instruction)
+
+
+
+
+2. C, Assembly, Machine code
+
+3. Registers 
+- basic unit of storage inside CPU
+- width of registers -> 32 bits vs 64 bits
+
+
+
+*/
 
 
