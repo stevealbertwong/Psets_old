@@ -161,6 +161,8 @@ x86 assembly -1pt
 
 6-11
 351 assembly -1pt
+351 buffer overflow lab3 -2 pts
+
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 

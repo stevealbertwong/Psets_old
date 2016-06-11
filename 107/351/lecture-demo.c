@@ -204,7 +204,8 @@ BASIC DATA TYPES
 Buffer for user input is often stored on the stack
 Overflowing buffer and injecting code
 
-
+Overrunning the buffer typically causes the program states to be corrupted.
+Program State: return address and data structure stored on the stack
 
 */
 
