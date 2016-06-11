@@ -134,17 +134,85 @@ IA 32
 x86-64
 - all assignments are in x86-64
 
-
-2. C, Assembly, Machine code
-
+2. Assembly Programmer's view
 
 
-3. Registers 
+
+
+3. C, Assembly, Machine code
+
+- Compiler, Assembler, Linker
+
+
+
+ Registers 
 - basic unit of storage inside CPU
 - width of registers -> 32 bits vs 64 bits
 
 
 
 */
+
+// asssembly code demo
+#include <stdio>
+
+int sum(int x, int y){
+	return (x+y);
+};
+
+int main(int argc, char const *argv[])
+{
+	sum(1,2);
+	return 0;
+}
+
+// command: gcc -01 -S code.c
+// 01: optimized, -S: assembly, produce code.s
+
+// translated assem code
+sum:
+	pushl %ebp
+	movl %esp, %ebp // moving data between registers
+	movl 12(%ebp), %eax // reading data i.e. parameter from memory
+	add 8(%ebp), %eax
+	movl %ebp, %esp
+	popl %ebp
+	ret
+
+
+/* Assembly
+
+BASIC TYPES OF INSTRUCTIONS
+1. Perform arithmetic function on registers or memory data
+2. Transfer data between memory and register
+	>> load data from memory into register
+	>> store register data into memory
+3. Transfer control
+	>> control means instruction being executed at any given time
+	>> flow of intruction being executed 
+	>> unconditinal jump from/to procedure e.g, if/else 
+	>> conditional branches
+
+BASIC DATA TYPES
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
