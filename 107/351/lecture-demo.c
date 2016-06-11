@@ -113,6 +113,10 @@ e.g. x86 ISA
 CISC i.e. complex instruction set computer
 
 - interface between hardware and software
+- parts of the processor design one needs to understand to write assembly code
+	>> "what is directly visble to software"
+	>> e.g. cache size, core frequency -> X architecture as you dont know when writing assembly code
+	>> e.g. number of register -> YES is part of ISA, need to know when writing assembly code
 - set of instructions to compiler to machine code 
 - defines system's state (e.g. program counter, registers, all contents of memory)
 	>> program counter: instruction/program that is being executed 
@@ -120,11 +124,20 @@ CISC i.e. complex instruction set computer
 	>> e.g. add, sub, mov
 - defines effect of each of instruction have on system state
 - encoding is mapping between add -> 10101 (instruction -> bit sequence that determines that instruction)
+- AMD 
+	>> clone of x86, same ISA
+	>> high level abstraction is the same
 
+IA 32 
+- 32 bits x86
 
+x86-64
+- all assignments are in x86-64
 
 
 2. C, Assembly, Machine code
+
+
 
 3. Registers 
 - basic unit of storage inside CPU

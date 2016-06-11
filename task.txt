@@ -159,6 +159,8 @@ lab2 -1pt
 x86 assembly -1pt
 
 
+6-11
+351 assembly -1pt
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
