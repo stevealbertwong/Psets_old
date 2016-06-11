@@ -172,7 +172,7 @@ int main(int argc, char const *argv[])
 // translated assem code
 sum:
 	pushl %ebp
-	movl %esp, %ebp // moving data between registers
+	movl %esp, %ebp // moving data/content of esp to ebp 
 	movl 12(%ebp), %eax // reading data i.e. parameter from memory
 	add 8(%ebp), %eax
 	movl %ebp, %esp
@@ -196,7 +196,46 @@ BASIC TYPES OF INSTRUCTIONS
 BASIC DATA TYPES
 
 
+
+
+MOVE INSTRUCTIONS, REGISTERS AND OPERANDS
+
+1. 6 general purpose + 2 special registers
+
+Special
+- %esp
+- %ebp
+
+General Purpose
+- 
+- 
+
+2. Moving Data
+- movl Source,Dest: move 4 bytes long word
+- movw: 2 bytes word
+- movb: 1 byte
+
+3. Operands Types IA32
+- Immediate: constant integer data-> usually source not dest 
+	>> e.g. movl $0x4, %eax -> immediate to register
+	>> movl $-147, (%eax) -> imm to memory
+- Register: 8 integer registers e.g. %eax, %edx
+	>> e.g. movl %eax, %edx
+	>> movl %eax, (%edx)
+- Memoery: 4 consecutive bytes of memory at address given by register 
+	>> (%eax) this refers to data containing the address 
+	>> address modes i.e. ways to specify an address
+	>> e.g. movl (%eax), %edx
+
+
+
+
+
 */
+
+
+
+
 
 
 /* Buffer Overflow Tutorial
