@@ -199,6 +199,16 @@ BASIC DATA TYPES
 */
 
 
+/* Buffer Overflow Tutorial
+
+Buffer for user input is often stored on the stack
+Overflowing buffer and injecting code
+
+
+
+*/
+
+
 
 
 
