@@ -243,6 +243,35 @@ var_d = var_a;
 
 
 
+// Memory Addressing Mode demo
+int arithmetic(int x, int y, int z){
+	int t1 = x + y;
+	int t2 = t1 + z;
+	int t3 = x + 4;
+	int t4 = y * 48;
+	int t5 = t3 + t4;
+	int rval = t2 * t5;
+
+arithmetic:
+	movl 8(%ebp), %eax // %eax = x
+	movl 12(%ebp), %edx // %edx = y
+	leal (%eax, %edx), %ecx // t1 = x + y
+	xxx // int t3 = x + 4
+	sall // int t4 = y * 48
+	addl 16(%ebp), %ecx // int t2 = t1 + z
+	leal 4(%edx, %eax), %eax // t5 = t3 + t4 	i.e. 4+x + t4
+	imul %ecx, %eax // int rval = t2 * t5
+
+
+
+
+
+
+
+}
+
+
+
 /* Buffer Overflow Tutorial
 
 Buffer for user input is often stored on the stack

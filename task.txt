@@ -183,7 +183,7 @@ most examples querying a distributed file system to get a combined result
 
 Reading through quiz - 2pts
  
-
+addressing mode e.g. leal, addl, imul, sall 4(%ecx, %eax) - 1 pt
 
 
 
