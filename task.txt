@@ -167,6 +167,10 @@ x86 assembly -1pt
 6-12
 351 stack and registers of void swap(int* x, int* y), moving data between registers and memory, 1st addressing mode: movl 12(%ebp), %eax i.e. traversing the offset on the memory side to get the value vs 2nd addressing mode: movl (%eax) %edx i.e. %eax storing the address so go from register side to address of memory side to get the value  - 2pts
 
+Mining Massive Dataset -3pts
+-distributed file system, cluster architecture: 1. chunk servers 2.master/name node 3.client library for file access 
+-cluster computation challenge: node failure, network bandwidth, complexity -> solution: map-reduce
+
 
 
 
