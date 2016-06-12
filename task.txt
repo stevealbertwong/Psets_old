@@ -178,6 +178,10 @@ group by key: sort in order
 reduce: reduce/combine the duplicates/multiple occurances into unique occurance result so it can be run in a single node/rack
 most examples querying a distributed file system to get a combined result
 
+- link analysis algorithm to compute importances of a node in a graph
+- e.g. page rank, hubs and authorities
+
+Reading through quiz - 1pt 
 
 
 
