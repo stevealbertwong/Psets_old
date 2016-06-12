@@ -228,12 +228,17 @@ General Purpose
 	>> e.g. movl (%eax), %edx
 
 
-
+4. Memory Addressing Modes
+- mapping of values into register is a choice of compiler
 
 
 */
 
+// Example
 
+var_a = 0x4;
+*ptr_a = -147;
+var_d = var_a;
 
 
 

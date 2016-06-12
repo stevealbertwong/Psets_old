@@ -160,8 +160,17 @@ x86 assembly -1pt
 
 
 6-11
-351 assembly -1pt
+351 assembly movl %eax, (%edx) -2pts
 351 buffer overflow lab3 -3 pts
+
+
+6-12
+351 stack and registers of a swap() - 1pt
+
+
+
+
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
