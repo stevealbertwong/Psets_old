@@ -170,7 +170,13 @@ x86 assembly -1pt
 Mining Massive Dataset -3pts
 -distributed file system, cluster architecture: 1. chunk servers 2.master/name node 3.client library for file access 
 -cluster computation challenge: node failure, network bandwidth, complexity -> solution: map-reduce
-
+- e.g. hostname(URL), size -> find the size of paritcular hostname
+- e.g. unique word, appearance times
+- e.g. count number of times each 5-word sequence occur in a large corpus of documents
+map: scan the document once, creates a map of key and value
+group by key: sort in order
+reduce: reduce/combine the duplicates/multiple occurances into unique occurance result so it can be run in a single node/rack
+most examples querying a distributed file system to get a combined result
 
 
 
