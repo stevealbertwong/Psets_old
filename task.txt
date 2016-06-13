@@ -186,6 +186,15 @@ Reading through quiz - 2pts
 addressing mode e.g. leal, addl, imul, sall 4(%ecx, %eax) - 1 pt
 
 
+6-13
+351 gdb tutorial -1pt
+break main, run, list, disas, step, stepi, help, help info, info registers, x /NUM SIZE FORMAT e.g. x /24wx $rsp i.e. 24 words in hex on the stack 
+x /2wx $rdi or x /s $rdi
+
+ 
+
+
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
