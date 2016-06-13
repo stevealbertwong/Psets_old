@@ -194,7 +194,8 @@ x /2wx $rdi, x /s $rdi x /x $rsi
 phase 1 defused
 working on phase 2
 target record /target record-full + reverse-step/reverse-next BEFORE step AFTER run -> step back
- 
+
+161- merge sort, 3ways merge sort, x ways merge sort -1pt 
 
 
 
