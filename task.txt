@@ -196,7 +196,7 @@ working on phase 2
 target record /target record-full + reverse-step/reverse-next BEFORE step AFTER run -> step back
 
 161- merge sort, 3ways merge sort, x ways merge sort -1pt 
-
+counting no. of inversions - brute force, steps it takes to become sorted array i.e. piggybanking, recursive brute force 
 
 
 
