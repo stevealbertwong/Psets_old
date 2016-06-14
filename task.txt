@@ -219,8 +219,8 @@ quick sort vs merge sort, randomized quick sort solving ith statistic element, r
 
 graph vs sorting, social network, google map, course selection, meaningful connection between data not just ranking -2pts 
 I still dont understand the number of cuts of n vertices equal to 2^n
-
-
+right now I am thinking when a new node gets added, it will create an edge with all exist edges so each time the numbers of edges get double when a node is added.
+adjacent list, max min amount of edges of n vertices = n-1, n(n-1)/2
 
 
 
