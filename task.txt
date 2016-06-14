@@ -199,7 +199,11 @@ target record /target record-full + reverse-step/reverse-next BEFORE step AFTER 
 counting no. of inversions - brute force, steps it takes to become sorted array i.e. piggybanking, recursive brute force 
 
 6-14
-quick sort vs merge sort, randomized quick sort solving ith statistic element
+quick sort vs merge sort, randomized quick sort solving ith statistic element -2pts
+
+
+
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
