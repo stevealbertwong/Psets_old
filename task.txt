@@ -1,3 +1,19 @@
+>70: Stanford, MIT, Cal
+65: Caltec, Harvard, Carneige Mellon
+60: Columbia, Cornell, UPenn, Princeton
+55: Maryland, Michigan, Georgia Tech
+50: UT, Washington, UIUC, UCLA, RIT, Harvey Mudd, Stony Brook 
+45: Northwestern, Johns Hopkins, UVA, Vanderbilt, USC
+40: Rugters, UCSD, Davis, Arizona, Florida, 
+
+>10: A+
+9: A
+8: A-
+7: B+
+6: B
+5: B-
+
+
 INTRO
 cs103 4 weeks
 cs41 2 weeks
@@ -201,7 +217,10 @@ counting no. of inversions - brute force, steps it takes to become sorted array 
 6-14
 quick sort vs merge sort, randomized quick sort solving ith statistic element, randomly hoping pivot is going to end up as the ith order element we picked, only one side recursive call depending on which side the ith order is compared to the pivot we choose -3pts
 
-graph vs sorting, social network, google map, course selection, meaningful connection between data not just ranking -1pt 
+graph vs sorting, social network, google map, course selection, meaningful connection between data not just ranking -2pts 
+I still dont understand the number of cuts of n vertices equal to 2^n
+
+
 
 
 
