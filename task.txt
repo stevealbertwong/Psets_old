@@ -230,7 +230,7 @@ DFS, getNeighbours, getVertex, neighbour->visited = true, neighbour->previous = 
 minimum cut problem - 2pts
 if you figure this out, you could become a Stanford PHD.
 161-PS3 -1 pt
-
+BFS, DFS, Dijkstra's algo -1pt
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
