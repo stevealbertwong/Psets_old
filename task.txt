@@ -229,6 +229,8 @@ DFS, getNeighbours, getVertex, neighbour->visited = true, neighbour->previous = 
 6-15
 minimum cut problem - 2pts
 if you figure this out, you could become a Stanford PHD.
+161-PS3 -1 pt
+
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
