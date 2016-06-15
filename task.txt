@@ -1,10 +1,11 @@
 >70: Stanford, MIT, Cal
-65: Caltec, Harvard, Carneige Mellon
-60: Columbia, Cornell, UPenn, Princeton
-55: Maryland, Michigan, Georgia Tech
-50: UT, Washington, UIUC, UCLA, RIT, Harvey Mudd, Stony Brook 
-45: Northwestern, Johns Hopkins, UVA, Vanderbilt, USC
-40: Rugters, UCSD, Davis, Arizona, Florida, 
+65: Caltec, Carneige Mellon, Princeton, Harvard
+60: Columbia, Cornell, UPenn
+55: Maryland, Michigan, Georgia Tech, Waterloo
+50: UChicago, UT, Washington, UIUC, UCLA, RIT, Harvey Mudd, Middlebury
+45: Northwestern, Duke, JohnHopkins, UVA, Vanderbilt, USC, Lehigh, UCSD, Rugters
+40: UMassAmherst, UNC, Buffalo, Davis, Arizona, Florida, Purdue, Stony Brook
+35: Temple, Penn State, Drexel, Worcester Polytech, Virginia Tech, College of New Jersey, New Jersey Institute of Technology, SMU, UT Dallas, Binghamton  
 
 >10: A+
 9: A
@@ -225,6 +226,9 @@ adjacent list, max min amount of edges of n vertices = n-1, n(n-1)/2
 DFS, getNeighbours, getVertex, neighbour->visited = true, neighbour->previous = vertC, 2014 mid term followers of followers -1pt
 
 
+6-15
+minimum cut problem - 1pt
+if you figure this out, you could become a Stanford PHD.
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
