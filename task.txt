@@ -240,7 +240,14 @@ BFS - cooler than DFS as it will always find the shortest possible path + implem
 - queue, mark visited + set n's previous to be v (breadcrumb), for loop for neighbour node + enqueue, dequeue
 Being Fucking Smart
 
-Dijkstra's algo
+Dijkstra's algo - Cooler than B cause you get a Turing Award, minimum weight path of graph -> create a table of information about currrently known best way to reach each vertex
+mark visited + pqueue + weight
+
+going through all the nodes, keep updating the shortest path to the nodes, if you are in the queue then you are waiting for updates on your minimum cost, if you are dequeued then it is confirmed that it is your minimum cost , if you are enqueue then it is the first time you are considered for minimum cost
+
+priotiy queue can guarantee it is the shortest path when you dequeue for 2 reasons: 
+1. the first node in the pqueue is guaranteed to be the shortest path to that node as all other indirect paths have at least higher cost 
+2. it guarantees it updates the shortest path before dequeuing it as it consider all other shortest paths including its indirect path before considering dequeuing it
 
 
 
