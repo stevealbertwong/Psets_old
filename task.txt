@@ -232,6 +232,21 @@ if you figure this out, you could become a Stanford PHD.
 161-PS3 -1 pt
 BFS, DFS, Dijkstra's algo -1pt
 
+DFS - Discovery guarantee to find a path if one exists + D if you apply it since only bactrace
+- mark visited, for loop for neighbour node, if stuck backtrace.
+Do Fuckup Shit
+
+BFS - cooler than DFS as it will always find the shortest possible path + implementing queue is harder than backtrace, keep track of path by storing predecessor for each vertex, use up more memory assign2 word letter, breadcrump-> breadth = tried every shortest path
+- queue, mark visited + set n's previous to be v (breadcrumb), for loop for neighbour node + enqueue, dequeue
+Being Fucking Smart
+
+Dijkstra's algo
+
+
+
+
+
+
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
 Reading design decisions -> 2 pts
