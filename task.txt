@@ -251,6 +251,10 @@ priotiy queue can guarantee it is the shortest path when you dequeue for 2 reaso
 prime example of greedy algo
 
 
+6-16
+161 forum post - algo in real world - 1pt
+
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
