@@ -255,6 +255,7 @@ prime example of greedy algo
 161 forum post - algo in real world - 1pt
 forum post -PA1 -1 pt
 228 PA1 - 1pt
+PA1-3pts
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
