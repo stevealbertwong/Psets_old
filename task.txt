@@ -253,7 +253,7 @@ prime example of greedy algo
 
 6-16
 161 forum post - algo in real world - 1pt
-
+forum post -PA1 -1 pt
 
 
 
