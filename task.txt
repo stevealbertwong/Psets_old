@@ -1,10 +1,9 @@
 >70: Stanford, MIT, Cal
-65: Caltec, Carneige Mellon, Princeton, Harvard
-60: Columbia, Cornell, UPenn
-55: Maryland, Michigan, Georgia Tech, Waterloo
-50: UChicago, UT, Washington, UIUC, UCLA, RIT, Harvey Mudd, Middlebury
-45: Northwestern, Duke, JohnHopkins, UVA, Vanderbilt, USC, Lehigh, UCSD, Rugters
-40: UMassAmherst, UNC, Buffalo, Davis, Arizona, Florida, Purdue, Stony Brook
+63: Caltec, Carneige Mellon, Princeton, Harvard
+56: Columbia, Cornell, UPenn, Maryland, Michigan, Georgia Tech, Waterloo
+51: UChicago, UT, Washington, UIUC, UCLA, RIT, Harvey Mudd, Middlebury
+47: Northwestern, Duke, JohnHopkins, UVA, Vanderbilt, USC, Lehigh, UCSD, Rugters
+42: UMassAmherst, UNC, Buffalo, Davis, Arizona, Florida, Purdue, Stony Brook
 35: Temple, Penn State, Drexel, Worcester Polytech, Virginia Tech, College of New Jersey, New Jersey Institute of Technology, SMU, UT Dallas, Binghamton  
 
 >10: A+
@@ -230,7 +229,7 @@ DFS, getNeighbours, getVertex, neighbour->visited = true, neighbour->previous = 
 minimum cut problem - 2pts
 if you figure this out, you could become a Stanford PHD.
 161-PS3 -1 pt
-BFS, DFS, Dijkstra's algo -1pt
+BFS, DFS, Dijkstra's algo -4pts
 
 DFS - Discovery guarantee to find a path if one exists + D if you apply it since only bactrace
 - mark visited, for loop for neighbour node, if stuck backtrace.
@@ -249,7 +248,7 @@ priotiy queue can guarantee it is the shortest path when you dequeue for 2 reaso
 1. the first node in the pqueue is guaranteed to be the shortest path to that node as all other indirect paths have at least higher cost 
 2. it guarantees it updates the shortest path before dequeuing it as it consider all other shortest paths including its indirect path before considering dequeuing it
 
-
+prime example of greedy algo
 
 
 
