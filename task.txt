@@ -257,6 +257,29 @@ forum post -PA1 -1 pt
 228 PA1 - 3pts
 
 
+6-17
+WHAT and WHY PGM - conceptual intuition
+FRONTEND of probability + independent of algo i.e. you wont learn any algo + modeling a world of uncertainties   
+
+PGM - model, graphical models, random variables that represents probabilities, bayesian network-> directed graph
+
+
+PGM is a framework -> very large amount of variables + significantly uncertain about the right answer to the result
+
+Model-> declaration representation of understanding of the world, representation of computer that captures our understanding the world in terms of variables and their relationship
+
+Think of the world as a large amount of random variables -> model relationship with joint distribution over possible assignment of certain random variables
+
+Joint distribution: P(x_1, x_2, .... x_n) -> huge possible states, intrinsically exponentially large, ALSO think of it as a table e.g. intelligence, difficulty, grades -> probailitity of every combinations of these 3 random varaibles 
+
+Independent parameter -> values are not determined by other parameters
+
+Conditioning over assignment of Grade A
+
+Bae's network -> random variables are represented by nodes
+
+Mark's network -> 
+
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
