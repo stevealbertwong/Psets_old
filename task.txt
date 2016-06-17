@@ -293,8 +293,12 @@ Bae's network -> random variables are represented by nodes
 
 Mark's network -> 
 
-Matlab PA1 FactorTutorial.m -2pts
-
+Matlab PA1 FactorTutorial.m -2 pts
+- implement factor data structure
+- AssignmentToIndex([1,2,1],[2,2,2]) //index is 3, [1,1,1] index is 1, [2,1,2] index is 2 etc
+- IndexToAssignment(7,[2,2,2]) //1,2,2
+- GetValueofAssignment
+- SetValueOfAssignment(misspellCar, [1 2 1],6)
 
 
 
