@@ -301,7 +301,7 @@ Matlab PA1 FactorTutorial.m -2 pts
 - SetValueOfAssignment(misspellCar, [1 2 1],6)
 
 PA2 - 2pts
-
+PA3 -1pt
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
