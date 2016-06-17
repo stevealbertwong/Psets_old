@@ -293,7 +293,7 @@ Bae's network -> random variables are represented by nodes
 
 Mark's network -> 
 
-
+Matlab PA1 FactorTutorial.m -2pts
 
 
 
