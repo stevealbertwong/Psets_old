@@ -258,6 +258,7 @@ forum post -PA1 -1 pt
 
 
 6-17
+EVERYTHING NORMALIZE BECOME PROBABILITY
 WHAT and WHY PGM - conceptual intuition
 FRONTEND of probability + independent of algo i.e. you wont learn any algo + modeling a world of uncertainties   
 
@@ -274,11 +275,28 @@ Joint distribution: P(x_1, x_2, .... x_n) -> huge possible states, intrinsically
 
 Independent parameter -> values are not determined by other parameters
 
-Conditioning over assignment of Grade A
+Conditioning/observing assignment of Grade A -> eliminate all possible assignments of Grade B/C + normalizing/rebase aka reduced probability distribution
+
+Marginalize -> getting rid of intelligence just sum up according to distribution over 
+
+Factor -> a function or a table (x_1, x_2, ...x_n) take all possible assignments in cross-product space i.e. all possible combination of assignments -> gives a real value for each combination 
+e.g. joint distribution is a factor a table fo random varaibles
+e.g. CPD is a factor
+Scope of the factors -> (x_1, x_2, ... x_n) i.e. arguments the factors takes
+
+Factor product -> conditional probability
+Factor maginalization -> same
+Factor reduction -> same delete + renormalize
+
 
 Bae's network -> random variables are represented by nodes
 
 Mark's network -> 
+
+
+
+
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
