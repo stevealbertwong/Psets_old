@@ -303,6 +303,24 @@ Matlab PA1 FactorTutorial.m -2 pts
 PA2 - 2pts
 PA3 -1pt
 
+
+6-18
+
+Structure CPD -1pt
+Tabular representation - naive representation over parents I, D and child G, but real world many factors could cause grades or cough, no. of parents of CPD grows exponentially
+
+Dynamic Bayesian Network -1pt
+Distribution over trajectory 
+Markov assumption - 
+Semi markov model 
+Template transition model 
+Ground Bayesian Network/2 time slice Bayesian Network 
+
+Contextual specific indepedence -
+
+
+
+
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
 Reading design decisions -> 2 pts
