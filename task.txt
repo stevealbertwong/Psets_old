@@ -318,7 +318,7 @@ Ground Bayesian Network/2 time slice Bayesian Network
 
 Contextual specific indepedence -
 
-Conditional Independence in bayesian network + navie bayes
+Conditional Independence in bayesian network + navie bayes -1pt
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
