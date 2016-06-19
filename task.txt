@@ -321,6 +321,17 @@ Contextual specific indepedence -
 Conditional Independence in bayesian network + navie bayes -1pt
 
 
+
+Markov random fields
+- pairwise markov networks 
+	>> affinity functions, combatabiility function, soft constraints
+	>> local happiness to take a particular joint assignments
+
+
+
+
+
+
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
 Reading design decisions -> 2 pts
