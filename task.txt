@@ -341,7 +341,7 @@ Similarity factor
 PA4 - 1pt
 Belief Propagation message passing in cluster graph - 1pt
 Clique Tree - Family Preservation + running intersection property -1pt
-
+PA4 walkthrough by TA -1pt
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
