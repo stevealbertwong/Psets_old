@@ -330,7 +330,10 @@ Markov random fields
 
 
 
+6-20
+PGM PA3 -2pts
 
+RunInference.m
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
