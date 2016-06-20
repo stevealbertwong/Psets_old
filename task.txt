@@ -334,6 +334,13 @@ Markov random fields
 PGM PA3 -2pts
 
 RunInference.m
+Pairwise, triplet factors 
+Similarity factor 
+
+
+
+
+
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
