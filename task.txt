@@ -348,7 +348,7 @@ PA4 -forum -2pts
 Java import java.io.*; library-> package -> class -> methods -> properties -1pt
 taxCalculator -1pt 
 calendar class -1pt
-
+106a array -1pt
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
