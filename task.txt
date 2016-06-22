@@ -362,7 +362,7 @@ e.g. ssh -i key-pair.pem root@hostname-amazonaws.com
 start up engineering hw2-1pt
 done start up engineering -1pt
 cache lab -1pt
-
+15-213 triple for loop in c to represent matrix multiplication -1pt
 
 
 
