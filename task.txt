@@ -359,7 +359,7 @@ connect with a standalone SSH client-> chmod 400 key-pair.pem-> access through p
 e.g. ssh -i key-pair.pem root@hostname-amazonaws.com
 
 
-
+start up engineering hw2-1pt
 
 
 
