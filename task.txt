@@ -361,6 +361,11 @@ e.g. ssh -i key-pair.pem root@hostname-amazonaws.com
 
 start up engineering hw2-1pt
 done start up engineering -1pt
+cache lab -1pt
+
+
+
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
