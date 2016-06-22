@@ -350,6 +350,18 @@ taxCalculator -1pt
 calendar class -1pt
 106a array -1pt
 
+6-22
+1. create ec2 instance
+choose EC2, create key pair, choose ubuntu as server for configuration, launch new t1-micro instance and get an instance number, go to EC2 dashboard instance get the hostname of remote machine you launched, amazon assigned a IP address and hostname to you and respond to your request with key pair
+
+2. connect to instance    
+connect with a standalone SSH client-> chmod 400 key-pair.pem-> access through public DNS/hostname
+e.g. ssh -i key-pair.pem root@hostname-amazonaws.com
+
+
+
+
+
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
