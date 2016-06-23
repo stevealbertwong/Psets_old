@@ -368,6 +368,8 @@ cache lab -1pt
 6-22
 java array-1pt
 andriod activity cycle -2pts
+purple rain -3pts
+
 
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback

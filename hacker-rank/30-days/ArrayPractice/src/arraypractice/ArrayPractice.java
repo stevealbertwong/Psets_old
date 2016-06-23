@@ -10,6 +10,7 @@ thats why you "overwrite" its value
 package arraypractice;
 
 import java.util.Arrays;
+import java.math.*;
 
 
 
@@ -36,7 +37,7 @@ public class ArrayPractice {
         printArray(intArray3);
         System.out.print(outOfBounds + "\n");
         
-        
+        int randomNumber = Math.abs(rand.nextInt);
         
     }
     
