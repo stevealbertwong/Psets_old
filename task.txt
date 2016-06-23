@@ -371,6 +371,8 @@ andriod activity cycle -2pts
 purple rain -3pts
 graphics + arraylist to creates random raindrop + recursion does not work since will only copy itself + GOval object will store the number of moves + raindrops = addRainDrops + tick = 0, tick++, if tick % 10 == 0 + RandomGenerator.getinstance().nextint(0,getWidth()); + GOval(x, y, DROP_SIZE, DROP_SIZE) + public GOval addraindrop(){return raindrop} raindrop.move(0,2)  
 
+setup node in ams -1pt
+cyberport server
 
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
