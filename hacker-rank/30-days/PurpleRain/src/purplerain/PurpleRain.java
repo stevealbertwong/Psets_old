@@ -33,8 +33,9 @@ public class PurpleRain extends GraphicsProgram {
 //            pause(50);
             ticks ++;
             if (ticks % 10 == 0){
-                raindrop = randomRaindrop();
-                drops.add(raindrop);
+                GOval nextdrop = randomRaindrop();
+                // raindrop = randomRaindrop(); overwrites previous GOval but since already added to arraylist
+                drops.add(nextdrop);
             }           
     }        
     }     
