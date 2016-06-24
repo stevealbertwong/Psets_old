@@ -392,13 +392,19 @@ public void catClick(View view){
 	Ion.with(this).load(url).asString().setCallback(new FutureCallBack<>(String)).onCompleted{processStringData()}} 
 
 
-
 https://www.youtube.com/watch?v=WxhFq64FQzA&index=185&list=PLQipVWExdXm4fewEo9Qrbcvbdh3EXFSQg
 set up nodejs server in cloud instance amazon ec2 
+
+push the limit -andriod networking -1pt
+	HttpURLConnection -> JSONObject
+
+
+
 
 
 THINK ABOUT:
 NATIVE VS IOS ANDRIOD
+
 nodejs vs python to set up server -20+pts
 authentication -20+pts
 db mongodb? any other choices? -10pts
