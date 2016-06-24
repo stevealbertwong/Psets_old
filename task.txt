@@ -375,6 +375,39 @@ setup node in ams -1pt
 cyberport server
 andriod restful api -1pt
 
+6-23
+https://www.youtube.com/watch?v=Fw126aIQ24s&feature=youtu.be
+marty andriod -> api call and queries + xml to json, getting string from json, e.g. cat images link from api quries
+showing the images on the screen -> 
+GridLayout grid = findViewById(R.id.grid); 
+grid.removeAllViews();
+ImageView imgView = new ImageView(this);
+ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT)
+imgView.setLayoutParams(params);
+Picasso.with(this).load(url).resize(500,500).into(imgView); //fetch the pixals of the image to show on screen
+grid.addView(imgView); 
+
+click button ->
+public void catClick(View view){
+	Ion.with(this).load(url).} 
+
+
+
+https://www.youtube.com/watch?v=WxhFq64FQzA&index=185&list=PLQipVWExdXm4fewEo9Qrbcvbdh3EXFSQg
+set up nodejs server in cloud instance amazon ec2 
+
+
+THINK ABOUT:
+NATIVE VS IOS ANDRIOD
+nodejs vs python to set up server -20+pts
+authentication -20+pts
+db mongodb? any other choices? -10pts
+android pushing the limit pdf
+android big ranch pdf
+
+
+
+
 Silicon Valley: system architecture, networking, security, getting root access to NSA servers, database rollback
 
 Reading design decisions -> 2 pts
