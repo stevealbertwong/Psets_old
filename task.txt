@@ -389,7 +389,7 @@ grid.addView(imgView);
 
 click button ->
 public void catClick(View view){
-	Ion.with(this).load(url).} 
+	Ion.with(this).load(url).asString().setCallback(new FutureCallBack<>(String)).onCompleted{processStringData()}} 
 
 
 
