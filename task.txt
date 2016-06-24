@@ -399,6 +399,14 @@ push the limit -andriod networking -1pt
 	HttpURLConnection -> JSONObject
 
 
+andriod setup -1pt
+⌥F7 - find all places classes are used
+⌃Space - complete
+F1 - documentation
+
+
+
+
 
 
 
