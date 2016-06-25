@@ -398,13 +398,41 @@ set up nodejs server in cloud instance amazon ec2
 push the limit -andriod networking -1pt
 	HttpURLConnection -> JSONObject
 
-
 andriod setup -1pt
 ⌥F7 - find all places classes are used
 ⌃Space - complete
 F1 - documentation
 
 
+
+6-24
+
+https://developers.google.com/identity/sign-in/android/backend-auth#send-the-id-token-to-your-server
+authentication
+
+- get backend server's OAuth 2.0 client ID + pass server's client ID to requestIdToken
+	>> 
+- after user signs in, retrieve user ID token 
+	>> GoogleSignInResult result = Auth.GoogleSignInApi.getSignInApiFromIntent(data);
+	>> GoogleSignInAccount acct = result.getSignInAccount();
+	>> String idtoken = acct.getIdToken(); // needs to configure Google sign-in with requestIdToken();
+	>> mIdTokenTextView.setText("this is your id token:" + idtoken);
+	>> // create httpurlconnection to send idtoken to server
+- send ID token to server with an HTTP post request
+	HttpClient httpClient = new DefaultHttpClient();
+	HttpPost httpPost = new HttpPost("backend.com/tokensignin");
+	// encode httpPost url  
+	List nameValuePairs = new ArrayList(1);
+	nameValuePairs.add(new BasicNameValuePair("idToken:", idToken); // ??
+	httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs); // ??
+	HttpResponse response = httpClient.execute(httpPost);
+	
+	// get status code and response body
+	int statusCode = response.getStatusLine().getStatusCode();
+	String responseBody = EntityUtils.toString(response.getEntity()); 
+	Log.i(TAG, "Signed in as:" + responseBody); // ?? TAG
+- server verify ID token
+- server retrieve ID token from sub claim
 
 
 
