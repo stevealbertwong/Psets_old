@@ -442,6 +442,20 @@ sql -> Select column From table Where population > 1000
 	INSERT INTO countries VALUES('SLD', 'ENG', 'T', 100);
 Database managment system -> MYSQL vs PostgreSQL vs SQLite
 
+http://web.stanford.edu/class/archive/cs/cs193a/cs193a.1122/05/
+-> SQLite read
+	SQLiteDatabase db = openOrCreateDatabase("name", MODE_PRIVATE, null);
+	db.execSQL("INSERT INTO counties VALUES (xxx)"); // INSERT or DELETE
+	Cursor cr = db.rawQuery("SELECT id, email FROM students", null); // Cursor -> iterate through result
+	if (cr.moveToNext()){
+		int id = cr.getInt(cr.getColumnIndex("id");	
+		String email = cr.getString(cr.getColumnIndex("email"));
+	while (cr.moveToNext());
+		cr.close();
+
+
+
+
 
 
 THINK ABOUT:
