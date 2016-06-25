@@ -432,6 +432,8 @@ authentication
 	String responseBody = EntityUtils.toString(response.getEntity()); 
 	Log.i(TAG, "Signed in as:" + responseBody); // ?? TAG
 - server verify ID token
+	// using google API Client library
+	// HTTP 200 response, its boday contains JSONformatted ID token claims
 - server retrieve ID token from sub claim
 
 
