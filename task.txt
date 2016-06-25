@@ -437,6 +437,10 @@ authentication
 - server retrieve ID token from sub claim
 
 
+marty database, sql, firebase -1pt
+sql -> Select column From table Where population > 1000 
+	INSERT INTO countries VALUES('SLD', 'ENG', 'T', 100);
+Database managment system -> MYSQL vs PostgreSQL vs SQLite
 
 
 
