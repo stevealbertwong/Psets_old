@@ -460,6 +460,13 @@ review express -2pts
 	// when express server receives a get request and path "/login", if route is found, response object and 
 	// request object are created to passed into parameters of callback function
 
+express-route.js-1pt
+
+
+
+
+
+
 
 
 THINK ABOUT:
