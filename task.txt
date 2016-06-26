@@ -455,7 +455,10 @@ http://web.stanford.edu/class/archive/cs/cs193a/cs193a.1122/05/
 
 6-25
 review express -2pts
-
+- app.listen(80) vs http.createServer(app).listen(80)
+	app.get("/login", middleware, function(req, res){res.send("Login page")}) 
+	// when express server receives a get request and path "/login", if route is found, response object and 
+	// request object are created to passed into parameters of callback function
 
 
 
