@@ -489,6 +489,17 @@ Java DataBase Connector library/connector/driver
 	while (resultset.next(){ resultset.getInt("column name")});
 
 
+Firebase
+- install firebase into android build.gradle dependencies + add file exclusion in build.gradle
+- add internet permission to project
+	// initialize Firebase in public void onCreate()
+	Firebase.setAndroidContext(this);
+	// create key value pairing
+	firebase.child("name").setValue(value);
+
+
+
+
 
 
 
