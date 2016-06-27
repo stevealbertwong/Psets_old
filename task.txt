@@ -465,8 +465,9 @@ response request object, jade embedded js template engine, res.sendfile, res.jso
 
 
 6-27
-marty Firebase remote database - 1pt
+marty Firebase remote database - 2pts
 alias ga="git add ."
+
 
 build.gradle dependencies ??
 Log.wtf ??
@@ -475,7 +476,8 @@ Java DataBase Connector library/connector/driver
 - differnet connector depending on your particular kind of database e.g. mysql connector
 - API for connecting to remote database in java code
 - directly querying database in java from android device
-- skip setting up server 
+- skip setting up server
+- server is a web layer between client and db: client makes queries by contacting certain specific URLs, server code send appropriate data back 
 - return a cursor object
 	// load JDBC driver and connect to the server
 	String url = "jbdc:mysql://server:port/databaseName";
