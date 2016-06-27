@@ -466,6 +466,7 @@ response request object, jade embedded js template engine, res.sendfile, res.jso
 
 6-27
 marty Firebase remote database - 1pt
+alias ga="git add ."
 
 build.gradle dependencies ??
 Log.wtf ??
