@@ -461,8 +461,29 @@ review express -2pts
 	// request object are created to passed into parameters of callback function
 
 express-route.js-1pt
+response request object, jade embedded js template engine, res.sendfile, res.json, res.redirect -1pt
 
 
+6-27
+marty Firebase remote database - 1pt
+
+build.gradle dependencies ??
+Log.wtf ??
+
+Java DataBase Connector library/connector/driver
+- differnet connector depending on your particular kind of database e.g. mysql connector
+- API for connecting to remote database in java code
+- directly querying database in java from android device
+- skip setting up server 
+- return a cursor object
+	// load JDBC driver and connect to the server
+	String url = "jbdc:mysql://server:port/databaseName";
+	Connection connection = DriverManager.getConnection(url, username, password);
+	// run the query 
+	// resultset(java) is cursor(andriod)
+	Statement statement = connection.createStatement();
+	ResultSet resultset = statement.executeQuery("SELECT name FROM table WHERE name = martin"); // SQL
+	while (resultset.next(){ resultset.getInt("column name")});
 
 
 
