@@ -467,7 +467,9 @@ response request object, jade embedded js template engine, res.sendfile, res.jso
 6-27
 marty Firebase remote database - 2pts
 alias ga="git add ."
-
+sql to nosql table: use sql to make query vs use map.get 
+mapception
+add stanford android library
 
 build.gradle dependencies ??
 Log.wtf ??
@@ -490,14 +492,20 @@ Java DataBase Connector library/connector/driver
 
 
 Firebase
+CONNECTING TO THE DATA
 - install firebase into android build.gradle dependencies + add file exclusion in build.gradle
 - add internet permission to project
 	// initialize Firebase in public void onCreate()
 	Firebase.setAndroidContext(this);
-	// create key value pairing
+	// after initialization -> create key value pairing
 	firebase.child("name").setValue(value);
-
-
+	
+	// Firebase common methods
+	fb.child("name") // return child data object
+	fb.getKey("value") // return key of a given data value
+	fb.getParent("key") // return map one level up
+	fb.setValue(value, handler) // sets new data value
+	fb.updateChildren(map, handler); // updates objects field i.e. children
 
 
 
