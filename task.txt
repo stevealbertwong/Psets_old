@@ -465,11 +465,13 @@ response request object, jade embedded js template engine, res.sendfile, res.jso
 
 
 6-27
-marty Firebase remote database - 2pts
+marty Firebase remote database - 4pts
 alias ga="git add ."
 sql to nosql table: use sql to make query vs use map.get 
 mapception
 add stanford android library
+FIREBASE.setValue + security rules write: true WORKS 
+
 
 build.gradle dependencies ??
 Log.wtf ??
