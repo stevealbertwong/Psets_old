@@ -516,7 +516,7 @@ Database principles e.g. craigslist -2pts
 4. json for categorical data, lightweight sent over internet e.g. craigslist, simple stock data   
 
 auto-generated keys + firebase.child(simpsons/students).push() + @Override ??
-setting, getting data 
+setting, getting data, datasnap object -1pt 
 
 
 
