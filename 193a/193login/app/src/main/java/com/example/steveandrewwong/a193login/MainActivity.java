@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         Firebase fbName = firebase.child("simpsons").child("students").child("123").child("name"); // return a firebase
         fbName.setValue("d-dog");
 
+        // DataSnapshot + addChildEventListener
+
 
     }
 }

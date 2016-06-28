@@ -509,7 +509,10 @@ CONNECTING TO THE DATA
 	fb.setValue(value, handler) // sets new data value
 	fb.updateChildren(map, handler); // updates objects field i.e. children
 
-
+6-28
+Database principles e.g. craigslist -1pt
+1. create a table when you want to query it -> SELECT query FROM table
+2. ID is a way to export the row of information to other tables
 
 
 
