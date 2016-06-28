@@ -13,7 +13,6 @@
 6: B
 5: B-
 
-
 INTRO
 cs103 4 weeks
 cs41 2 weeks
@@ -510,10 +509,14 @@ CONNECTING TO THE DATA
 	fb.updateChildren(map, handler); // updates objects field i.e. children
 
 6-28
-Database principles e.g. craigslist -1pt
+Database principles e.g. craigslist -2pts
 1. create a table when you want to query it -> SELECT query FROM table
 2. ID is a way to export the row of information to other tables
+3. sql for excel like data e.g. school personal data, stock data, bus schedule
+4. json for categorical data, lightweight sent over internet e.g. craigslist, simple stock data   
 
+auto-generated keys + firebase.child(simpsons/students).push() + @Override ??
+setting, getting data 
 
 
 
