@@ -517,12 +517,14 @@ Database principles e.g. craigslist -2pts
 
 auto-generated keys + firebase.child(simpsons/students).push() + @Override ??
 setting, getting data, datasnap object -1pt 
+implementing login, intent exchange between activities, startActivity(intent), query.addChildEventListener, Query query = gradesTable.orderByChild("student_email").equalTo(inputEmail) -1pt
 
 
 
 THINK ABOUT:
 NATIVE VS IOS ANDRIOD
 
+web api to send news/ads to front end 
 nodejs vs python to set up server -20+pts
 authentication -20+pts
 db mongodb? any other choices? -10pts
