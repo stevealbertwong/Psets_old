@@ -545,4 +545,8 @@ int fputc(int c, FILE* stream); // writes the character, cast unsigned char to s
 int putc(intc, FILE* stream);
 
  
-
+6-29
+TODO
+- read ionic cookbook -> figure out database schema + intent exchange
+- facebook database schema
+- firebase documentation -> auth object

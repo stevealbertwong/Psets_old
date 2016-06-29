@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 if (dsnapKey.equals("password")){
                     String dsnapValue = (String) dataSnapshot.getValue(); // casting Object to String + return 4 values
 
+                    // how to go one level deeper if the key matches ??
+
                     // login in successfully
                     if (inputPassword.equals(dsnapValue)){
                     // when oneactivity launches another activity -> exchange information e.g. login users' grades
