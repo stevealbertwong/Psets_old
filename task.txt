@@ -520,8 +520,12 @@ setting, getting data, datasnap object -1pt
 implementing login, intent exchange between activities, startActivity(intent), query.addChildEventListener, Query query = gradesTable.orderByChild("student_email").equalTo(inputEmail) -1pt
 
 6-30
-Bigger Number Game - 2pts
-Berkeley Admission Quiz app
+
+Berkeley Admission Quiz app -3pts
+- convert int to string: String.viewof(int); // then pass to button.setText(string);
+- convert string to int: Integer.paseInt(string); // from buttom.getText(); then compare number
+- generate different random int + make sure int generated not the same
+
 Wigets and layout and Text Fields and Container
 
 Linear layout - 
