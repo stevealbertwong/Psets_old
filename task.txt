@@ -523,9 +523,13 @@ implementing login, intent exchange between activities, startActivity(intent), q
 Bigger Number Game - 2pts
 Berkeley Admission Quiz app
 Wigets and layout and Text Fields and Container
+
 Linear layout - 
 - layout:alignParentLeft / alignLeft=textView margin = 35dp / centerHorizontal  
 - below=textView margin=140dp / alignTop=textView / alignBottom=textView (overlap the text view) / centerVertical
+
+Event
+- Properties -> onClick identifer -> puts the name of the method 
 
 ImageView
 ListView
@@ -534,6 +538,7 @@ RadioGroup
 layout_alignParentX
 layout_marginX
 RelativeLayout
+
 Activity - fundamental units of GUI, a single screen of UI
 View - item that appears on screen in an activity e.g. wigets and layout
 Wigets - button, text view
