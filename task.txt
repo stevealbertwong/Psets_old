@@ -528,7 +528,7 @@ Berkeley Admission Quiz app -3pts
 
 Wigets and layout and Text Fields and Container
 
-Linear layout - 
+Layout  
 - layout:alignParentLeft / alignLeft=textView margin = 35dp / centerHorizontal  
 - below=textView margin=140dp / alignTop=textView / alignBottom=textView (overlap the text view) / centerVertical
 
@@ -549,6 +549,25 @@ Wigets - button, text view
 Event - click, timer, network data available
 
 	
+7-1
+layout managers- rules that decide how to position each layout
+Layout = ViewGroup = Layout manager = containers of view = Activity
+- described in XML mirrored in Java code 
+- nested layout/custom layout -> combinations of features
+- inside each layout is wigets, attributes
+
+Element(tag), attribute(additional info about the tag), value
+
+<course name="CS193A" instructor="marty>
+
+layout_margin
+gridlayout - layout widget in lines of row and columns e.g. calculator app RARELY USED
+relativelayout - each widget position relative to each other
+
+xml is extensible html, you could make up any tags as you want <pizza>
+
+
+
 
 
 THINK ABOUT:
