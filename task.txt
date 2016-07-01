@@ -562,10 +562,30 @@ Element(tag), attribute(additional info about the tag), value
 
 layout_margin
 gridlayout - layout widget in lines of row and columns e.g. calculator app RARELY USED
-relativelayout - each widget position relative to each other
+
+relativelayout 
+- each widget position relative to each other, you describe position of wiget relative to other wigets
+
+linear layout
+- layout wigets/views in a single line
+- does not wrap around, falls off the screen if reach the edge of screen
 
 xml is extensible html, you could make up any tags as you want <pizza>
 
+gravity
+- alignment direction widgets are pulled
+- alignment in linear layout is called gravity
+- any stuff inside me move to the other side -> button: layout_gravity="right"
+
+weight
+- size of the wigets, fraction of overall screen
+- 1 out of 1 of all the space thats left, competing with the remaining space with widgets with layout_weight="1"
+
+padding
+- get the button a little bigger stretching it out
+- after setting the layout width and height to "match_parent" or "wrap_content" or "100dp"
+- dp: device pixel, dip: device independent pixel, sp: scaling pixel
+- match_parent: same size as the layout containers the widget is inside
 
 
 
