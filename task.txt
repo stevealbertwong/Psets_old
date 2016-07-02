@@ -639,9 +639,12 @@ List adapters
 
 
 dictionary app -1pt
+when make anonymous inner class new AdapterView, if you want inner object to see global variable -> add final in front of the global varaible, final = const
+also Toast.makeText(this, "you suck", Toast.LENGTH_SHORT).show() this has to be changed to MainActivity.this -> usually writing code in activity class and this refers to the activity class but now this is inside a new object inside the activity class so the activity/object should be MainActivity.this to refer to MainActviity rather than the tiny little new object this
 
+word-guessing game -1pt
 
-
+Changes to List data
 
 
 

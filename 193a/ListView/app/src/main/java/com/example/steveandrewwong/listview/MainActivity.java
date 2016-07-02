@@ -20,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         // filter out the elements, odd is word, even is definition
     }
 
-    // Syntatic diarrhea 
+    // Syntatic diarrhea
     // java does not pass the method as a parameter -> anonymous inner classes
     // i.e. make an object that contains the function and pass that object as the parameter
     // new AdapterView.OnItemClickListener(){public void onItemClick}
+
+    // 1st method position *2+1 to get the definition
+    //
 }
