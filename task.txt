@@ -616,7 +616,24 @@ Toggle between sunny pictures
 RadioButton -> RadioGroup
 if(view.getId() == R.id.sunny){imgView.setImageResource(R.drawable.sunny)
 
- 
+ListView
+- ordered collection of selectable choices
+- entries="@array/array" // set of options to appear on the list 
+
+static list
+- content is fixed and known before the app runs
+- populate items in strings.xml -> then import items to activity_main.xml
+- declare list elements in strings.xml res/values/strings.xml
+- res/layout/activity_main.xml <ListView entries="@array/name">
+- res/strings.xml <string-array name="name"> <item>MIT</item>
+
+dynamic list 
+- content is read or generated as the program runs
+- items of the list could come from file or java code
+- list adapters
+
+List adapters
+- ArrayAdapter
 
 
 
