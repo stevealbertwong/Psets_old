@@ -620,21 +620,25 @@ ListView
 - ordered collection of selectable choices
 - entries="@array/array" // set of options to appear on the list 
 
-static list
+static list -1pt
 - content is fixed and known before the app runs
 - populate items in strings.xml -> then import items to activity_main.xml
 - declare list elements in strings.xml res/values/strings.xml
 - res/layout/activity_main.xml <ListView entries="@array/name">
 - res/strings.xml <string-array name="name"> <item>MIT</item>
 
-dynamic list 
+dynamic list -1pt
 - content is read or generated as the program runs
 - items of the list could come from file or java code
 - list adapters
 
 List adapters
 - ArrayAdapter
+- listView.setAdapter(adapter);
+- listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){public void onItemClick(AdapterView, View, position, id)
 
+
+dictionary app -1pt
 
 
 
