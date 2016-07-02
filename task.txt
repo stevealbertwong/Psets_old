@@ -582,10 +582,44 @@ weight
 - 1 out of 1 of all the space thats left, competing with the remaining space with widgets with layout_weight="1"
 
 padding
+- padding makes the widget bigger
 - get the button a little bigger stretching it out
 - after setting the layout width and height to "match_parent" or "wrap_content" or "100dp"
 - dp: device pixel, dip: device independent pixel, sp: scaling pixel
 - match_parent: same size as the layout containers the widget is inside
+
+margin
+- outside of the widget, extra space outside to separate it from others
+
+tablelayout same as gridlayout
+
+APPLICATION
+Composite/nested layout
+- LinearLayout 
+layout_gravity: refers to the gravity of LinearLayout to its parent
+gravity: refers to its sub-widgets' gravity
+WHICH MEANS -> layout gravity:center = button layout_gravity:center
+
+
+7-2
+START COUNTING GETTING NEW NIKE BOOT
+imageButton
+- src="@drawable/img"
+imageView
+
+EditText + Toast.makeText(MainActivity.this, s, Toast.LENGTH_SHORT).show()
+- editable text input box
+
+Linsanity-1pt
+
+Toggle between sunny pictures
+RadioButton -> RadioGroup
+if(view.getId() == R.id.sunny){imgView.setImageResource(R.drawable.sunny)
+
+ 
+
+
+
 
 
 
