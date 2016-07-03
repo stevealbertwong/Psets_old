@@ -655,8 +655,47 @@ word-guessing game -1pt
 Changes to List data
 
 
+7-3
+
+Reviewing Firebase + List view -1pt
+Reading Firebase doc + sample app -1pt
+https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
+
+@Override
+- if a class inherits a method from its superclass -> override that method provided its not final
+e.g. add method to existing class for inheritance/extends
+
+
+
+
+Firebase readup
+
+https://www.firebase.com/docs/android/guide/user-auth.html#section-storing
+- user is returned in callbacks on the client device
+- user information returned contains a uid (a unique ID)
+- value of auth varaible becomes defined -> no longer null i.e. auth.uid, auth.name
+
+Authentication provider
+- ref.addAuthStateListener, if(authData!=null) // user is logged in
+- AuthData authData = ref.getAuth()
+
+
+Email&Password Auth
+https://www.firebase.com/docs/android/guide/login/password.html
+
+
+
+
+
+
 
 THINK ABOUT:
+?? Toolbar setSupportActionBar(toolBar)
+ViewPager FeedsPagerAdapter Tablayout
+mFab = (FloatingActionButton)
+login token
+
+
 NATIVE VS IOS ANDRIOD
 
 database set up
