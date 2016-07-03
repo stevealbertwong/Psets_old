@@ -119,6 +119,12 @@ public class MainActivity extends AppCompatActivity
         mMessageRecyclerView.setLayoutManager(mLinearLayoutManager);
 
         mProgressBar.setVisibility(ProgressBar.INVISIBLE);
+        // TODO
+        // add all existing messages
+        // then listen for new child entries
+        // adds a new element to UI for each message
+
+
 
         mMessageEditText = (EditText) findViewById(R.id.messageEditText);
         mMessageEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(mSharedPreferences

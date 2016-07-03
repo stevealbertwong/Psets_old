@@ -694,7 +694,20 @@ https://github.com/firebase/firebase-simple-login-java/tree/master/docs/v1
 Access to Firebase is configure by JSON in firebase console
 
 
+Firebase UI to populate Firebase model
+https://github.com/firebase/FirebaseUI-Android/blob/master/database/README.md
+Recycler view
+- Create a model class to represent database object
+	// creating a model to push to Database
+	Chat msg = new Chat("puf", "1234", "Hello FirebaseUI world!");
+	ref.push().setValue(msg); // pushing an instance of Chat class
 
+- custom recycler/list adapter to map a collection in database to Android
+	// creating a list adapter to populate the RecycleView/ListView from Database
+	
+
+- create custom ViewHolder class
+- 
 
 
 THINK ABOUT:
