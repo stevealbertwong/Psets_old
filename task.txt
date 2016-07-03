@@ -375,7 +375,7 @@ cyberport server
 andriod restful api -1pt
 
 6-23
-https://www.youtube.com/watch?v=Fw126aIQ24s&feature=youtu.be
+I
 marty andriod -> api call and queries + xml to json, getting string from json, e.g. cat images link from api quries
 showing the images on the screen -> 
 GridLayout grid = findViewById(R.id.grid); 
@@ -519,6 +519,14 @@ auto-generated keys + firebase.child(simpsons/students).push() + @Override ??
 setting, getting data, datasnap object -1pt 
 implementing login, intent exchange between activities, startActivity(intent), query.addChildEventListener, Query query = gradesTable.orderByChild("student_email").equalTo(inputEmail) -1pt
 
+
+6-29
+TODO
+- read ionic cookbook -> figure out database schema + intent exchange
+- facebook database schema
+- firebase documentation -> auth object
+
+
 6-30
 
 Berkeley Admission Quiz app -3pts
@@ -651,6 +659,7 @@ Changes to List data
 THINK ABOUT:
 NATIVE VS IOS ANDRIOD
 
+database set up
 web api to send news/ads to front end 
 nodejs vs python to set up server -20+pts
 authentication -20+pts
@@ -672,8 +681,4 @@ int fputc(int c, FILE* stream); // writes the character, cast unsigned char to s
 int putc(intc, FILE* stream);
 
  
-6-29
-TODO
-- read ionic cookbook -> figure out database schema + intent exchange
-- facebook database schema
-- firebase documentation -> auth object
+
