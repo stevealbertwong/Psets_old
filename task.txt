@@ -687,6 +687,11 @@ https://www.firebase.com/docs/android/guide/login/password.html
 Running firebase starter kit -1pt
 https://codelabs.developers.google.com/codelabs/firebase-android/#3
 
+Storing new user login into database
+https://github.com/firebase/firebase-simple-login-java/tree/master/docs/v1
+	myRef.child("users").child(user.getUid()).setValue(map);
+
+Access to Firebase is configure by JSON in firebase console
 
 
 
@@ -697,7 +702,9 @@ THINK ABOUT:
 ViewPager FeedsPagerAdapter Tablayout
 mFab = (FloatingActionButton)
 login token
-
+Glide.with(MainActivity.this).load(friendlyMessage.getPhotoUrl()).into(viewHolder.messengerImageView)
+LinearLayout linLayout = (LinearLayout)findViewWithTag("layout1");
+dynamic view
 
 NATIVE VS IOS ANDRIOD
 
