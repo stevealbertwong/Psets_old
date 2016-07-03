@@ -684,6 +684,9 @@ Email&Password Auth
 https://www.firebase.com/docs/android/guide/login/password.html
 
 
+Running firebase starter kit -1pt
+https://codelabs.developers.google.com/codelabs/firebase-android/#3
+
 
 
 
