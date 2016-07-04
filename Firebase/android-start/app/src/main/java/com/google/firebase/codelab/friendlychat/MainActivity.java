@@ -204,6 +204,8 @@ public class MainActivity extends AppCompatActivity
         super.onDestroy();
     }
 
+
+    // TODO add a new case to handle signout button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -213,6 +215,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        
         return super.onOptionsItemSelected(item);
     }
 
