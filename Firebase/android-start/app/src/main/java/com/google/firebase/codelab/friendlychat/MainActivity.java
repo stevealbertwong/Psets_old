@@ -215,8 +215,18 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            // if sign out button is clicked, specifically sign the user out of FirebaseAuth and GoogleAuth
+            case R.id.sign_out_menu:
+                mFirebaseAuth.signOut();
+                Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+                mUsername = ANONYMOUS;
+                startActivity(new Intent(this, SignInActivity.class));
+                return true; // ?? why return true
+            // other item is handled normally
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

@@ -40,14 +40,16 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class SignInActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
+    // TAG used in log calls, identify the source of a log message -> class or activity where log calls occurs
     private static final String TAG = "SignInActivity";
-    private static final int RC_SIGN_IN = 9001;
+    private static final int RC_SIGN_IN = 9001; // ??
 
     private SignInButton mSignInButton;
 
     private GoogleApiClient mGoogleApiClient;
 
-    // Firebase instance variables
+    // FirebaseAuth instance variables
+    private FirebaseAuth mFirebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class SignInActivity extends AppCompatActivity implements
         // Set click listeners
         mSignInButton.setOnClickListener(this);
 
+
+        // TODO: Implement Google sign in
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
@@ -71,15 +75,48 @@ public class SignInActivity extends AppCompatActivity implements
                 .build();
 
         // Initialize FirebaseAuth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+
+
+
     }
 
     @Override
+    // When clicked, Presents user with Google Sign in UI
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.sign_in_button:
+                signIn();
                 break;
         }
     }
+
+    // Intent to Google Sign In UI
+
+    private void signIn(){
+        Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient); // ??
+        startActivityForResult(signInIntent, RC_SIGN_IN); // ??
+    }
+
+    // ?? Automatically get called after startActivityForResult(signInIntent, RC_SIGN_IN)
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // from the result automatically generated requestCode, resultCode, data
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == RC_SIGN_IN){
+            // Result return from startActivityForResult(signInIntent, RC_SIGN_IN);
+            GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            if (result.isSuccess()){
+                GoogleSignInAccount account = result.getSignInAccount();
+                fireBaseAuthWithGoogle(account);
+            } else {
+                Log.e(TAG, "Google signed in failed");
+            }
+        }
+    }
+
+
 
     @Override
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {

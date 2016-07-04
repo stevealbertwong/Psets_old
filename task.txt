@@ -714,6 +714,13 @@ Recycler view
 
 Firebase Android Codelab -1pt
 https://codelabs.developers.google.com/codelabs/firebase-android/#5
+	mGoogleApiClient = new GoogleApiClient.Builder(this);
+	Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
+	protected void onActivityResult(int requestCode, int resultCode, Intent data)
+	GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+	GoogleSignInAccount account = result.getSignInAccount();
+
+
 
 Firebase Android Sample Instagram -1pt
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
