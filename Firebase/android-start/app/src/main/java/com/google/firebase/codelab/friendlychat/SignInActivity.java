@@ -40,8 +40,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class SignInActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
 
-    // TAG used in log calls, identify the source of a log message -> class or activity where log calls occurs
-    private static final String TAG = "SignInActivity";
+    private static final String TAG = "SignInActivity"; // TAG used in log calls, identify the source of a log message -> class or activity where log calls occurs
     private static final int RC_SIGN_IN = 9001; // ??
 
     private SignInButton mSignInButton;
@@ -73,12 +72,8 @@ public class SignInActivity extends AppCompatActivity implements
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
-
         // Initialize FirebaseAuth
         mFirebaseAuth = FirebaseAuth.getInstance();
-
-
-
     }
 
     @Override
@@ -92,16 +87,15 @@ public class SignInActivity extends AppCompatActivity implements
     }
 
     // Intent to Google Sign In UI
-
     private void signIn(){
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient); // ??
         startActivityForResult(signInIntent, RC_SIGN_IN); // ??
     }
 
     // ?? Automatically get called after startActivityForResult(signInIntent, RC_SIGN_IN)
+    // from the result automatically generated requestCode, resultCode, data
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // from the result automatically generated requestCode, resultCode, data
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RC_SIGN_IN){
@@ -111,11 +105,31 @@ public class SignInActivity extends AppCompatActivity implements
                 GoogleSignInAccount account = result.getSignInAccount();
                 fireBaseAuthWithGoogle(account);
             } else {
-                Log.e(TAG, "Google signed in failed");
+                // Log.e(TAG, "Google signed in failed");
             }
         }
     }
 
+    private void fireBaseAuthWithGoogle(GoogleSignInAccount acct){
+        // Retrieve credential from Google
+        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+        // Sign in FirebaseAuth with Google credential
+        mFirebaseAuth.signInWithCredential(credential)
+                // Completion listener -> MOST COMPLICATED PART
+                // only need task.isSuccessful()
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (!task.isSuccessful()){
+                            // Log toast warning
+                        } else {
+                            startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                            finish();
+                        }
+                    }
+                });
+
+    }
 
 
     @Override

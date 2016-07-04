@@ -123,7 +123,10 @@ public class MainActivity extends AppCompatActivity
         } else {
             // show login user name + photo
             mUsername = mFirebaseUser.getDisplayName();
-            mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+            // THE REASON YOUR APP CRASHED *************************
+            if (mFirebaseUser.getPhotoUrl() != null) {
+                mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+            }
         }
 
 
