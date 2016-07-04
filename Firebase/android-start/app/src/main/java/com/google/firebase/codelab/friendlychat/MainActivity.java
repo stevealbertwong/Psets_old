@@ -97,19 +97,44 @@ public class MainActivity extends AppCompatActivity
     private EditText mMessageEditText;
 
     // Firebase instance variables
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        // TODO: check FirebaseAuth if not signed in, then intent to SignInActivity.class
         // Set default username is anonymous.
         mUsername = ANONYMOUS;
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        // Ask FirebaseAuth for current user's information
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        // null = not signed in
+        if(mFirebaseUser == null){
+            // what does Activity.class or FriendlyMessage.class mean ??
+            startActivity(new Intent(this, SignInActivity.class));
+            finish(); // ??
+            return; // ??
+        } else {
+            // show login user name + photo
+            mUsername = mFirebaseUser.getDisplayName();
+            mPhotoUrl = mFirebaseUser.getPhotoUrl().toString();
+        }
+
+
+
+
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API)
                 .build();
+
 
         // Initialize ProgressBar and RecyclerView.
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);

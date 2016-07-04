@@ -704,14 +704,25 @@ Recycler view
 
 - custom recycler/list adapter to map a collection in database to Android
 	// creating a list adapter to populate the RecycleView/ListView from Database
+	mAdapter = new FirebaseRecyclerAdapter(
 	
-
 - create custom ViewHolder class
 - 
 
 
+7-4
+
+Firebase Android Codelab -1pt
+https://codelabs.developers.google.com/codelabs/firebase-android/#5
+
+Firebase Android Sample Instagram -1pt
+https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
+
+
+
 THINK ABOUT:
 ?? Toolbar setSupportActionBar(toolBar)
+MenuItem
 ViewPager FeedsPagerAdapter Tablayout
 mFab = (FloatingActionButton)
 login token
