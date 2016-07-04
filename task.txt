@@ -712,17 +712,21 @@ Recycler view
 
 7-4
 
-Firebase Android Codelab -1pt
+Firebase Android Codelab -4pts
 https://codelabs.developers.google.com/codelabs/firebase-android/#5
 	mGoogleApiClient = new GoogleApiClient.Builder(this);
 	Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)
 	GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
 	GoogleSignInAccount account = result.getSignInAccount();
+- the problem of this database is there is only one model (Friendly Message) so each logged in user store their name and message into the only one same database -> 1 collection with everyone's message in it
+
+
+Udacity Firebase datastructure-1pt
 
 
 
-Firebase Android Sample Instagram -1pt
+Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
 
 
