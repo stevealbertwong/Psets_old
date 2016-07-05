@@ -731,7 +731,10 @@ Udacity
 Set up sunshine + 1.01 Add ListItem XML-1pt
 Sunshine arrayadapter + listView.setAdapter -2pts 
 
-Connecting shopplusplus set up -1pt
+Shop++ set up -2pt
+1. Firebase console - create project, add firebase to android, create config file, apply google service plugin
+2. add Firebase/Google library/SDK to build gradle (both app and project level)
+3. set internet permission in Android Manifest
 
 
 

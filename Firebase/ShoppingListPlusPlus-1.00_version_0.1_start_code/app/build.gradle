@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -20,7 +21,7 @@ android {
 
         }
     }
-    // TODO: packaging options
+    // TODO: packaging options -> exclude duplicate files during packaging of firebase APK
     packagingOptions {
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE-FIREBASE.txt'
@@ -41,6 +42,11 @@ dependencies {
     compile 'com.google.android.gms:play-services-auth:9.0.0'
 
     // TODO: Firebase
+    compile 'com.firebase:firebase-client-android:2.3.1+'
 
     // TODO: Firebase UI
 }
+
+// TODO: Google service plugin loads the google-services.json -> config file from firebase console to add firebase to android
+// ADD this to bottom
+apply plugin: 'com.google.gms.google-services'

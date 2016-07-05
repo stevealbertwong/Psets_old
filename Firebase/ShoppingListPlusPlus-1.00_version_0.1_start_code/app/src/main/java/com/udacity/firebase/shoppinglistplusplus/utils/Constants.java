@@ -17,8 +17,9 @@ public final class Constants {
 
 
     /**
-     * Constants for Firebase URL
+     * TODO: Constants for Firebase URL advanced level when you put gradle.properties + FirebaseURL into git ignore
      */
+
 
 
     /**
