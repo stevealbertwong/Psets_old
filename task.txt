@@ -755,6 +755,19 @@ Glide.with(MainActivity.this).load(friendlyMessage.getPhotoUrl()).into(viewHolde
 LinearLayout linLayout = (LinearLayout)findViewWithTag("layout1");
 dynamic view
 View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog);
+LayoutInflater inflater = getActivity().getLayoutInflater();
+public Dialog onCreateDialog(Bundle savedInstanceState) 
+        Bundle bundle = new Bundle();
+        addListDialogFragment.setArguments(bundle);
+public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+public void onActivityCreated(Bundle savedInstanceState) 
+
+
+
 
 
 
