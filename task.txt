@@ -729,7 +729,9 @@ Udacity Android -0.5pt
 7-5
 Udacity 
 Set up sunshine + 1.01 Add ListItem XML-1pt
+Sunshine arrayadapter + listView.setAdapter -2pts 
 
+Connecting shopplusplus set up -1pt
 
 
 
@@ -749,6 +751,9 @@ login token
 Glide.with(MainActivity.this).load(friendlyMessage.getPhotoUrl()).into(viewHolder.messengerImageView)
 LinearLayout linLayout = (LinearLayout)findViewWithTag("layout1");
 dynamic view
+View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+
 
 NATIVE VS IOS ANDRIOD
 

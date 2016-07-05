@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -94,8 +95,12 @@ public class MainActivity extends ActionBarActivity {
                     weekforecast
             );
 
-
+            // Look up ListView in fragment_main.xml
+            // fragment_main.xml is root view in view hierarchy
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
+            listView.setAdapter(mArrayAdapter);
+
             return rootView;
         }
     }
