@@ -723,6 +723,15 @@ https://codelabs.developers.google.com/codelabs/firebase-android/#5
 
 
 Udacity Firebase datastructure-1pt
+Udacity Android -0.5pt
+
+
+7-5
+Udacity 
+Set up sunshine + 1.01 Add ListItem XML-1pt
+
+
+
 
 
 
