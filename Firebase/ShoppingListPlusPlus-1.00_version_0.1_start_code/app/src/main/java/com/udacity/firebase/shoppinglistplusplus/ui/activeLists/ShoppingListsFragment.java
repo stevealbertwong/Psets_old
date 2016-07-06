@@ -9,6 +9,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.firebase.client.ChildEventListener;
+import com.firebase.client.DataSnapshot;
+import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
 
 
@@ -59,6 +64,27 @@ public class ShoppingListsFragment extends Fragment {
          */
         View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false);
         initializeScreen(rootView);
+
+        // TODO: attach listener to ref to get data stored at listName child node of root node
+        // TODO:
+        // listName child node reference
+        Firebase refListName = new Firebase("https://shoppingplusplus-f6a38.firebaseio.com/").child("listName");
+        // see Marty's example: addChildEventListener
+        refListName.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // dataSnapshot: listName child node
+                String value = (String) dataSnapshot.getValue();
+
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        })
+
+
 
         /**
          * Set interactive bits, such as click events and adapters

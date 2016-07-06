@@ -13,8 +13,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.firebase.client.Firebase;
 import com.udacity.firebase.shoppinglistplusplus.R;
 
 /**
@@ -90,17 +89,16 @@ public class AddListDialogFragment extends DialogFragment {
     }
 
     /**
-     * Add new active list
+     * TODO: Add new active list
      */
     public void addShoppingList() {
-//        Firebase ref = new Firebase("https://shoppingplusplus-f6a38.firebaseio.com/");
-//        String userEnteredName = mEditTextListName.getText().toString();
-//        // listName: key, userEnteredName: value
-//        ref.child("listName").setValue(userEnteredName);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
+        // Reference to root node
+        Firebase ref = new Firebase("https://shoppingplusplus-f6a38.firebaseio.com/");
+        String userEnteredName = mEditTextListName.getText().toString();
+        // listName: key, userEnteredName: value
+        // listName: child node of root node
+        ref.child("listName").setValue(userEnteredName);
 
-        myRef.setValue("Hello, World!");
     }
 
 }

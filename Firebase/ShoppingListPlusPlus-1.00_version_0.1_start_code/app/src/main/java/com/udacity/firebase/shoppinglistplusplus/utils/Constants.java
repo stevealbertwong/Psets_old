@@ -12,14 +12,15 @@ public final class Constants {
 
 
     /**
-     * Constants for Firebase object properties
+     * TODO: Constants for Firebase object properties
      */
 
 
     /**
      * TODO: Constants for Firebase URL advanced level when you put gradle.properties + FirebaseURL into git ignore
      */
-
+    // static: nested static class can be assessed without having an object of outer class
+    // public static final String FIREBASE_URL =
 
 
     /**
