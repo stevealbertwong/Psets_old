@@ -15,6 +15,7 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.models.ShoppingList;
 
 
 /**
@@ -27,6 +28,7 @@ public class ShoppingListsFragment extends Fragment {
     private ListView mListView;
     // declare here since it is used in private void initialize screen
     private TextView mTextViewListName;
+    private TextView mTextViewOwnerName;
 
     public ShoppingListsFragment() {
         /* Required empty public constructor */
@@ -71,21 +73,29 @@ public class ShoppingListsFragment extends Fragment {
         // TODO: attach listener to ref to get data stored at listName child node of root node
         // TODO: x constant ping + asyn adapter + asyn taks thread request respond model -> datasnapshot + listener: firebase pings phones w connected database
         // listName child node reference
-        Firebase refListName = new Firebase("https://shoppingplusplus-f6a38.firebaseio.com/").child("listName");
+        Firebase refActiveList = new Firebase("https://shoppingplusplus-f6a38.firebaseio.com/").child("ActiveList");
+
         // see Marty's example: addChildEventListener
         // attach listener to a specific node
         // if attach to a parent node, any changes in child node will trigger listener code -> send parent node + all its children
         // Firebase SDK deals with all threading and asychonizity
         // ValueEventListener methods are called on the main or UI thread -> dont put expensive operations, otherwise slow
-        refListName.addValueEventListener(new ValueEventListener() {
+        refActiveList.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // dataSnapshot: listName child node, a read-only copy
                 // listNameValue is the String user enter in AddListDialogFragment
-                String listNameValue = (String) dataSnapshot.getValue();
-                mTextViewListName.setText(listNameValue);
+//                String listNameValue = (String) dataSnapshot.getValue();
+//                mTextViewListName.setText(listNameValue);
 
+                // deserialize datasnapshot data into shoppinglist
+                ShoppingList shoppingList = dataSnapshot.getValue(ShoppingList.class);
 
+                if (shoppingList != null){
+                    mTextViewOwnerName.setText(shoppingList.getOwner());
+                    mTextViewListName.setText(shoppingList.getListName());
+
+                }
             }
 
             @Override
@@ -123,6 +133,8 @@ public class ShoppingListsFragment extends Fragment {
         // since fragment_shopping_lists.xml includes single_active_list.xml <include layout="@layout/single_active_list" />
         mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
         mTextViewListName = (TextView) rootView.findViewById(R.id.text_view_list_name);
+        mTextViewOwnerName = (TextView) rootView.findViewById(R.id.created_by);
+
 
 
     }

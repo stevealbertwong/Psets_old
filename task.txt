@@ -741,7 +741,7 @@ Shop++ set up -2pt
 Shop++ listener + resquest response model -1pt
 get the datasnapshot brings it back to textview -1pt
 fragment_shopping_lists.xml includes single_active_list.xml <include layout="@layout/single_active_list" />
-
+POJO write read -1pt
 
 
 
