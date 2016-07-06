@@ -741,12 +741,20 @@ Shop++ set up -2pt
 Shop++ listener + resquest response model -1pt
 get the datasnapshot brings it back to textview -1pt
 fragment_shopping_lists.xml includes single_active_list.xml <include layout="@layout/single_active_list" />
-POJO write read -1pt
+POJO -1pt
+- write(create instance of shoppinglist class and pass in listname and owner value + setvalue(shoppinglist))- read 
+
+git remote -v // show git repo
+rm -fr .git // remove git init
+git clone -b xxx http//xxx.git
+
+reading up Firebase v2 startup fire-1pt
 
 
 
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
+
 
 
 
