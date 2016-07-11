@@ -757,6 +757,11 @@ reading up Firebase v2 startup fire-1pt
 BaseActivity.java
 - deals with login logout for every activities that requires you to login to view
 
+Android Manifest.xml
+<action android:name="android.intent.action.MAIN" /> -> this is the app's entry point
+CATEGORY_LAUNCHER means it should appear in the Launcher as a top-level application, while CATEGORY_ALTERNATIVE means it should be included in a list of alternative actions the user can perform on a piece of data. -> entry point should be listed in the application launcher + Android does not grab whichever one appears first in the manifest but it starts with activity having CATEGORY_LAUNCHER + CATEGORY_LAUNCHER : The activity can be the initial activity of a task and is listed in the top-level application launcher.
+
+LoginActivity -> MainActivity
 
 
 
@@ -795,6 +800,10 @@ Inheritance: extends AppCombatActivity implements GoogleApiClient.OnConnectionFa
 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BaseActivity.this);
 menu item xml+ onCreateOptionsMenu(Menu menu) onOptionsItemSelected(MenuItem item) -> show as action
+Fragment vs Dialogue fragment
+public static ShoppingListsFragment newInstance(String encodedEmail) -> use this factory method to create an instance of this fragment
+widget -> floating action button
+
 
 
 

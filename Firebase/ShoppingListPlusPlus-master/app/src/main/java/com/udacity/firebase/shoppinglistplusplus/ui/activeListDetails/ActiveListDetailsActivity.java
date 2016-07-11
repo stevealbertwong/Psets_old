@@ -54,6 +54,9 @@ public class ActiveListDetailsActivity extends BaseActivity {
     private ValueEventListener mCurrentUserRefListener, mCurrentListRefListener, mSharedWithListener;
     private HashMap<String, User> mSharedWithUsers;
 
+
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

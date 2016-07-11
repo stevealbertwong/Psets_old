@@ -35,7 +35,7 @@ public class ShoppingListsFragment extends Fragment {
     }
 
     /**
-     * Create fragment and pass bundle with data as it's arguments
+     * Create fragment and pass bundle with data as fragment's arguments
      * Right now there are not arguments...but eventually there will be.
      */
     public static ShoppingListsFragment newInstance(String encodedEmail) {
@@ -45,6 +45,14 @@ public class ShoppingListsFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
+
+
+
+
+
+
+
+
 
     /**
      * Initialize instance variables with data from bundle
@@ -64,13 +72,18 @@ public class ShoppingListsFragment extends Fragment {
         /**
          * Initialize UI elements
          */
-        View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false);
-        initializeScreen(rootView);
+        View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // load GUI layout from XML
+        initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
+
+
+
+
 
         /**
          * Set interactive bits, such as click events and adapters
          */
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ShoppingList selectedList = mActiveListAdapter.getItem(position);
@@ -90,6 +103,12 @@ public class ShoppingListsFragment extends Fragment {
 
         return rootView;
     }
+
+
+
+
+
+
     /**
      * Updates the order of mListView onResume to handle sortOrderChanges properly
      */
@@ -130,6 +149,18 @@ public class ShoppingListsFragment extends Fragment {
          */
         mListView.setAdapter(mActiveListAdapter);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Cleanup the adapter when activity is paused.
