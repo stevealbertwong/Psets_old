@@ -794,7 +794,7 @@ public void onActivityCreated(Bundle savedInstanceState)
 Inheritance: extends AppCombatActivity implements GoogleApiClient.OnConnectionFailedListener{ALL CODE IN THIS PUBLIC ABSTRACT CLASS};
 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BaseActivity.this);
-
+menu item xml+ onCreateOptionsMenu(Menu menu) onOptionsItemSelected(MenuItem item) -> show as action
 
 
 

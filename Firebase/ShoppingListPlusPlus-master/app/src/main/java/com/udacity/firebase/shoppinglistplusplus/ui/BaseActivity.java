@@ -55,6 +55,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
                 .build();
 
         /* Setup the Google API object to allow Google+ logins */
+        // Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
@@ -69,9 +70,16 @@ public abstract class BaseActivity extends AppCompatActivity implements
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BaseActivity.this);
         /* Get mEncodedEmail and mProvider from SharedPreferences, use null as default value */
         mEncodedEmail = sp.getString(Constants.KEY_ENCODED_EMAIL, null); // (String key, String defValue)
-        mProvider = sp.getString(Constants.KEY_PROVIDER, null);
+        mProvider = sp.getString(Constants.KEY_PROVIDER, null); // provider -> google, facebook, email password
 
 
+
+
+
+
+        /* Create Firebase AuthStateListener listen to onAuthStateChanged i.e. AuthData = null when user has been logged out
+           clear out Sharedpreference and take user back to login screen
+           */
         if (!((this instanceof LoginActivity) || (this instanceof CreateAccountActivity))) {
             mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
             mAuthListener = new Firebase.AuthStateListener() {
@@ -80,9 +88,10 @@ public abstract class BaseActivity extends AppCompatActivity implements
                      /* The user has been logged out */
                     if (authData == null) {
                         /* Clear out shared preferences */
-                        SharedPreferences.Editor spe = sp.edit();
-                        spe.putString(Constants.KEY_ENCODED_EMAIL, null);
+                        SharedPreferences.Editor spe = sp.edit(); // interface used for modifying values in SharedPreference object
+                        spe.putString(Constants.KEY_ENCODED_EMAIL, null); // (String key, String value)
                         spe.putString(Constants.KEY_PROVIDER, null);
+
                         // see below: Intent intent = new Intent(BaseActivity.this, LoginActivity.class);
                         takeUserToLoginScreenOnUnAuth();
                     }
@@ -91,6 +100,8 @@ public abstract class BaseActivity extends AppCompatActivity implements
             mFirebaseRef.addAuthStateListener(mAuthListener);
         }
     }
+
+
 
 
 
@@ -107,11 +118,24 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
     }
 
+
+
+
+
+
+
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
 
+
+
+
+
+
+    /* Options Menu */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         /* Inflate the menu; this adds items to the action bar if it is present. */
@@ -136,11 +160,19 @@ public abstract class BaseActivity extends AppCompatActivity implements
         return super.onOptionsItemSelected(item);
     }
 
+
+
+
+
+
+
+
+
+    /**
+     * Set different background image for landscape and portrait layouts -> it is not called here its for inheritance
+     */
     protected void initializeBackground(LinearLayout linearLayout) {
 
-        /**
-         * Set different background image for landscape and portrait layouts
-         */
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
             linearLayout.setBackgroundResource(R.drawable.background_loginscreen_land);
         } else {
