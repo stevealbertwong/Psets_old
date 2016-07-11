@@ -752,8 +752,21 @@ reading up Firebase v2 startup fire-1pt
 
 
 
+
+7-11
+BaseActivity.java
+- deals with login logout for every activities that requires you to login to view
+
+
+
+
+
+
+
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
+
+
 
 
 
@@ -778,7 +791,9 @@ public void onCreate(Bundle savedInstanceState) {
     }
 getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
 public void onActivityCreated(Bundle savedInstanceState) 
-
+Inheritance: extends AppCombatActivity implements GoogleApiClient.OnConnectionFailedListener{ALL CODE IN THIS PUBLIC ABSTRACT CLASS};
+intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BaseActivity.this);
 
 
 
