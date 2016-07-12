@@ -63,6 +63,7 @@ public class ActiveListDetailsActivity extends BaseActivity {
         setContentView(R.layout.activity_active_list_details);
 
         /* Get the push ID from the extra passed by ShoppingListFragment */
+        // String listId = mActiveListAdapter.getRef(position).getKey(); // mActiveListAdapter inherits FirebaseListAdapter<ShoppingList>
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);
         if (mListId == null) {

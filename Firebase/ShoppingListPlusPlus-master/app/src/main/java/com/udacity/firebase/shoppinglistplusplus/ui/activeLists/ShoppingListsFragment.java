@@ -88,42 +88,49 @@ public class ShoppingListsFragment extends Fragment {
          * Initialize UI elements -> either this method or setContentView()
          */
         View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // standard: load GUI layout from XML
+
         initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
-
-
-
-
 
         /**
          * Set interactive bits, such as click events and adapters
          * Fragment -> all click events happen in java not xml
          */
+
+        // new AdapterView...onItemClick()... -> syntatic diarhea: annoymous innerclass object to pass as parameter (BY MARTY)
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
+            // position is the position of the item that got clicked
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                // Adapter knows to build each list item layout, takes in raw data and creates layout for them
-                ShoppingList selectedList = mActiveListAdapter.getItem(position); // ?? there is no getItem() or getRef() + why does it return a model ShoppingList
-                if (selectedList != null) {
-                    Intent intent = new Intent(getActivity(), ActiveListDetailsActivity.class);
 
+                // Adapter knows to build each list item layout, takes in raw data and creates layout for them
+                // ?? there is no getItem() or getRef() + why does it return a model ShoppingList
+                // FirebaseListAdapter<ShoppingList>
+                ShoppingList selectedList = mActiveListAdapter.getItem(position);
+                if (selectedList != null) {
+
+
+                    // ShoppingListFragment -> ActiveListDetailsActivity
+                    Intent intent = new Intent(getActivity(), ActiveListDetailsActivity.class);
                     /* Get the list ID using the adapter's get ref method to get the Firebase
                      * ref and then grab the key.
                      */
                     String listId = mActiveListAdapter.getRef(position).getKey();
-
                     intent.putExtra(Constants.KEY_LIST_ID, listId);
+
 
                     /* Starts an active showing the details for the selected list */
                     startActivity(intent);
                 }
             }
         });
-
-
         return rootView;
     }
+
+
+
+
 
 
 
@@ -136,8 +143,13 @@ public class ShoppingListsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        // SettingActivity
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
         String sortOrder = sharedPref.getString(Constants.KEY_PREF_SORT_ORDER_LISTS, Constants.ORDER_BY_KEY);
+
+
+
 
         Query orderedActiveUserListsRef;
         Firebase activeListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS)
@@ -147,6 +159,7 @@ public class ShoppingListsFragment extends Fragment {
          * if it's been selected in the SettingsActivity
          */
         if (sortOrder.equals(Constants.ORDER_BY_KEY)) {
+            // Firebase.orderByKey()
             orderedActiveUserListsRef = activeListsRef.orderByKey();
         } else {
 
@@ -157,6 +170,11 @@ public class ShoppingListsFragment extends Fragment {
 
             orderedActiveUserListsRef = activeListsRef.orderByChild(sortOrder);
         }
+
+
+
+
+
 
         /**
          * Create the adapter with selected sort order

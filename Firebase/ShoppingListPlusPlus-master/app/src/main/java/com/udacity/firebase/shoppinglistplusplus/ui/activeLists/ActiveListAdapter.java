@@ -27,14 +27,14 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
     /**
      * Public constructor that initializes private instance variables when adapter is created
      */
+    // ShoppingListFragment
+    // mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail
     public ActiveListAdapter(Activity activity, Class<ShoppingList> modelClass, int modelLayout,
                              Query ref, String encodedEmail) {
         super(activity, modelClass, modelLayout, ref);
         this.mEncodedEmail = encodedEmail;
         this.mActivity = activity;
     }
-
-
 
 
 
@@ -117,8 +117,10 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
                 textViewCreatedByUser.setText(mActivity.getResources().getString(R.string.text_you));
 
             } else {
+
                 Firebase userRef = new Firebase(Constants.FIREBASE_URL_USERS).child(ownerEmail);
-                /* Get the user's name */
+
+                /* From Firebase get the user's name */
                 userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
