@@ -22,6 +22,8 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
     private String mEncodedEmail;
 
+
+
     /**
      * Public constructor that initializes private instance variables when adapter is created
      */
@@ -32,10 +34,22 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         this.mActivity = activity;
     }
 
+
+
+
+
+
+
+
+
+
     /**
      * Protected method that populates the view attached to the adapter (list_view_active_lists)
      * with items inflated from single_active_list.xml
      * populateView also handles data changes and updates the listView accordingly
+     *
+     * 1. populates textViewUsersShopping
+     * 2. populates textViewCreatedByUser
      */
     @Override
     protected void populateView(View view, ShoppingList list) {
@@ -43,6 +57,8 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         /**
          * Grab the needed Textivews and strings
          */
+
+        // ?? where does View and ShoppingList come from
         TextView textViewListName = (TextView) view.findViewById(R.id.text_view_list_name);
         final TextView textViewCreatedByUser = (TextView) view.findViewById(R.id.text_view_created_by_user);
         final TextView textViewUsersShopping = (TextView) view.findViewById(R.id.text_view_people_shopping_count);
@@ -52,6 +68,13 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         /* Set the list name and owner */
         textViewListName.setText(list.getListName());
 
+
+
+
+
+
+
+
         /**
          * Show "1 person is shopping" if one person is shopping
          * Show "N people shopping" if two or more users are shopping
@@ -59,6 +82,9 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
          */
         if (list.getUsersShopping() != null) {
             int usersShopping = list.getUsersShopping().size();
+
+            // R.string.person_shopping vs R.string.people_shopping ??
+            // textView.setText (char[] text, int start, int length)
             if (usersShopping == 1) {
                 textViewUsersShopping.setText(String.format(
                         mActivity.getResources().getString(R.string.person_shopping),
@@ -73,13 +99,23 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
             textViewUsersShopping.setText("");
         }
 
+
+
+
+
+
+
         /**
          * Set "Created by" text to "You" if current user is owner of the list
          * Set "Created by" text to userName if current user is NOT owner of the list
          */
+
+        // shoppingList.getOwner()
         if (ownerEmail != null) {
+
             if (ownerEmail.equals(mEncodedEmail)) {
                 textViewCreatedByUser.setText(mActivity.getResources().getString(R.string.text_you));
+
             } else {
                 Firebase userRef = new Firebase(Constants.FIREBASE_URL_USERS).child(ownerEmail);
                 /* Get the user's name */

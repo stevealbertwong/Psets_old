@@ -780,7 +780,9 @@ ViewGroup vs Fragment
 
 Fragment -> fully modularize activity
 
-
+ArrayListAdapter
+- public constructor: public ActiveListAdapter(Activity activity, Class<ShoppingList> modelClass, int modelLayout, Query ref, String encodedEmail)  
+- populates textViewUsersShopping and textViewCreatedByUser
 
 
 
@@ -824,6 +826,7 @@ public static ShoppingListsFragment newInstance(String encodedEmail) -> use this
 widget -> floating action button
 public static ShoppingListsFragment newInstance // Create fragment and pass bundle with data as fragment's arguments
 mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() -> what is adapterView
+ShoppingList selectedList = mActiveListAdapter.getItem(position); // ?? there is no getItem() or getRef() + why does it return a model ShoppingList -> shoppinglistfragment.java
 
 
 

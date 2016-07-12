@@ -95,20 +95,26 @@ public class ShoppingListsFragment extends Fragment {
 
 
         /**
-         * Set interactive bits, such as click events and adapters -> since fragment all click events happen in java not xml
+         * Set interactive bits, such as click events and adapters
+         * Fragment -> all click events happen in java not xml
          */
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                ShoppingList selectedList = mActiveListAdapter.getItem(position);
+
+                // Adapter knows to build each list item layout, takes in raw data and creates layout for them
+                ShoppingList selectedList = mActiveListAdapter.getItem(position); // ?? there is no getItem() or getRef() + why does it return a model ShoppingList
                 if (selectedList != null) {
                     Intent intent = new Intent(getActivity(), ActiveListDetailsActivity.class);
+
                     /* Get the list ID using the adapter's get ref method to get the Firebase
                      * ref and then grab the key.
                      */
                     String listId = mActiveListAdapter.getRef(position).getKey();
+
                     intent.putExtra(Constants.KEY_LIST_ID, listId);
+
                     /* Starts an active showing the details for the selected list */
                     startActivity(intent);
                 }
