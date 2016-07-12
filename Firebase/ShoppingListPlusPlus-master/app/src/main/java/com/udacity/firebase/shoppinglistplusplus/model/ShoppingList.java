@@ -24,6 +24,9 @@ public class ShoppingList {
     public ShoppingList() {
     }
 
+
+
+
     /**
      * Use this constructor to create new ShoppingLists.
      * Takes shopping list listName and owner. Set's the last
@@ -36,12 +39,18 @@ public class ShoppingList {
         this.listName = listName;
         this.owner = owner;
         this.timestampCreated = timestampCreated;
+
         HashMap<String, Object> timestampNowObject = new HashMap<String, Object>();
         timestampNowObject.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
         this.timestampLastChanged = timestampNowObject;
+
         this.timestampLastChangedReverse = null;
         this.usersShopping = new HashMap<>();
     }
+
+
+
+
 
     public String getListName() {
         return listName;
@@ -66,7 +75,7 @@ public class ShoppingList {
     @JsonIgnore
     public long getTimestampLastChangedLong() {
 
-        return (long) timestampLastChanged.get(Constants.FIREBASE_PROPERTY_TIMESTAMP);
+        return (long) timestampLastChanged.get(Constants.FIREBASE_PROPERTY_TIMESTAMP); // "timestamp"
     }
 
     @JsonIgnore

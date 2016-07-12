@@ -34,6 +34,12 @@ public class ShoppingListsFragment extends Fragment {
         /* Required empty public constructor */
     }
 
+
+
+
+
+
+
     /**
      * Create fragment and pass bundle with data as fragment's arguments
      * Right now there are not arguments...but eventually there will be.
@@ -64,6 +70,11 @@ public class ShoppingListsFragment extends Fragment {
             mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
         }
     }
+
+
+
+
+
 
 
 

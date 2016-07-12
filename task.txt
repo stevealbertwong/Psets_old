@@ -775,6 +775,13 @@ initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id
 Move xml into a new fragment -> then linear layout contain the new fragment in the original xml 
 
 
+7-12
+ViewGroup vs Fragment
+
+Fragment -> fully modularize activity
+
+
+
 
 
 
