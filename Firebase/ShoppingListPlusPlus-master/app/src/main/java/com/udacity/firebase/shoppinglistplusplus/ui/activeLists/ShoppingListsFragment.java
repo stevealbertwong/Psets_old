@@ -42,7 +42,7 @@ public class ShoppingListsFragment extends Fragment {
 
     /**
      * Create fragment and pass bundle with data as fragment's arguments
-     * Right now there are not arguments...but eventually there will be.
+     * Right now there are not arguments...but eventually there will be. -> creating a new shopping list with encoded email as key
      */
     public static ShoppingListsFragment newInstance(String encodedEmail) {
         ShoppingListsFragment fragment = new ShoppingListsFragment();
@@ -66,6 +66,7 @@ public class ShoppingListsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
         }
@@ -84,7 +85,7 @@ public class ShoppingListsFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         /**
-         * Initialize UI elements
+         * Initialize UI elements -> either this method or setContentView()
          */
         View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // standard: load GUI layout from XML
         initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
@@ -94,7 +95,7 @@ public class ShoppingListsFragment extends Fragment {
 
 
         /**
-         * Set interactive bits, such as click events and adapters
+         * Set interactive bits, such as click events and adapters -> since fragment all click events happen in java not xml
          */
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

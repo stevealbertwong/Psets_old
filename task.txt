@@ -822,6 +822,8 @@ menu item xml+ onCreateOptionsMenu(Menu menu) onOptionsItemSelected(MenuItem ite
 Fragment vs Dialogue fragment
 public static ShoppingListsFragment newInstance(String encodedEmail) -> use this factory method to create an instance of this fragment
 widget -> floating action button
+public static ShoppingListsFragment newInstance // Create fragment and pass bundle with data as fragment's arguments
+mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() -> what is adapterView
 
 
 
