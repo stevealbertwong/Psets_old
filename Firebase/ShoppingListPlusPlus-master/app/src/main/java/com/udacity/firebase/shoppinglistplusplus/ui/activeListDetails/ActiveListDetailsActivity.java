@@ -64,21 +64,33 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
         /* Get the push ID from the extra passed by ShoppingListFragment */
         // String listId = mActiveListAdapter.getRef(position).getKey(); // mActiveListAdapter inherits FirebaseListAdapter<ShoppingList>
+        // when the master tab of shopping list was clicked
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);
+
+
+
         if (mListId == null) {
             /* No point in continuing without a valid ID. */
             finish();
             return;
         }
 
+
+
+
+
         /**
-         * Create Firebase references
+         * Create Firebase references using mListId + mEncodedEmail
          */
         mCurrentListRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail).child(mListId);
         mCurrentUserRef = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail);
         mSharedWithRef = new Firebase (Constants.FIREBASE_URL_LISTS_SHARED_WITH).child(mListId);
         Firebase listItemsRef = new Firebase(Constants.FIREBASE_URL_SHOPPING_LIST_ITEMS).child(mListId);
+
+
+
+
 
 
         /**
@@ -88,7 +100,8 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
 
         /**
-         * Setup the adapter
+         * Setup the ActiveListItemAdapter using ShoppingListItem.class, R.layout.single_active_list_item
+         * whereas ActiveListAdapter is for ShoppingListFragment, ShoppingList.class, R.layout.single_active_list
          */
         mActiveListItemAdapter = new ActiveListItemAdapter(this, ShoppingListItem.class,
                 R.layout.single_active_list_item, listItemsRef.orderByChild(Constants.FIREBASE_PROPERTY_BOUGHT_BY),
@@ -97,15 +110,24 @@ public class ActiveListDetailsActivity extends BaseActivity {
         mListView.setAdapter(mActiveListItemAdapter);
 
 
+
+
+
+
+
+
+
         /**
          * Add ValueEventListeners to Firebase references
          * to control get data and control behavior and visibility of elements
          */
 
         /* Save the most up-to-date version of current user in mCurrentUser */
+        // mCurrentUserRef = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail);
         mCurrentUserRefListener = mCurrentUserRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                // getting the entire User object
                 User currentUser = dataSnapshot.getValue(User.class);
                 if (currentUser != null) mCurrentUser = currentUser;
                 else finish();
@@ -119,7 +141,17 @@ public class ActiveListDetailsActivity extends BaseActivity {
             }
         });
 
+
+
+
+
         final Activity thisActivity = this;
+
+
+
+
+
+
 
 
         /**
@@ -146,14 +178,21 @@ public class ActiveListDetailsActivity extends BaseActivity {
                      */
                     return;
                 }
-                mShoppingList = shoppingList;
+
+
+
+
+                mShoppingList = shoppingList; // most recent version of current shopping list
                 /**
                  * Pass the shopping list to the adapter if it is not null.
                  * We do this here because mShoppingList is null when first created.
                  */
+                // public setter method
                 mActiveListItemAdapter.setShoppingList(mShoppingList);
 
                 /* Check if the current user is owner */
+                // shoppingList.getOwner().equals(currentUserEmail)
+                // menuItem edit.setVisible(mCurrentUserIsOwner);
                 mCurrentUserIsOwner = Utils.checkIfOwner(shoppingList, mEncodedEmail);
 
 
@@ -180,6 +219,16 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
             }
 
+
+
+
+
+
+
+
+
+
+
             @Override
             public void onCancelled(FirebaseError firebaseError) {
                 Log.e(LOG_TAG,
@@ -187,6 +236,13 @@ public class ActiveListDetailsActivity extends BaseActivity {
                                 firebaseError.getMessage());
             }
         });
+
+
+
+
+
+
+
 
         mSharedWithListener = mSharedWithRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -284,11 +340,27 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
+
         /* Inflate the menu; this adds items to the action bar if it is present. */
         getMenuInflater().inflate(R.menu.menu_list_details, menu);
-
         /**
          * Get menu items
          */
@@ -298,13 +370,24 @@ public class ActiveListDetailsActivity extends BaseActivity {
         MenuItem archive = menu.findItem(R.id.action_archive);
 
         /* Only the edit and remove options are implemented */
+        // only owner of current list, not just shared people could remove, edit and share the current list
         remove.setVisible(mCurrentUserIsOwner);
         edit.setVisible(mCurrentUserIsOwner);
         share.setVisible(mCurrentUserIsOwner);
         archive.setVisible(false);
-
         return true;
     }
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -361,6 +444,21 @@ public class ActiveListDetailsActivity extends BaseActivity {
         mSharedWithRef.removeEventListener(mSharedWithListener);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Link layout elements from XML and setup the toolbar
      */
@@ -369,6 +467,7 @@ public class ActiveListDetailsActivity extends BaseActivity {
         mTextViewPeopleShopping = (TextView) findViewById(R.id.text_view_people_shopping);
         mButtonShopping = (Button) findViewById(R.id.button_shopping);
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
+
         /* Common toolbar setup */
         setSupportActionBar(toolbar);
         /* Add back button to the action bar */
@@ -499,6 +598,15 @@ public class ActiveListDetailsActivity extends BaseActivity {
         dialog.show(this.getFragmentManager(), "EditListNameDialogFragment");
     }
 
+
+
+
+
+
+
+
+
+
     /**
      * Show the edit list item name dialog after longClick on the particular item
      *
@@ -512,6 +620,20 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
         dialog.show(this.getFragmentManager(), "EditListItemNameDialogFragment");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * This method is called when user taps "Start/Stop shopping" button

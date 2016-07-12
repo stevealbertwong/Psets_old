@@ -788,6 +788,19 @@ ShoppingListFragment -> ActiveListDetailsActivity
 
 
 
+7-13
+nike boot start afresh
+
+
+
+
+
+
+
+
+
+
+
 
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
@@ -829,6 +842,8 @@ mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() -> what i
 ShoppingList selectedList = mActiveListAdapter.getItem(position); // ?? there is no getItem() or getRef() + why does it return a model ShoppingList -> shoppinglistfragment.java
 textViewCreatedByUser.setText(mActivity.getResources().getString(R.string.text_you));
 mActivity.getResources() vs Firebase ref
+        <android.support.v7.widget.Toolbar
+
 
 
 
