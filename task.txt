@@ -763,6 +763,18 @@ CATEGORY_LAUNCHER means it should appear in the Launcher as a top-level applicat
 
 LoginActivity -> MainActivity
 
+2 ways to load screen from Activity.java:
+
+1. Activity
+setContentView(R.layout.activity_main);
+
+2. Fragment
+View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // load GUI layout from XML
+initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
+
+Move xml into a new fragment -> then linear layout contain the new fragment in the original xml 
+
+
 
 
 

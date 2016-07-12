@@ -65,6 +65,9 @@ public class ShoppingListsFragment extends Fragment {
         }
     }
 
+
+
+    // onCreateView returns fragment's root ui view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -72,7 +75,7 @@ public class ShoppingListsFragment extends Fragment {
         /**
          * Initialize UI elements
          */
-        View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // load GUI layout from XML
+        View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // standard: load GUI layout from XML
         initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
 
 
