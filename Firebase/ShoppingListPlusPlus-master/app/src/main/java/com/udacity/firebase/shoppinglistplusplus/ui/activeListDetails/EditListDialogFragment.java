@@ -22,12 +22,21 @@ import java.util.HashMap;
 
 /**
  * Base class for {@link DialogFragment}s involved with editing a shopping list.
+ *
+ * 1. Create a bundle with all shoppinglist info need to change
+ * 2. mSharedWith = (HashMap) getArgument().getSerizable(Constants.KEY_SHARED_WITH_USERS) convert Bundle into Instance
+ * 3. Get keyboard + Build AlertDialog + inflate the view + get mEditTextForList
+ * 4. creates Dialog -> when user type done/okay, call AddListItemDialogFragment to add new item to Firebase ref current shopping list through POJO
+ *
  */
+
 public abstract class EditListDialogFragment extends DialogFragment {
     String mListId, mOwner, mEncodedEmail;
     EditText mEditTextForList;
     int mResource;
     HashMap mSharedWith;
+
+
 
 
 
@@ -94,30 +103,61 @@ public abstract class EditListDialogFragment extends DialogFragment {
 
 
     /**
-     * Open the keyboard automatically when the dialog fragment is opened
+     * Open Keyboard
      */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        // Open the keyboard automatically when the dialog fragment is opened
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
+
+
+
+
+
+
+
     protected Dialog createDialogHelper(int stringResourceForPositiveButton) {
-        /* Use the Builder class for convenient dialog construction */
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog);
-        /* Get the layout inflater */
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        /* Inflate the layout, set root ViewGroup to null*/
-        View rootView = inflater.inflate(mResource, null);
-        mEditTextForList = (EditText) rootView.findViewById(R.id.edit_text_list_dialog);
+
 
         /**
-         * Call doListEdit() when user taps "Done" keyboard action
+         * Build AlertDialog + inflate the view + get mEditTextForList
+         *  */
+
+
+        // AlertDialog.Builder build AlertDialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog);
+
+        /* Get the layout inflater -> Inflate the layout, set root ViewGroup to null */
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        // mResource = getArguments().getInt(Constants.KEY_LAYOUT_RESOURCE);
+        View rootView = inflater.inflate(mResource, null);
+
+        mEditTextForList = (EditText) rootView.findViewById(R.id.edit_text_list_dialog);
+
+
+
+
+
+
+
+
+        /**
+         * Call doListEdit() when user taps "Done" on mEditTextForList
          */
         mEditTextForList.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+
+
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
+
+
+                // when user taps "Done"
                 if (actionId == EditorInfo.IME_ACTION_DONE || keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+                    // AddListItemDialogFragment -> Adds new item to Firebase ref current shopping list through POJO
                     doListEdit();
 
                     /**
@@ -128,13 +168,27 @@ public abstract class EditListDialogFragment extends DialogFragment {
                 return true;
             }
         });
-        /* Inflate and set the layout for the dialog */
-        /* Pass null as the parent view because its going in the dialog layout */
+
+
+
+
+
+
+
+
+
+
+        /* Inflate and set the layout for the dialog + Pass null as the parent view because its going in the dialog layout */
+
+        // AlertDialog.builder
         builder.setView(rootView)
-                /* Add action buttons */
+
+
+                /* Add action buttons + Positive Click and Negative Click */
                 .setPositiveButton(stringResourceForPositiveButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
+                        // AddListItemDialogFragment -> Adds new item to Firebase ref current shopping list through POJO
                         doListEdit();
 
                         /**
@@ -156,6 +210,16 @@ public abstract class EditListDialogFragment extends DialogFragment {
 
         return builder.create();
     }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Set the EditText text to be the inputted text

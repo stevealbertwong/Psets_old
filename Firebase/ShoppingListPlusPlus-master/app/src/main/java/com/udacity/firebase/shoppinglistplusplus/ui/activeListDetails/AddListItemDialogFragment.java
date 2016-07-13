@@ -84,8 +84,14 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
 
 
     /**
-     * Adds new item to the current shopping list
+     * Add new item to Firebase ref current shopping list through POJO
+     *
      * Get mItemName from mEditTextForList
+     * -> if there is input, create FirebaseRef + HashMap
+     * -> Create POJO i.e. ShoppingListItem model with paramter mItemName, mEncodedEmail
+     * -> convert itemToAddObject ShoppingListItem into itemToAdd HashMap
+     * -> add ("Firebase/mListId/itemId", itemToAdd) to updatedItemToAddMap HashMap
+     * -> shot HashMap data to Firebase: firebaseRef.updateChildren(updatedItemToAddMap, new Firebase.CompletionListener()
      */
     @Override
     protected void doListEdit() {
@@ -96,9 +102,8 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
 
 
 
-        /**
-         * Adds list item if the input name is not empty
-         */
+
+        //  Adds list item if the input name is not empty
         if (!mItemName.equals("")) {
 
             Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL);
@@ -142,7 +147,7 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
 
 
 
-            /* Do the update */
+
             // update the Hashmap updatedItemToAddMap to FirebaseRef
             firebaseRef.updateChildren(updatedItemToAddMap, new Firebase.CompletionListener() {
                 @Override
