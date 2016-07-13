@@ -45,6 +45,14 @@ public class EditListItemNameDialogFragment extends EditListDialogFragment {
         return editListItemNameDialogFragment;
     }
 
+
+
+
+
+
+
+
+
     /**
      * Initialize instance variables with data from bundle
      */
@@ -71,6 +79,15 @@ public class EditListItemNameDialogFragment extends EditListDialogFragment {
 
         return dialog;
     }
+
+
+
+
+
+
+
+
+
 
     /**
      * Change selected list item name to the editText input if it is not empty

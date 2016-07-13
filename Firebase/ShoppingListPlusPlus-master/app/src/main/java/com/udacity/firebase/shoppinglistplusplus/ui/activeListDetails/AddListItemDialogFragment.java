@@ -17,7 +17,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Lets user add new list item.
+ * Let user add new list item.
+ *
+ * 1. Public static constructor that creates fragment -> creates Bundle with data from parameters -> pass Bundle into Fragment
+ *
+ *
+ *
  */
 public class AddListItemDialogFragment extends EditListDialogFragment {
 
@@ -32,7 +37,8 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
 
 
     /**
-     * Public static constructor that creates fragment and passes a bundle with data into it when adapter is created
+     * Public static constructor that creates fragment -> creates Bundle with data from parameters -> pass Bundle into Fragment
+     * (which happens when adapter is created)
      */
     // use EditListDialogFragment to create Bundle and pass to AddListDialogFragment
     public static AddListItemDialogFragment newInstance(ShoppingList shoppingList, String listId,
@@ -66,6 +72,11 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
+
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -157,6 +168,14 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
                             mSharedWith, mOwner);
                 }
             });
+
+
+
+
+
+
+
+
 
             /**
              * Close the dialog fragment when done

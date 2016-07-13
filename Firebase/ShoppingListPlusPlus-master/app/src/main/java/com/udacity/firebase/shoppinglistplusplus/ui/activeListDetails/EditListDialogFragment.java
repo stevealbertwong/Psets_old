@@ -157,7 +157,7 @@ public abstract class EditListDialogFragment extends DialogFragment {
 
                 // when user taps "Done"
                 if (actionId == EditorInfo.IME_ACTION_DONE || keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-                    // AddListItemDialogFragment -> Adds new item to Firebase ref current shopping list through POJO
+                    // EditListItemNameDialogFragment -> Adds new item to Firebase ref current shopping list through POJO
                     doListEdit();
 
                     /**
@@ -188,7 +188,7 @@ public abstract class EditListDialogFragment extends DialogFragment {
                 .setPositiveButton(stringResourceForPositiveButton, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        // AddListItemDialogFragment -> Adds new item to Firebase ref current shopping list through POJO
+                        // EditListItemNameDialogFragment -> Adds new item to Firebase ref current shopping list through POJO
                         doListEdit();
 
                         /**

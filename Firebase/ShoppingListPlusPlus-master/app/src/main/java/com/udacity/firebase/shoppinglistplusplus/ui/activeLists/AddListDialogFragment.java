@@ -27,6 +27,10 @@ import java.util.Map;
 
 /**
  * Adds a new shopping list
+ *
+ * 1. Public static constructor that creates fragment -> creates Bundle with data from parameters -> pass Bundle into Fragment
+ *
+ *
  */
 public class AddListDialogFragment extends DialogFragment {
     String mEncodedEmail;
@@ -50,14 +54,30 @@ public class AddListDialogFragment extends DialogFragment {
         return addListDialogFragment;
     }
 
+
+
+
+
+
+
+
+
     /**
      * Initialize instance variables with data from bundle
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // a new ShoppingList requires user email
         mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
     }
+
+
+
+
+
+
+
 
     /**
      * Open the keyboard automatically when the dialog fragment is opened
@@ -67,6 +87,15 @@ public class AddListDialogFragment extends DialogFragment {
         super.onActivityCreated(savedInstanceState);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
+
+
+
+
+
+
+
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -84,6 +113,9 @@ public class AddListDialogFragment extends DialogFragment {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_DONE || keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
+
+
+
                     addShoppingList();
                 }
                 return true;
@@ -103,6 +135,10 @@ public class AddListDialogFragment extends DialogFragment {
 
         return builder.create();
     }
+
+
+
+
 
     /**
      * Add new active list
@@ -127,6 +163,11 @@ public class AddListDialogFragment extends DialogFragment {
             /* Save listsRef.push() to maintain same random Id */
             final String listId = newListRef.getKey();
 
+
+
+
+
+
             /* HashMap for data to update */
             HashMap<String, Object> updateShoppingListData = new HashMap<>();
 
@@ -136,6 +177,12 @@ public class AddListDialogFragment extends DialogFragment {
              */
             HashMap<String, Object> timestampCreated = new HashMap<>();
             timestampCreated.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
+
+
+
+
+
+
 
             /* Build the shopping list */
             ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail,
@@ -150,6 +197,10 @@ public class AddListDialogFragment extends DialogFragment {
             updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId,
                     mEncodedEmail);
 
+
+
+
+
             /* Do the update */
             firebaseRef.updateChildren(updateShoppingListData, new Firebase.CompletionListener() {
                 @Override
@@ -159,6 +210,9 @@ public class AddListDialogFragment extends DialogFragment {
                             null, mEncodedEmail);
                 }
             });
+
+
+
 
             /* Close the dialog fragment */
             AddListDialogFragment.this.getDialog().cancel();

@@ -34,6 +34,13 @@ public class EditListNameDialogFragment extends EditListDialogFragment {
         return editListNameDialogFragment;
     }
 
+
+
+
+
+
+
+
     /**
      * Initialize instance variables with data from bundle
      */
@@ -58,6 +65,16 @@ public class EditListNameDialogFragment extends EditListDialogFragment {
         helpSetDefaultValueEditText(mListName);
         return dialog;
     }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Changes the list name in all copies of the current list
