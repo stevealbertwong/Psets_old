@@ -796,7 +796,7 @@ POJO - model
 - e.g. making the shopping list an object 
 
 AddListItemDialogFragment
-
+EditListDialogFragment
 
 
 
@@ -848,7 +848,7 @@ mActivity.getResources() vs Firebase ref
         <android.support.v7.widget.Toolbar
 HashMap<String, Object> itemToAdd =
           (HashMap<String, Object>) new ObjectMapper().convertValue(itemToAddObject, Map.class);
-
+public static AddListItemDialogFragment newInstance that creates new bundle vs protected static Bundle newInstanceHelper that pass in bundle
 
 
 NATIVE VS IOS ANDRIOD

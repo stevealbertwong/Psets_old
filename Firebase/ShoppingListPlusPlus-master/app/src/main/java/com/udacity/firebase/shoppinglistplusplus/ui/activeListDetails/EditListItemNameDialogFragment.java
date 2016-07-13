@@ -13,11 +13,20 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 
 import java.util.HashMap;
 
+
+
+
 /**
  * Lets user edit list item name for all copies of the current list
  */
 public class EditListItemNameDialogFragment extends EditListDialogFragment {
     String mItemName, mItemId;
+
+
+
+
+
+
 
     /**
      * Public static constructor that creates fragment and passes a bundle with data into it when adapter is created
