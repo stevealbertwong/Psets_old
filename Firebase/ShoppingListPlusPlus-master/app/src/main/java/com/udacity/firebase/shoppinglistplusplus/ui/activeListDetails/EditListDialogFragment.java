@@ -29,6 +29,12 @@ public abstract class EditListDialogFragment extends DialogFragment {
     int mResource;
     HashMap mSharedWith;
 
+
+
+
+
+
+
     /**
      * Helper method that creates a basic bundle of all of the information needed to change
      * values in a shopping list.
@@ -52,6 +58,14 @@ public abstract class EditListDialogFragment extends DialogFragment {
         return bundle;
     }
 
+
+
+
+
+
+
+
+
     /**
      * Initialize instance variables with data from bundle
      */
@@ -64,6 +78,20 @@ public abstract class EditListDialogFragment extends DialogFragment {
         mOwner = getArguments().getString(Constants.KEY_LIST_OWNER);
         mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Open the keyboard automatically when the dialog fragment is opened

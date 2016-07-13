@@ -40,6 +40,9 @@ public class ShoppingListsFragment extends Fragment {
 
 
 
+
+
+
     /**
      * Create fragment and pass bundle with data as fragment's arguments
      * Right now there are not arguments...but eventually there will be. -> creating a new shopping list with encoded email as key

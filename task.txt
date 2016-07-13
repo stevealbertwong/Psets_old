@@ -791,8 +791,11 @@ ShoppingListFragment -> ActiveListDetailsActivity
 7-13
 nike boot start afresh
 
+POJO - model
+- convert simple Java object into Firebase database JSON
+- e.g. making the shopping list an object 
 
-
+AddListItemDialogFragment
 
 
 
@@ -843,7 +846,8 @@ ShoppingList selectedList = mActiveListAdapter.getItem(position); // ?? there is
 textViewCreatedByUser.setText(mActivity.getResources().getString(R.string.text_you));
 mActivity.getResources() vs Firebase ref
         <android.support.v7.widget.Toolbar
-
+HashMap<String, Object> itemToAdd =
+          (HashMap<String, Object>) new ObjectMapper().convertValue(itemToAddObject, Map.class);
 
 
 

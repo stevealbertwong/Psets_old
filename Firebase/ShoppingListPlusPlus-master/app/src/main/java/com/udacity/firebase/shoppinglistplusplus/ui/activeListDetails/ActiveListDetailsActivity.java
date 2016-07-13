@@ -262,20 +262,34 @@ public class ActiveListDetailsActivity extends BaseActivity {
             }
         });
 
+
+
+
+
+
+
+
         /**
          * Set up click listeners for interaction.
+         *
+         * 1. showEditListItemNameDialog(itemName, itemId);
          */
+
+
 
         /* Show edit list item name dialog on listView item long click event */
         mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
                 /* Check that the view is not the empty footer item */
                 if (view.getId() != R.id.list_view_footer_empty) {
                     ShoppingListItem shoppingListItem = mActiveListItemAdapter.getItem(position);
 
                     if (shoppingListItem != null) {
+
+
                         /*
                         If the person is the owner and not shopping and the item is not bought, then
                         they can edit it.
@@ -292,18 +306,33 @@ public class ActiveListDetailsActivity extends BaseActivity {
             }
         });
 
+
+
+
+
+
+
+
         /* Perform buy/return action on listView item click event if current user is shopping. */
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 /* Check that the view is not the empty footer item */
                 if (view.getId() != R.id.list_view_footer_empty) {
+
+                    // get the selectedListItem's position
                     final ShoppingListItem selectedListItem = mActiveListItemAdapter.getItem(position);
+                    // Firebase getRef to get the itemId
                     String itemId = mActiveListItemAdapter.getRef(position).getKey();
 
                     if (selectedListItem != null) {
                         /* If current user is shopping */
                         if (mShopping) {
+
+
+
+
+
 
                             /* Create map and fill it in with deep path multi write operations list */
                             HashMap<String, Object> updatedItemBoughtData = new HashMap<String, Object>();
@@ -320,10 +349,13 @@ public class ActiveListDetailsActivity extends BaseActivity {
                                 }
                             }
 
+
                             /* Do update */
                             Firebase firebaseItemLocation = new Firebase(Constants.FIREBASE_URL_SHOPPING_LIST_ITEMS)
                                     .child(mListId).child(itemId);
+                            // HashMap<String, Object> updatedItemBoughtData
                             firebaseItemLocation.updateChildren(updatedItemBoughtData, new Firebase.CompletionListener() {
+
                                 @Override
                                 public void onComplete(FirebaseError firebaseError, Firebase firebase) {
                                     if (firebaseError != null) {
@@ -466,18 +498,28 @@ public class ActiveListDetailsActivity extends BaseActivity {
         mListView = (ListView) findViewById(R.id.list_view_shopping_list_items);
         mTextViewPeopleShopping = (TextView) findViewById(R.id.text_view_people_shopping);
         mButtonShopping = (Button) findViewById(R.id.button_shopping);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
 
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         /* Common toolbar setup */
         setSupportActionBar(toolbar);
         /* Add back button to the action bar */
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+
+
         /* Inflate the footer, set root layout to null*/
         View footer = getLayoutInflater().inflate(R.layout.footer_empty, null);
         mListView.addFooterView(footer);
     }
+
+
+
+
+
+
+
 
     /**
      * Set appropriate text for Start/Stop shopping button and Who's shopping textView

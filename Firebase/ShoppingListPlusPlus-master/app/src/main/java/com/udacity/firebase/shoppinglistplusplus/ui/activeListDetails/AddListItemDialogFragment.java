@@ -21,12 +21,24 @@ import java.util.Map;
  */
 public class AddListItemDialogFragment extends EditListDialogFragment {
 
+
+
+
+
+
+
+
+
+
+
     /**
      * Public static constructor that creates fragment and passes a bundle with data into it when adapter is created
      */
+    // use EditListDialogFragment to create Bundle and pass to AddListDialogFragment
     public static AddListItemDialogFragment newInstance(ShoppingList shoppingList, String listId,
                                                         String encodedEmail,
                                                         HashMap<String, User> sharedWithUsers) {
+
         AddListItemDialogFragment addListItemDialogFragment = new AddListItemDialogFragment();
         Bundle bundle = EditListDialogFragment.newInstanceHelper(shoppingList,
                 R.layout.dialog_add_item, listId, encodedEmail, sharedWithUsers);
@@ -34,6 +46,18 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
 
         return addListItemDialogFragment;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Initialize instance variables with data from bundle
@@ -51,12 +75,27 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
         return super.createDialogHelper(R.string.positive_button_add_list_item);
     }
 
+
+
+
+
+
+
+
+
     /**
      * Adds new item to the current shopping list
+     * Get mItemName from mEditTextForList
      */
     @Override
     protected void doListEdit() {
+
+
         String mItemName = mEditTextForList.getText().toString();
+
+
+
+
         /**
          * Adds list item if the input name is not empty
          */
@@ -72,13 +111,21 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
             Firebase newRef = itemsRef.push();
             String itemId = newRef.getKey();
 
-            /* Make a POJO for the item and immediately turn it into a HashMap */
+
+
+
+
+
+
+
+
+            /* Make a POJO i.e. model for the item and immediately turn it into a HashMap */
             ShoppingListItem itemToAddObject = new ShoppingListItem(mItemName, mEncodedEmail);
             HashMap<String, Object> itemToAdd =
                     (HashMap<String, Object>) new ObjectMapper().convertValue(itemToAddObject, Map.class);
 
 
-            /* Add the item to the update map*/
+            /* Convert the POJO ShoppingListItem to HashMap itemToAdd -> then stored in the created updatedItemToAddMap */
             updatedItemToAddMap.put("/" + Constants.FIREBASE_LOCATION_SHOPPING_LIST_ITEMS + "/"
                     + mListId + "/" + itemId, itemToAdd);
 
@@ -86,7 +133,17 @@ public class AddListItemDialogFragment extends EditListDialogFragment {
             Utils.updateMapWithTimestampLastChanged(mSharedWith,
                     mListId, mOwner, updatedItemToAddMap);
 
+
+
+
+
+
+
+
+
+
             /* Do the update */
+            // update the Hashmap updatedItemToAddMap to FirebaseRef
             firebaseRef.updateChildren(updatedItemToAddMap, new Firebase.CompletionListener() {
                 @Override
                 public void onComplete(FirebaseError firebaseError, Firebase firebase) {
