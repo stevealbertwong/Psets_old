@@ -34,6 +34,12 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
     private String mEncodedEmail;
     private HashMap<String, User> mSharedWithUsers;
 
+
+
+
+
+
+
     /**
      * Public constructor that initializes private instance variables when adapter is created
      */
@@ -44,6 +50,13 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
         this.mListId = listId;
         this.mEncodedEmail = encodedEmail;
     }
+
+
+
+
+
+
+
 
     /**
      * Public method that is used to pass shoppingList object when it is loaded in ValueEventListener
@@ -57,6 +70,12 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
         this.mSharedWithUsers = sharedWithUsers;
         this.notifyDataSetChanged();
     }
+
+
+
+
+
+
 
     /**
      * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
@@ -114,6 +133,14 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
             }
         });
     }
+
+
+
+
+
+
+
+
 
     private void removeItem(String itemId) {
         Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL);

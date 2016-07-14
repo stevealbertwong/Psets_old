@@ -96,13 +96,16 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
-
+    // Build AlertDialog + inflate dialog_add_list layout into View -> Builder.setView(View)
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        // Use the Builder class for convenient dialog construction
+        // Use the Builder class for convenient dialog construction -> e.g. builder.setView(rootView)
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog);
         // Get the layout inflater
+        // Layout inflater converts XML into java widget
         LayoutInflater inflater = getActivity().getLayoutInflater();
+        // null is parent: parent means layout or container to add this widget to
+        // Pass null as the parent view because its going in the dialog layout
         View rootView = inflater.inflate(R.layout.dialog_add_list, null);
         mEditTextListName = (EditText) rootView.findViewById(R.id.edit_text_list_name);
 
@@ -122,8 +125,14 @@ public class AddListDialogFragment extends DialogFragment {
             }
         });
 
+
+
+
+
+
         /* Inflate and set the layout for the dialog */
         /* Pass null as the parent view because its going in the dialog layout*/
+        // null + layout.addView(View) -> getLayoutInflater().inflate(R.layout.xx, layout) // layout is the parent you are adding view to
         builder.setView(rootView)
                 /* Add action buttons */
                 .setPositiveButton(R.string.positive_button_create, new DialogInterface.OnClickListener() {

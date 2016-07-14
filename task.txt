@@ -798,7 +798,19 @@ POJO - model
 AddListItemDialogFragment
 EditListDialogFragment
 
+LayoutInflater -> run logic of dynamic UI instead of static UI in XML
+Fragment -> getActivity() to get the Activity it is in 
+getMenuInflater().inflate(R.menu.menu_list_details, menu);
+View footer = getLayoutInflater().inflate(R.layout.footer_empty, null);
+Layout inflater converts XML into java widget
 
+View rootView = getAcitivity().getLayoutInflater().inflate(R.layout / mResource, null)
+
+
+
+
+7-14
+layoutinflater is just a converter of XML into View object -> NO event or listener or set/get method or lifecycle 
 
 
 
