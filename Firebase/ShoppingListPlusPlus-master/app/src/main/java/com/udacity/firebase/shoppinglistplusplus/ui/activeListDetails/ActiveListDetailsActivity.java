@@ -33,9 +33,26 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+
+
+
 /**
  * Represents the details screen for the selected shopping list
+ *
+ * 1. Firebase Ref attach Firebase listener for Datasnapshot -> current user
+ * 2. Set up View i.e. initialize screen
+ * 3. mListView.setAdapter(mActiveListItemAdapter); -> populates listView using AtiveListItemAdapter + ShoppingListItem Model
+ * 4. CurrentListRef datasnapshot -> ShoppingList shoppingList = snapshot.getValue(ShoppingList.class); -> mActiveListItemAdapter.setShoppingList(mShoppingList);
+ * 5. mListView.setOnItemLongClickListener -> ShoppingListItem = mActiveListItemAdapter.getItem(position); -> showEditListItemNameDialog(itemName, itemId);
+ * 6.
+ * 7. getMenuInflater().inflate(R.menu.menu_list_details, menu); -> when options clicked call dialog methods
+ * 8.
+ *
  */
+
+
 // BaseActivity implements GoogleAPIClient callbacks to enable logouts in all Activities
 public class ActiveListDetailsActivity extends BaseActivity {
     private static final String LOG_TAG = ActiveListDetailsActivity.class.getSimpleName();
@@ -93,10 +110,24 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
 
 
+
+
         /**
-         * Link layout elements from XML and setup the toolbar
+         * Instantiate XML layout elements and setup the toolbar
+         *
+         * 1. list_view_shopping_list_items
+         * 2. text_view_people_shopping
+         * 3. button_shopping
+         * 4. setSupportActionBar(toolbar)
+         * 5. mListView.addFooterView(footer);
          */
         initializeScreen();
+
+
+
+
+
+
 
 
         /**
@@ -145,6 +176,10 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
 
 
+
+
+
+
         final Activity thisActivity = this;
 
 
@@ -183,11 +218,13 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
 
                 mShoppingList = shoppingList; // most recent version of current shopping list
+
+
                 /**
                  * Pass the shopping list to the adapter if it is not null.
                  * We do this here because mShoppingList is null when first created.
                  */
-                // public setter method
+                // public setter method + this.notifyDataChanged()
                 mActiveListItemAdapter.setShoppingList(mShoppingList);
 
                 /* Check if the current user is owner */
@@ -198,6 +235,10 @@ public class ActiveListDetailsActivity extends BaseActivity {
 
                 /* Calling invalidateOptionsMenu causes onCreateOptionsMenu to be called */
                 invalidateOptionsMenu();
+
+
+
+
 
                 /* Set title appropriately. */
                 setTitle(shoppingList.getListName());
@@ -214,6 +255,10 @@ public class ActiveListDetailsActivity extends BaseActivity {
                     mShopping = false;
 
                 }
+
+
+
+
 
                 setWhosShoppingText(mShoppingList.getUsersShopping());
 
@@ -261,6 +306,9 @@ public class ActiveListDetailsActivity extends BaseActivity {
                                 firebaseError.getMessage());
             }
         });
+
+
+
 
 
 
@@ -629,6 +677,13 @@ public class ActiveListDetailsActivity extends BaseActivity {
                 mEncodedEmail, mSharedWithUsers);
         dialog.show(getFragmentManager(), "AddListItemDialogFragment");
     }
+
+
+
+
+
+
+
 
     /**
      * Show edit list name dialog when user selects "Edit list name" menu item

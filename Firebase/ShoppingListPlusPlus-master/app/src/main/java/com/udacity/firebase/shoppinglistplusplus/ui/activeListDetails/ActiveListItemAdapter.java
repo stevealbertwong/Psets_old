@@ -66,6 +66,8 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
         this.notifyDataSetChanged();
     }
 
+
+
     public void setSharedWithUsers(HashMap<String, User> sharedWithUsers) {
         this.mSharedWithUsers = sharedWithUsers;
         this.notifyDataSetChanged();
@@ -165,6 +167,10 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
             }
         });
     }
+
+
+
+
 
     private void setItemAppearanceBaseOnBoughtStatus(String owner, final TextView textViewBoughtByUser,
                                                      TextView textViewBoughtBy, ImageButton buttonRemoveItem,
