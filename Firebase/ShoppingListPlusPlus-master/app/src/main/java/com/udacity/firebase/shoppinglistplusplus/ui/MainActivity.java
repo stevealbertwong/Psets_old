@@ -35,6 +35,10 @@ public class MainActivity extends BaseActivity {
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private ValueEventListener mUserRefListener;
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

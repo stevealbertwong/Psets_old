@@ -133,6 +133,7 @@ public class AddListDialogFragment extends DialogFragment {
         /* Inflate and set the layout for the dialog */
         /* Pass null as the parent view because its going in the dialog layout*/
         // null + layout.addView(View) -> getLayoutInflater().inflate(R.layout.xx, layout) // layout is the parent you are adding view to
+        // define a custom dialog
         builder.setView(rootView)
                 /* Add action buttons */
                 .setPositiveButton(R.string.positive_button_create, new DialogInterface.OnClickListener() {
@@ -142,6 +143,7 @@ public class AddListDialogFragment extends DialogFragment {
                     }
                 });
 
+        // builder.create() returns an AlertDialog dialog
         return builder.create();
     }
 

@@ -23,6 +23,13 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Utils;
 public class AutocompleteFriendAdapter extends FirebaseListAdapter<User> {
     private String mEncodedEmail;
 
+
+
+
+
+
+
+
     /**
      * Public constructor that initializes private instance variables when adapter is created
      */
@@ -32,6 +39,12 @@ public class AutocompleteFriendAdapter extends FirebaseListAdapter<User> {
         this.mActivity = activity;
         this.mEncodedEmail = encodedEmail;
     }
+
+
+
+
+
+
 
     /**
      * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
@@ -90,6 +103,12 @@ public class AutocompleteFriendAdapter extends FirebaseListAdapter<User> {
         });
 
     }
+
+
+
+
+
+
 
     private boolean isNotCurrentUser(User user) {
         if (user.getEmail().equals(mEncodedEmail)) {

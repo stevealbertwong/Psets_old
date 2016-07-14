@@ -20,8 +20,14 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 public class MealsFragment extends Fragment {
     private ListView mListView;
 
+
+
+
+
+
+
     /**
-     * Create fragment and pass bundle with data as its' arguments
+     * Instantiate fragment and pass bundle with data as its' arguments
      */
     public static MealsFragment newInstance() {
         MealsFragment fragment = new MealsFragment();
@@ -30,9 +36,19 @@ public class MealsFragment extends Fragment {
         return fragment;
     }
 
+
+
+
+
+
     public MealsFragment() {
         /* Required empty public constructor*/
     }
+
+
+
+
+
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -48,6 +64,17 @@ public class MealsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -82,6 +109,15 @@ public class MealsFragment extends Fragment {
     public void onPause() {
         super.onPause();
     }
+
+
+
+
+
+
+
+
+
 
     private void initializeScreen(View rootView) {
         mListView = (ListView) rootView.findViewById(R.id.list_view_meals_list);
