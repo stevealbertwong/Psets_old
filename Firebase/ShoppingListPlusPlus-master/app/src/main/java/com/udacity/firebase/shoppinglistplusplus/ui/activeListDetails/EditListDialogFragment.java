@@ -46,7 +46,7 @@ public abstract class EditListDialogFragment extends DialogFragment {
 
     /**
      * Helper method that creates a basic bundle of all of the information needed to change
-     * values in a shopping list.
+     * values in a shopping list. -> pass it into EditListNameDialogFragment
      *
      * @param shoppingList The shopping list that the dialog is editing
      * @param resource The xml layout file associated with the dialog
@@ -231,6 +231,11 @@ public abstract class EditListDialogFragment extends DialogFragment {
         mEditTextForList.setText(defaultText);
         mEditTextForList.setSelection(defaultText.length());
     }
+
+
+
+
+
 
     /**
      * Method to be overriden with whatever edit is supposed to happen to the list

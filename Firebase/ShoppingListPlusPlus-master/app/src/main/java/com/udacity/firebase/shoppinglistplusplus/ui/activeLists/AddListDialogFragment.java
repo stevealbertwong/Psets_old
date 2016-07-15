@@ -165,12 +165,13 @@ public class AddListDialogFragment extends DialogFragment {
             /**
              * Create Firebase references
              */
+            // mEncodedEmail -> refers to a particular user
             Firebase userListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).
                     child(mEncodedEmail);
             final Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL);
 
-            Firebase newListRef = userListsRef.push();
 
+            Firebase newListRef = userListsRef.push();
             /* Save listsRef.push() to maintain same random Id */
             final String listId = newListRef.getKey();
 

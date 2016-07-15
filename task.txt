@@ -816,6 +816,7 @@ layoutinflater is just a converter of XML into View object -> NO event or listen
 7-15
 Firebase - ShoppingListFragment -> ActiveListDetailsActivity
 updateChildren, setValue, push -1pt
+AddListDialogFragment -1pt
 
 
 
@@ -864,7 +865,12 @@ HashMap<String, Object> itemToAdd =
           (HashMap<String, Object>) new ObjectMapper().convertValue(itemToAddObject, Map.class);
 public static AddListItemDialogFragment newInstance that creates new bundle vs protected static Bundle newInstanceHelper that pass in bundle
 protected void doListEdit() of AddListItemDialogFragment -> where is it called ?
-
+Firebase path update
+// deep-path update
+            HashMap<String, Object> shoppingListMap = (HashMap<String, Object>)
+                    new ObjectMapper().convertValue(newShoppingList, Map.class);
+Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,
+                    updateShoppingListData, "", shoppingListMap);
 
 
 

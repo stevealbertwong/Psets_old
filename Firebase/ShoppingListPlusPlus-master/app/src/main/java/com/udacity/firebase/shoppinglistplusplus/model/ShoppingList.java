@@ -15,6 +15,7 @@ public class ShoppingList {
     private String owner;
     private HashMap<String, Object> timestampLastChanged;
     private HashMap<String, Object> timestampCreated;
+
     private HashMap<String, Object> timestampLastChangedReverse;
     private HashMap<String, User> usersShopping;
 
@@ -35,18 +36,29 @@ public class ShoppingList {
      * @param listName
      * @param owner
      */
+
+    // takes 3 parameters -> store 6 instances, takes their value from somewhere else
     public ShoppingList(String listName, String owner, HashMap<String, Object> timestampCreated) {
         this.listName = listName;
         this.owner = owner;
         this.timestampCreated = timestampCreated;
 
+
+
+        // Whenever you're trying to set the "current time" on Firebase you should pass Firebase the Map constant ServerValue.TIMESTAMP
         HashMap<String, Object> timestampNowObject = new HashMap<String, Object>();
+        // Firebase changes ServerValue.TIMESTAMP Map constant to a long value representing the current time the data was recieved and saved in Firebase
+        // the client side timestamp can be pretty inaccurate in relation to when the data was actually recorded in the server
         timestampNowObject.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
         this.timestampLastChanged = timestampNowObject;
 
         this.timestampLastChangedReverse = null;
         this.usersShopping = new HashMap<>();
     }
+
+
+
+
 
 
 
@@ -72,11 +84,16 @@ public class ShoppingList {
         return timestampLastChangedReverse;
     }
 
+
+
+
     @JsonIgnore
     public long getTimestampLastChangedLong() {
 
         return (long) timestampLastChanged.get(Constants.FIREBASE_PROPERTY_TIMESTAMP); // "timestamp"
     }
+
+
 
     @JsonIgnore
     public long getTimestampCreatedLong() {
@@ -92,6 +109,10 @@ public class ShoppingList {
     public HashMap getUsersShopping() {
         return usersShopping;
     }
+
+
+
+
 
     public void setTimestampLastChangedToNow() {
         HashMap<String, Object> timestampNowObject = new HashMap<String, Object>();
