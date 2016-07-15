@@ -30,6 +30,10 @@ public class ShoppingListsFragment extends Fragment {
     private ActiveListAdapter mActiveListAdapter;
     private ListView mListView;
 
+
+
+
+
     public ShoppingListsFragment() {
         /* Required empty public constructor */
     }
@@ -44,13 +48,13 @@ public class ShoppingListsFragment extends Fragment {
 
 
     /**
-     * Create fragment and pass bundle with data as fragment's arguments
+     * Create a new instance of fragment and pass bundle with data as fragment's arguments
      * Right now there are not arguments...but eventually there will be. -> creating a new shopping list with encoded email as key
      */
     public static ShoppingListsFragment newInstance(String encodedEmail) {
         ShoppingListsFragment fragment = new ShoppingListsFragment();
         Bundle args = new Bundle();
-        args.putString(Constants.KEY_ENCODED_EMAIL, encodedEmail);
+        args.putString(Constants.KEY_ENCODED_EMAIL, encodedEmail); // "ENCODED_EMAIL"
         fragment.setArguments(args);
         return fragment;
     }
@@ -98,6 +102,12 @@ public class ShoppingListsFragment extends Fragment {
          * Set interactive bits, such as click events and adapters
          * Fragment -> all click events happen in java not xml
          */
+
+
+
+
+
+
 
         // new AdapterView...onItemClick()... -> syntatic diarhea: annoymous innerclass object to pass as parameter (BY MARTY)
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

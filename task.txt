@@ -813,7 +813,9 @@ View rootView = getAcitivity().getLayoutInflater().inflate(R.layout / mResource,
 layoutinflater is just a converter of XML into View object -> NO event or listener or set/get method or lifecycle 
 
 
-
+7-15
+Firebase - ShoppingListFragment -> ActiveListDetailsActivity
+updateChildren, setValue, push -1pt
 
 
 

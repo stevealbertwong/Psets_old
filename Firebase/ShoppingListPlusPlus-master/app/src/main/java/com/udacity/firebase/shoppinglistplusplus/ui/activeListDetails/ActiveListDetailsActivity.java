@@ -193,6 +193,9 @@ public class ActiveListDetailsActivity extends BaseActivity {
          * Save the most recent version of current shopping list into mShoppingList instance
          * variable an update the UI to match the current list.
          */
+
+        // ValueEventListener -> single object data
+        // ChildEventListener -> child nodes
         mCurrentListRefListener = mCurrentListRef.addValueEventListener(new ValueEventListener() {
 
             @Override
@@ -206,6 +209,7 @@ public class ActiveListDetailsActivity extends BaseActivity {
                 ShoppingList shoppingList = snapshot.getValue(ShoppingList.class);
 
                 if (shoppingList == null) {
+                    //  If the shopping list doesn't exist, close the activity using finish()
                     finish();
                     /**
                      * Make sure to call return, otherwise the rest of the method will execute,
@@ -236,12 +240,16 @@ public class ActiveListDetailsActivity extends BaseActivity {
                 /* Calling invalidateOptionsMenu causes onCreateOptionsMenu to be called */
                 invalidateOptionsMenu();
 
-
-
-
-
                 /* Set title appropriately. */
                 setTitle(shoppingList.getListName());
+
+
+
+
+
+
+
+
 
                 HashMap<String, User> usersShopping = mShoppingList.getUsersShopping();
                 if (usersShopping != null && usersShopping.size() != 0 &&

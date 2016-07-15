@@ -8,11 +8,12 @@ import com.udacity.firebase.shoppinglistplusplus.BuildConfig;
 public final class Constants {
 
     /**
-     * Constants related to locations in Firebase, such as the name of the node
+     * Constants reference to locations in Firebase, such as the name of the node
      * where user lists are stored (ie "userLists")
      */
     public static final String FIREBASE_LOCATION_SHOPPING_LIST_ITEMS = "shoppingListItems";
     public static final String FIREBASE_LOCATION_USERS = "users";
+    // a key where your list is stored
     public static final String FIREBASE_LOCATION_USER_LISTS = "userLists";
     public static final String FIREBASE_LOCATION_USER_FRIENDS = "userFriends";
     public static final String FIREBASE_LOCATION_LISTS_SHARED_WITH = "sharedWith";
@@ -42,6 +43,7 @@ public final class Constants {
     public static final String FIREBASE_URL = BuildConfig.UNIQUE_FIREBASE_ROOT_URL;
     public static final String FIREBASE_URL_SHOPPING_LIST_ITEMS = FIREBASE_URL + "/" + FIREBASE_LOCATION_SHOPPING_LIST_ITEMS;
     public static final String FIREBASE_URL_USERS = FIREBASE_URL + "/" + FIREBASE_LOCATION_USERS;
+    // the complete URL that reference your list
     public static final String FIREBASE_URL_USER_LISTS = FIREBASE_URL + "/" + FIREBASE_LOCATION_USER_LISTS;
     public static final String FIREBASE_URL_USER_FRIENDS = FIREBASE_URL + "/" + FIREBASE_LOCATION_USER_FRIENDS;
     public static final String FIREBASE_URL_LISTS_SHARED_WITH = FIREBASE_URL + "/" + FIREBASE_LOCATION_LISTS_SHARED_WITH;

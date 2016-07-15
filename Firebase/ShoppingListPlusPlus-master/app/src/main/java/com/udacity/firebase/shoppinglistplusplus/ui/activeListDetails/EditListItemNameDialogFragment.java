@@ -113,7 +113,7 @@ public class EditListItemNameDialogFragment extends EditListDialogFragment {
             /* Update affected lists timestamps */
             Utils.updateMapWithTimestampLastChanged(mSharedWith, mListId, mOwner, updatedDataItemToEditMap);
 
-            /* Do the update */
+            /* Update Children could pass in a HashMap vs setValue just set one value*/
             firebaseRef.updateChildren(updatedDataItemToEditMap, new Firebase.CompletionListener() {
                 @Override
                 public void onComplete(FirebaseError firebaseError, Firebase firebase) {
