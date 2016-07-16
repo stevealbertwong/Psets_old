@@ -820,6 +820,11 @@ AddListDialogFragment -1pt
 
 
 
+7-16
+ActiveListAdapter -1pt
+
+
+
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
 
