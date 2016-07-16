@@ -197,6 +197,7 @@ public class AddListDialogFragment extends DialogFragment {
 
 
             /* Build the shopping list */
+            // this.listName = listName; this.owner = owner; this.timestampCreated = timestampCreated;
             ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail,
                     timestampCreated);
 

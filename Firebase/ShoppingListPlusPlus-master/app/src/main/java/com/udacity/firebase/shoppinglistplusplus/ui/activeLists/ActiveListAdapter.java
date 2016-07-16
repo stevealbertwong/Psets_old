@@ -50,6 +50,23 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
      *
      * 1. populates textViewUsersShopping
      * 2. populates textViewCreatedByUser
+     *
+     * Backing Android ListView with a Firebase Location -> View is an inflated version of layout
+     *
+     * Each time the data at the given Firebase location changes, this method will be called for each item that needs to be displayed
+     * e.g.
+     *
+     *     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+     *     ListAdapter adapter = new FirebaseListAdapter<ChatMessage>(this, ChatMessage.class, android.R.layout.two_line_list_item, mRef)
+     *     {
+     *         protected void populateView(View view, ChatMessage chatMessage, int position)
+     *         {
+     *             ((TextView)view.findViewById(android.R.id.text1)).setText(chatMessage.getName());
+     *             ((TextView)view.findViewById(android.R.id.text2)).setText(chatMessage.getMessage());
+     *         }
+     *     };
+     *     listView.setListAdapter(adapter);
+     *
      */
     @Override
     protected void populateView(View view, ShoppingList list) {
@@ -58,7 +75,10 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
          * Grab the needed Textivews and strings
          */
 
-        // ?? where does View and ShoppingList come from
+        // mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail);
+        // mListView.setAdapter(mActiveListAdapter);
+        // ShoppingList selectedList = mActiveListAdapter.getItem(position);
+        // String listId = mActiveListAdapter.getRef(position).getKey();
         TextView textViewListName = (TextView) view.findViewById(R.id.text_view_list_name);
         final TextView textViewCreatedByUser = (TextView) view.findViewById(R.id.text_view_created_by_user);
         final TextView textViewUsersShopping = (TextView) view.findViewById(R.id.text_view_people_shopping_count);

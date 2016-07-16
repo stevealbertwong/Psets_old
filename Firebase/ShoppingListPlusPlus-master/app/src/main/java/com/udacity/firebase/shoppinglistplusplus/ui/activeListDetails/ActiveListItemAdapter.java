@@ -27,7 +27,13 @@ import java.util.HashMap;
 
 /**
  * Populates list_view_shopping_list_items inside ActiveListDetailsActivity
+ *
+ * IMPORTANT: SYNCING list of data in Firebase with items on list view
+ * FirebaseListAdapter converts FirebaseArray to POJO, covnerts POJO to list item
+ * FirebaseArray is synced by Firebase i.e. changes in Firebase database updates the array
  */
+
+
 public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem> {
     private ShoppingList mShoppingList;
     private String mListId;
