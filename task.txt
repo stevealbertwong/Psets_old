@@ -825,6 +825,11 @@ ActiveListAdapter -1pt
 
 
 
+7-17
+Firebase data schema -1pt
+denormalization -> x depth of JSON -> takes data seems to be related in different parts of the app if optimize display in these activities 
+
+
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
 

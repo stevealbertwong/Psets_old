@@ -29,6 +29,8 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
      */
     // ShoppingListFragment
     // mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail
+    // Query orderedActiveUserListsRef = Firebase activeListsRef.orderByKey();
+    // you could pass Firebase or Query as ref for actual database: e.g. a Firebase ref to FIREBASE_URL_ACTIVE_LISTS in sorted order
     public ActiveListAdapter(Activity activity, Class<ShoppingList> modelClass, int modelLayout,
                              Query ref, String encodedEmail) {
         super(activity, modelClass, modelLayout, ref);

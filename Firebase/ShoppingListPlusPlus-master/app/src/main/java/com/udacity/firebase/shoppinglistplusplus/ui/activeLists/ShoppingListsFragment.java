@@ -109,6 +109,8 @@ public class ShoppingListsFragment extends Fragment {
 
 
 
+
+
         // new AdapterView...onItemClick()... -> syntatic diarhea: annoymous innerclass object to pass as parameter (BY MARTY)
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -121,6 +123,7 @@ public class ShoppingListsFragment extends Fragment {
                 // ?? there is no getItem() or getRef() + why does it return a model ShoppingList
                 // FirebaseListAdapter<ShoppingList>
                 ShoppingList selectedList = mActiveListAdapter.getItem(position);
+
                 if (selectedList != null) {
 
 
