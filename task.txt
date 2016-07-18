@@ -829,6 +829,8 @@ ActiveListAdapter -1pt
 Firebase data schema -1pt
 denormalization -> x depth of JSON -> takes data seems to be related in different parts of the app if optimize display in these activities 
 2 way relationship + many to many relationship -1pt
+Data schema -1pt
+
 
 
 
