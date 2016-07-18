@@ -394,6 +394,7 @@ public class ActiveListDetailsActivity extends BaseActivity {
                             HashMap<String, Object> updatedItemBoughtData = new HashMap<String, Object>();
 
                             /* Buy selected item if it is NOT already bought */
+                            // Deep-path updates, changes need to made bundle together -> keep duplicated data sync for 2 way many to many relationship
                             if (!selectedListItem.isBought()) {
                                 updatedItemBoughtData.put(Constants.FIREBASE_PROPERTY_BOUGHT, true);
                                 updatedItemBoughtData.put(Constants.FIREBASE_PROPERTY_BOUGHT_BY, mEncodedEmail);
