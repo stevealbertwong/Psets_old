@@ -62,6 +62,9 @@ public class LoginActivity extends BaseActivity {
     private SharedPreferences mSharedPref;
     private SharedPreferences.Editor mSharedPrefEditor;
 
+
+
+
     /**
      * Variables related to Google Login
      */
@@ -71,6 +74,8 @@ public class LoginActivity extends BaseActivity {
     public static final int RC_GOOGLE_LOGIN = 1;
     /* A Google account object that is populated if the user signs in with Google */
     GoogleSignInAccount mGoogleAccount;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +90,7 @@ public class LoginActivity extends BaseActivity {
         mFirebaseRef = new Firebase(Constants.FIREBASE_URL);
 
         /**
-         * Link layout elements from XML and setup progress dialog
+         * Instantiate layout elements from XML and setup progress dialog
          */
         initializeScreen();
 
@@ -104,6 +109,12 @@ public class LoginActivity extends BaseActivity {
         });
     }
 
+
+
+
+
+
+    
     @Override
     protected void onResume() {
         super.onResume();
