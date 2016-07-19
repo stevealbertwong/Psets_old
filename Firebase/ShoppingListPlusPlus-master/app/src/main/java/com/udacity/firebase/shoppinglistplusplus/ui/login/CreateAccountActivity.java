@@ -56,6 +56,14 @@ public class CreateAccountActivity extends BaseActivity {
         initializeScreen();
     }
 
+
+
+
+
+
+
+
+
     /**
      * Override onCreateOptionsMenu to inflate nothing
      *
@@ -93,6 +101,13 @@ public class CreateAccountActivity extends BaseActivity {
         finish();
     }
 
+
+
+
+
+
+
+
     /**
      * Create new account using Firebase email/password provider
      */
@@ -118,6 +133,9 @@ public class CreateAccountActivity extends BaseActivity {
          * Create new user with specified email and password
          */
         mFirebaseRef.createUser(mUserEmail, mPassword, new Firebase.ValueResultHandler<Map<String, Object>>() {
+
+
+
             @Override
             public void onSuccess(final Map<String, Object> result) {
                 /**
@@ -129,6 +147,8 @@ public class CreateAccountActivity extends BaseActivity {
                     public void onSuccess() {
 
                         mFirebaseRef.authWithPassword(mUserEmail, mPassword, new Firebase.AuthResultHandler() {
+
+
                             @Override
                             public void onAuthenticated(AuthData authData) {
                                 mAuthProgressDialog.dismiss();
@@ -147,7 +167,7 @@ public class CreateAccountActivity extends BaseActivity {
                                  * Encode user email replacing "." with ","
                                  * to be able to use it as a Firebase db key
                                  */
-                                createUserInFirebaseHelper((String) result.get("uid"));
+                                createUserInFirebaseHelper((String) result.get("uid")); // authUserId
 
                                 /**
                                  *  Password reset email sent, open app chooser to pick app
@@ -202,6 +222,14 @@ public class CreateAccountActivity extends BaseActivity {
 
     }
 
+
+
+
+
+
+
+
+
     /**
      * Creates a new user in Firebase from the Java POJO
      */
@@ -217,16 +245,31 @@ public class CreateAccountActivity extends BaseActivity {
         HashMap<String, Object> timestampJoined = new HashMap<>();
         timestampJoined.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
 
+
+
+
         /* Create a HashMap version of the user to add */
         User newUser = new User(mUserName, encodedEmail, timestampJoined);
         HashMap<String, Object> newUserMap = (HashMap<String, Object>)
                 new ObjectMapper().convertValue(newUser, Map.class);
+
+
+
 
         /* Add the user and UID to the update map */
         userAndUidMapping.put("/" + Constants.FIREBASE_LOCATION_USERS + "/" + encodedEmail,
                 newUserMap);
         userAndUidMapping.put("/" + Constants.FIREBASE_LOCATION_UID_MAPPINGS + "/"
                 + authUserId, encodedEmail);
+
+
+
+
+
+
+
+
+
 
         /* Try to update the database; if there is already a user, this will fail */
         mFirebaseRef.updateChildren(userAndUidMapping, new Firebase.CompletionListener() {

@@ -834,6 +834,8 @@ denormalization -> x depth of JSON -> takes data seems to be related in differen
 7-18
 Data schema -2pts
 
+7-19
+CreateAccountActivity -1pt
 
 
 
