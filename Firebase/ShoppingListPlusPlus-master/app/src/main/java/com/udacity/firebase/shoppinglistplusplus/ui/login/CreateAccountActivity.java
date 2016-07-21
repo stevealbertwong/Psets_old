@@ -187,14 +187,12 @@ public class CreateAccountActivity extends BaseActivity {
 
 
 
-
-                                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(CreateAccountActivity.this);
-                                SharedPreferences.Editor spe = sp.edit();
-
                                 /**
                                  * Save name and email to sharedPreferences to create User database record
-                                 * when the registered user will sign in for the first time
+                                 * so when they go to the login page, it has the email there for them.
                                  */
+                                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(CreateAccountActivity.this);
+                                SharedPreferences.Editor spe = sp.edit();
                                 spe.putString(Constants.KEY_SIGNUP_EMAIL, mUserEmail).apply();
 
 

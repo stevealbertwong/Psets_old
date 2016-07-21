@@ -175,6 +175,8 @@ public class LoginActivity extends BaseActivity {
         /**
          * Get the newly registered user email if present, use null as default value
          */
+
+        // to retrieve a value from Share Preference -> 1st parameter: key of the value, 2nd parameter: optionally a default value if key isnt present
         String signupEmail = mSharedPref.getString(Constants.KEY_SIGNUP_EMAIL, null);
 
         /**
@@ -458,7 +460,9 @@ public class LoginActivity extends BaseActivity {
                     if (!user.isHasLoggedInWithPassword()) {
 
                         /**
-                         * Change password if user that just signed in signed up recently
+                         * Checking if current user is a new user first time logging in ->
+                         *
+                         * Change password if user that just signed in the first time
                          * to make sure that user will be able to use temporary password
                          * from the email more than 24 hours
                          */
@@ -539,8 +543,19 @@ public class LoginActivity extends BaseActivity {
          */
         mEncodedEmail = Utils.encodeEmail(unprocessedEmail);
 
+
+
+
+
+
         /* Get username from authData */
         final String userName = (String) authData.getProviderData().get(Constants.PROVIDER_DATA_DISPLAY_NAME);
+
+
+
+
+
+
 
         /* Make a user */
         final Firebase userLocation = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail);
@@ -549,6 +564,9 @@ public class LoginActivity extends BaseActivity {
 
         HashMap<String, Object> timestampJoined = new HashMap<>();
         timestampJoined.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
+
+
+
 
         /* Create a HashMap version of the user to add */
         User newUser = new User(userName, mEncodedEmail, timestampJoined);
@@ -566,6 +584,8 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onComplete(FirebaseError firebaseError, Firebase firebase) {
                 if (firebaseError != null) {
+
+
                     /* Try just making a uid mapping */
                     mFirebaseRef.child(Constants.FIREBASE_LOCATION_UID_MAPPINGS)
                             .child(authData.getUid()).setValue(mEncodedEmail);
@@ -580,6 +600,12 @@ public class LoginActivity extends BaseActivity {
     private void showErrorToast(String message) {
         Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
     }
+
+
+
+
+
+
 
 
     /**
@@ -677,6 +703,12 @@ public class LoginActivity extends BaseActivity {
             mAuthProgressDialog.dismiss();
         }
     }
+
+
+
+
+
+
 
 
 

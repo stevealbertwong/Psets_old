@@ -33,6 +33,10 @@ public class Utils {
         mContext = con;
     }
 
+
+
+
+
     /**
      * Return true if currentUserEmail equals to shoppingList.owner()
      * Return false otherwise
@@ -41,6 +45,10 @@ public class Utils {
         return (shoppingList.getOwner() != null &&
                 shoppingList.getOwner().equals(currentUserEmail));
     }
+
+
+
+
 
     /**
      * Encode user email to use it as a Firebase key (Firebase does not allow "." in the key name)
