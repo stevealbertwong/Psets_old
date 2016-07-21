@@ -169,6 +169,8 @@ public class CreateAccountActivity extends BaseActivity {
                 /**
                  * If user was successfully created, run resetPassword() to send temporary 24h
                  * password to the user's email and make sure that user owns specified email
+                 *
+                 * Reset password + send verification email
                  */
                 mFirebaseRef.resetPassword(mUserEmail, new Firebase.ResultHandler() {
                     @Override

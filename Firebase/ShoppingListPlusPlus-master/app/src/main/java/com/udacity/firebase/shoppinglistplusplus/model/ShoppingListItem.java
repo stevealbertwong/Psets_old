@@ -4,6 +4,8 @@ package com.udacity.firebase.shoppinglistplusplus.model;
  * Defines the data structure for ShoppingListItem objects.
  */
 public class ShoppingListItem {
+
+
     private String itemName;
     private String owner;
     private String boughtBy;
@@ -14,6 +16,11 @@ public class ShoppingListItem {
      */
     public ShoppingListItem() {
     }
+
+
+
+
+
 
     /**
      * Use this constructor to create new ShoppingListItem.
@@ -29,6 +36,10 @@ public class ShoppingListItem {
         this.bought = false;
 
     }
+
+
+
+
 
     public String getItemName() { return itemName; }
 

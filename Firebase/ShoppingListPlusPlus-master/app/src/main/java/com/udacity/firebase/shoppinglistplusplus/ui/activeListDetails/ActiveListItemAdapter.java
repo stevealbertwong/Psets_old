@@ -57,13 +57,6 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
         this.mEncodedEmail = encodedEmail;
     }
 
-
-
-
-
-
-
-
     /**
      * Public method that is used to pass shoppingList object when it is loaded in ValueEventListener
      */
@@ -71,8 +64,6 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
         this.mShoppingList = shoppingList;
         this.notifyDataSetChanged();
     }
-
-
 
     public void setSharedWithUsers(HashMap<String, User> sharedWithUsers) {
         this.mSharedWithUsers = sharedWithUsers;
@@ -90,6 +81,8 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
      * with items inflated from single_active_list_item.xml
      * populateView also handles data changes and updates the listView accordingly
      */
+
+    // mListView.setAdapter(new ActiveListItemAdapter(this, ShoppingListItem.class, R.layout.single_active_list_item, listItemsRef.orderByChild(Constants.FIREBASE_PROPERTY_BOUGHT_BY), mListId, mEncodedEmail))
     @Override
     protected void populateView(View view, final ShoppingListItem item, int position) {
 
@@ -175,7 +168,24 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
     }
 
 
-
+/*
+*
++        // TODO Update populate view for the list of items. If an item is bought:
++        //  - It should have a strike through
++        //  - The remove trashcan should be invisible
++        //  - The name of who bought the item should be shown. If it was you,
++        //      The item should simply say "Bought by You" (Note: you will probably need
++        //      to get data from the database for this one)
++        // TODO if the item is NOT bought:
++        //  - There should be no strike through
++        //  - The trashcan should be visible
++        //  - There should be nothing about who bought the item
++
++        // TODO
++        // A strike through can be achieved with the following code:
++        //  textViewItemName.setPaintFlags(textViewItemName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
++        // It can be removed with:
++        //  textViewItemName.setPaintFlags(textViewItemName.getPaintFlags() & (~Paint.STRIKE_THRU_TEXT_FLAG));*/
 
 
     private void setItemAppearanceBaseOnBoughtStatus(String owner, final TextView textViewBoughtByUser,
