@@ -75,6 +75,14 @@ public class CreateAccountActivity extends BaseActivity {
     }
 
 
+
+
+
+
+
+
+
+
     /**
      * Link layout elements from XML and setup the progress dialog
      */
@@ -90,6 +98,15 @@ public class CreateAccountActivity extends BaseActivity {
         mAuthProgressDialog.setMessage(getResources().getString(R.string.progress_dialog_check_inbox));
         mAuthProgressDialog.setCancelable(false);
     }
+
+
+
+
+
+
+
+
+
 
     /**
      * Open LoginActivity when user taps on "Sign in" textView
@@ -123,11 +140,22 @@ public class CreateAccountActivity extends BaseActivity {
         boolean validUserName = isUserNameValid(mUserName);
         if (!validEmail || !validUserName) return;
 
+
+
+
+
+
         /**
          * If everything was valid show the progress dialog to indicate that
          * account creation has started
          */
         mAuthProgressDialog.show();
+
+
+
+
+
+
 
         /**
          * Create new user with specified email and password
@@ -154,6 +182,12 @@ public class CreateAccountActivity extends BaseActivity {
                                 mAuthProgressDialog.dismiss();
                                 Log.i(LOG_TAG, getString(R.string.log_message_auth_successful));
 
+
+
+
+
+
+
                                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(CreateAccountActivity.this);
                                 SharedPreferences.Editor spe = sp.edit();
 
@@ -162,6 +196,13 @@ public class CreateAccountActivity extends BaseActivity {
                                  * when the registered user will sign in for the first time
                                  */
                                 spe.putString(Constants.KEY_SIGNUP_EMAIL, mUserEmail).apply();
+
+
+
+
+
+
+
 
                                 /**
                                  * Encode user email replacing "." with ","
@@ -230,6 +271,8 @@ public class CreateAccountActivity extends BaseActivity {
 
 
 
+
+
     /**
      * Creates a new user in Firebase from the Java POJO
      */
@@ -288,6 +331,19 @@ public class CreateAccountActivity extends BaseActivity {
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private boolean isEmailValid(String email) {
         boolean isGoodEmail =

@@ -838,6 +838,12 @@ Data schema -2pts
 CreateAccountActivity -1pt
 
 
+7-20
+Rasberry Pi + electronics + hardware - 1 whole day
+
+7-21
+LoginActivity -1pt
+
 
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix

@@ -45,6 +45,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+
+
+
+
 /**
  * Represents Sign in screen and functionality of the app
  */
@@ -74,6 +78,15 @@ public class LoginActivity extends BaseActivity {
     public static final int RC_GOOGLE_LOGIN = 1;
     /* A Google account object that is populated if the user signs in with Google */
     GoogleSignInAccount mGoogleAccount;
+
+
+
+
+
+
+
+
+
 
 
 
@@ -141,8 +154,23 @@ public class LoginActivity extends BaseActivity {
                 }
             }
         };
-        /* Add auth listener to Firebase ref */
+
+
+
+
+
+        /* Add auth listener to Firebase ref -> knows when user is logged in or out
+        * set code to run when user is authorized and logged in
+        *
+        * Save users authentication state when the user move to other page */
         mFirebaseRef.addAuthStateListener(mAuthStateListener);
+
+
+
+
+
+
+
 
         /**
          * Get the newly registered user email if present, use null as default value
@@ -162,6 +190,13 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+
+
+
+
+
+
+
     /**
      * Cleans up listeners tied to the user's authentication state
      */
@@ -170,6 +205,15 @@ public class LoginActivity extends BaseActivity {
         super.onPause();
         mFirebaseRef.removeAuthStateListener(mAuthStateListener);
     }
+
+
+
+
+
+
+
+
+
 
     /**
      * Override onCreateOptionsMenu to inflate nothing
@@ -180,6 +224,18 @@ public class LoginActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /**
@@ -197,6 +253,12 @@ public class LoginActivity extends BaseActivity {
         startActivity(intent);
     }
 
+
+
+
+
+
+
     /**
      * Link layout elements from XML and setup the progress dialog
      */
@@ -213,6 +275,16 @@ public class LoginActivity extends BaseActivity {
         /* Setup Google Sign In */
         setupGoogleSignIn();
     }
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Sign in with Password provider (used when user taps "Done" action on keyboard)
@@ -237,6 +309,14 @@ public class LoginActivity extends BaseActivity {
         mFirebaseRef.authWithPassword(email, password, new MyAuthResultHandler(Constants.PASSWORD_PROVIDER));
     }
 
+
+
+
+
+
+
+
+
     /**
      * Handle user authentication that was initiated with mFirebaseRef.authWithPassword
      * or mFirebaseRef.authWithOAuthToken
@@ -249,7 +329,15 @@ public class LoginActivity extends BaseActivity {
             this.provider = provider;
         }
 
+
+
+
+
+
+
         /**
+         * Trigger code as soon as the user logs in
+         *
          * On successful authentication call setAuthenticatedUser if it was not already
          * called in
          */
@@ -312,19 +400,44 @@ public class LoginActivity extends BaseActivity {
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Helper method that makes sure a user is created if the user
      * logs in with Firebase's email/password provider.
      *
      * @param authData AuthData object returned from onAuthenticated
      */
+
+    // if (authData.getProvider().equals(Constants.PASSWORD_PROVIDER)
     private void setAuthenticatedUserPasswordProvider(AuthData authData) {
         final String unprocessedEmail = authData.getProviderData().get(Constants.FIREBASE_PROPERTY_EMAIL).toString().toLowerCase();
+
+
         /**
          * Encode user email replacing "." with ","
          * to be able to use it as a Firebase db key
          */
         mEncodedEmail = Utils.encodeEmail(unprocessedEmail);
+
+
+
+
 
         final Firebase userRef = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail);
 
@@ -376,13 +489,26 @@ public class LoginActivity extends BaseActivity {
 
     }
 
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Helper method that makes sure a user is created if the user
      * logs in with Firebase's Google login provider.
      *
      * @param authData AuthData object returned from onAuthenticated
      */
+    // if (authData.getProvider().equals(Constants.GOOGLE_PROVIDER)
     private void setAuthenticatedUserGoogle(final AuthData authData) {
+
         /**
          * If google api client is connected, get the lowerCase user email
          * and save in sharedPreferences
@@ -391,6 +517,8 @@ public class LoginActivity extends BaseActivity {
         if (mGoogleApiClient.isConnected()) {
             unprocessedEmail = mGoogleAccount.getEmail().toLowerCase();
             mSharedPrefEditor.putString(Constants.KEY_GOOGLE_EMAIL, unprocessedEmail).apply();
+
+
         } else {
 
             /**
@@ -399,6 +527,11 @@ public class LoginActivity extends BaseActivity {
              */
             unprocessedEmail = mSharedPref.getString(Constants.KEY_GOOGLE_EMAIL, null);
         }
+
+
+
+
+
 
         /**
          * Encode user email replacing "." with "," to be able to use it
