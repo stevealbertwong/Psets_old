@@ -843,6 +843,11 @@ Rasberry Pi + electronics + hardware - 1 whole day
 
 7-21
 LoginActivity -1pt
+ActivityCycle -1pt
+FragmentStatePagerAdapter-1pt
+
+7-22
+
 
 
 Firebase Android Sample Instagram 

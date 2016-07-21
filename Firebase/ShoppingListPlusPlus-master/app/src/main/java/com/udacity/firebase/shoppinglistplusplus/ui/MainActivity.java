@@ -121,6 +121,12 @@ public class MainActivity extends BaseActivity {
         mUserRef.removeEventListener(mUserRefListener);
     }
 
+
+
+
+
+
+
     /**
      * Link layout elements from XML and setup the toolbar
      */
@@ -141,6 +147,11 @@ public class MainActivity extends BaseActivity {
         tabLayout.setupWithViewPager(viewPager);
     }
 
+
+
+
+
+
     /**
      * Create an instance of the AddList dialog fragment and show it
      */
@@ -159,6 +170,10 @@ public class MainActivity extends BaseActivity {
         dialog.show(MainActivity.this.getFragmentManager(), "AddMealDialogFragment");
     }
 
+
+
+
+    
     /**
      * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state
      */
