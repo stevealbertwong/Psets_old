@@ -43,6 +43,9 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         /**
          * Create Firebase references
          */
@@ -133,8 +136,15 @@ public class MainActivity extends BaseActivity {
     public void initializeScreen() {
         ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // spiritual successor of the ActionBar. ToolBar's appearance and behavior can be more easily customized than the ActionBar.
+        // existing ActionBar facilities (such as menu inflation and selection, ActionBarDrawerToggle, and so on) but want to have more control over its appearance
+        //  showing multiple toolbars on the screen, spanning only part of the width
+        // Unlike Action BAr, Toolbar is just a ViewGroup and can be styled and positioned like any other view
         Toolbar toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
+
+
         /**
          * Create SectionPagerAdapter, set it as adapter to viewPager with setOffscreenPageLimit(2)
          **/
@@ -173,7 +183,11 @@ public class MainActivity extends BaseActivity {
 
 
 
-    
+
+
+
+
+
     /**
      * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state
      */
@@ -182,6 +196,9 @@ public class MainActivity extends BaseActivity {
         public SectionPagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
+
+
 
         /**
          * Use positions (0 and 1) to find and instantiate fragments with newInstance()
@@ -216,6 +233,9 @@ public class MainActivity extends BaseActivity {
         public int getCount() {
             return 2;
         }
+
+
+
 
         /**
          * Set string resources as titles for each fragment by it's position

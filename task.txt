@@ -847,11 +847,20 @@ ActivityCycle -1pt
 FragmentStatePagerAdapter-1pt
 
 7-22
+Bug-1 invalid firebase_url -1pt
+gradle properties should be: UniqueFirebaseRootUrl = "https://stevenshoppinglist.firebaseio.com/"
+
+
+
+
+
+
 
 
 
 Firebase Android Sample Instagram 
 https://github.com/firebase/friendlypix/tree/master/android/app/src/main/java/com/google/firebase/samples/apps/friendlypix
+
 
 
 
