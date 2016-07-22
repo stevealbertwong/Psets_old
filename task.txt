@@ -847,8 +847,16 @@ ActivityCycle -1pt
 FragmentStatePagerAdapter-1pt
 
 7-22
-Bug-1 invalid firebase_url -1pt
+Bug: open a new old-platform database console + create a new gradle.properties -1pt
+
+Bug: google-service.json -1pt
+https://developers.google.com/mobile/add
+delete old app -> select android + enter package name + get registered SHA-1
+
+
+Bug: invalid firebase_url -1pt
 gradle properties should be: UniqueFirebaseRootUrl = "https://stevenshoppinglist.firebaseio.com/"
+
 
 
 
