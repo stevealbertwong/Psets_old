@@ -26,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * MainActivity: DialogFragment dialog = AddListDialogFragment.newInstance(mEncodedEmail);
+ *
  * Adds a new shopping list
  *
  * 1. Public static constructor that creates fragment -> creates Bundle with data from parameters -> pass Bundle into Fragment
@@ -42,10 +44,15 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
+
     /**
      * Public static constructor that creates fragment and
-     * passes a bundle with data into it when adapter is created
+     * passes a bundle with encoded email
      */
+    // MainActivity: when + is clicked -> AddListDialogFragment.newInstance(mEncodedEmail); + dialog.show()->
+    // pass stuff from MainActivity to your fragment
+    // so that they are available after a Fragment is recreated by Android -> is to pass a bundle to the setArguments method.
+    // then get it in onCreate -> mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
     public static AddListDialogFragment newInstance(String encodedEmail) {
         AddListDialogFragment addListDialogFragment = new AddListDialogFragment();
         Bundle bundle = new Bundle();
@@ -63,7 +70,7 @@ public class AddListDialogFragment extends DialogFragment {
 
 
     /**
-     * Initialize instance variables with data from bundle
+     * Initialize mEncodedEmail instance variables from data from bundle
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -163,13 +163,21 @@ public class MainActivity extends BaseActivity {
 
 
     /**
+     * Fragment_shopping_lists.xml -> android.support.design.widget.FloatingActionButton-> android:onClick="showAddListDialog"
+     *
      * Create an instance of the AddList dialog fragment and show it
+     *
      */
     public void showAddListDialog(View view) {
-        /* Create an instance of the dialog fragment and show it */
         DialogFragment dialog = AddListDialogFragment.newInstance(mEncodedEmail);
+        // show addListDialogFragment.setArguments(bundle), bundle.putString(Constants.KEY_ENCODED_EMAIL, encodedEmail);
         dialog.show(MainActivity.this.getFragmentManager(), "AddListDialogFragment");
     }
+
+
+
+
+
 
     /**
      * Create an instance of the AddMeal dialog fragment and show it

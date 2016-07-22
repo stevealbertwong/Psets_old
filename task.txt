@@ -857,6 +857,9 @@ delete old app -> select android + enter package name + get registered SHA-1
 Bug: invalid firebase_url -1pt
 gradle properties should be: UniqueFirebaseRootUrl = "https://stevenshoppinglist.firebaseio.com/"
 
+Allows email and password authentication + drawing out forum logic -1pt
+
+passing mEncodedEmail from MainActivity to AddlistDialogFragment by newInstance()-> fragment.setargument(bundle.putstring(encodedEmail) -1pt 
 
 
 

@@ -19,6 +19,9 @@ public class ShoppingList {
     private HashMap<String, Object> timestampLastChangedReverse;
     private HashMap<String, User> usersShopping;
 
+
+
+
     /**
      * Required public constructor
      */
