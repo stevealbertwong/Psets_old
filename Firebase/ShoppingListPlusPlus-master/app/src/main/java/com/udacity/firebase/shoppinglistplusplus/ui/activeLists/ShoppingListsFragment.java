@@ -25,7 +25,8 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
  *
  * 1. public constructor -> SectionPagerAdapter extends FragmentStatePagerAdapter; -> Fragment getItem(int position)
  * 2. View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false)
- * 3.
+ * 3. mListView.setOnItemClickListener -> ShoppingList selectedList = mActiveListAdapter.getItem(position); -> String listId = mActiveListAdapter.getRef(position).getKey();
+ * 3. Instantiate Adapter -> mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail);
  *
  *
  */
@@ -72,7 +73,7 @@ public class ShoppingListsFragment extends Fragment {
 
 
     /**
-     * Initialize instance variables with data from bundle
+     * LoginActivty -> mSharedPrefEditor.putString(Constants.KEY_ENCODED_EMAIL, mEncodedEmail).apply();
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,22 +100,12 @@ public class ShoppingListsFragment extends Fragment {
          * Initialize UI elements -> either this method or setContentView()
          */
         View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // standard: load GUI layout from XML
-
         initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
 
         /**
          * Set interactive bits, such as click events and adapters
          * Fragment -> all click events happen in java not xml
          */
-
-
-
-
-
-
-
-
-
         // new AdapterView...onItemClick()... -> syntatic diarhea: annoymous innerclass object to pass as parameter (BY MARTY)
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -190,6 +181,9 @@ public class ShoppingListsFragment extends Fragment {
 
             orderedActiveUserListsRef = activeListsRef.orderByChild(sortOrder);
         }
+
+
+
 
 
 

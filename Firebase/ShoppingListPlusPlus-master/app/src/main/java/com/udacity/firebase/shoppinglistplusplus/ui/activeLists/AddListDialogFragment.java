@@ -31,6 +31,11 @@ import java.util.Map;
  * Adds a new shopping list
  *
  * 1. Public static constructor that creates fragment -> creates Bundle with data from parameters -> pass Bundle into Fragment
+ * 2. public static AddListDialogFragment newInstance(String encodedEmail) -> bundle.putString(Constants.KEY_ENCODED_EMAIL, encodedEmail);
+ * 3. Get encodedEmail from newInstance.setArgument(bundle) -> mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
+ * 4. Build Dialog -> new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog); + inflater.inflate(R.layout.dialog_add_list, null) + rootView.findViewById(R.id.edit_text_list_name);
+ * 5. mEditTextListName.setOnEditorActionListener -> if (actionId == EditorInfo.IME_ACTION_DONE || keyEvent.getAction() == KeyEvent.ACTION_DOWN)
+ * 6. AddShoppingList() -> Utils.updateMapForAllWithValue(null, listId, mEncodedEmail, updateShoppingListData, "", shoppingListMap);
  *
  *
  */
@@ -50,10 +55,12 @@ public class AddListDialogFragment extends DialogFragment {
      *
      * Public constructor -> when you want to run fragment in MainActivity
      */
-    // MainActivity: when + is clicked -> AddListDialogFragment.newInstance(mEncodedEmail); + dialog.show()->
+    // MainActivity: public void showAddListDialog(View view)
+    // Fragment_shopping_lists.xml when + is clicked -> run showAddListDialog in MainActivity: AddListDialogFragment.newInstance(mEncodedEmail); + dialog.show()->
     // pass stuff from MainActivity to your fragment
     // so that they are available after a Fragment is recreated by Android -> is to pass a bundle to the setArguments method.
     // then get it in onCreate -> mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
+
     public static AddListDialogFragment newInstance(String encodedEmail) {
         AddListDialogFragment addListDialogFragment = new AddListDialogFragment();
         Bundle bundle = new Bundle();
@@ -71,12 +78,18 @@ public class AddListDialogFragment extends DialogFragment {
 
 
     /**
-     * Get mEncodedEmail instance variables from bundle data from MainActivity
+     * Get mEncodedEmail instance variables from bundle data from LoginActivity
+     *
+     * LoginActivity:
+     * private void setAuthenticatedUserPasswordProvider(AuthData authData)
+     * final String unprocessedEmail = authData.getProviderData().get(Constants.FIREBASE_PROPERTY_EMAIL).toString().toLowerCase();
+     * mSharedPrefEditor.putString(Constants.KEY_ENCODED_EMAIL, mEncodedEmail).apply();
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // a new ShoppingList requires user email
+        // addListDialogFragment.setArguments(bundle);
         mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
     }
 
@@ -109,6 +122,7 @@ public class AddListDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction -> e.g. builder.setView(rootView)
+        // ???????????????????????? where is R.style.CustomTheme_Dialog -> maybe it is just config parameter ??
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomTheme_Dialog);
         // Get the layout inflater
         // Layout inflater converts XML into java widget
@@ -116,6 +130,8 @@ public class AddListDialogFragment extends DialogFragment {
         // null is parent: parent means layout or container to add this widget to
         // Pass null as the parent view because its going in the dialog layout
         View rootView = inflater.inflate(R.layout.dialog_add_list, null);
+
+
         mEditTextListName = (EditText) rootView.findViewById(R.id.edit_text_list_name);
 
         /**
@@ -125,8 +141,6 @@ public class AddListDialogFragment extends DialogFragment {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
                 if (actionId == EditorInfo.IME_ACTION_DONE || keyEvent.getAction() == KeyEvent.ACTION_DOWN) {
-
-
 
                     addShoppingList();
                 }
@@ -165,7 +179,10 @@ public class AddListDialogFragment extends DialogFragment {
 
 
     /**
-     * Add new active list
+     * 1. userList
+     * 2.
+     * 3.
+     *
      */
     public void addShoppingList() {
         String userEnteredName = mEditTextListName.getText().toString();
@@ -174,12 +191,9 @@ public class AddListDialogFragment extends DialogFragment {
             /**
              * Atomic write: update multiple places in database, all the locations in our database are updated at the same time and the write command is sent as one operation to the server
              */
-            // mEncodedEmail -> refers to a particular user
-            Firebase userListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).
-                    child(mEncodedEmail);
+
+            Firebase userListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail);
             final Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL);
-
-
             Firebase newListRef = userListsRef.push();
             /* Save listsRef.push() to maintain same random Id */
             final String listId = newListRef.getKey();
@@ -214,8 +228,29 @@ public class AddListDialogFragment extends DialogFragment {
             HashMap<String, Object> shoppingListMap = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(newShoppingList, Map.class);
 
+            /*
+            * ATMOIC WRITE MAP
+            * 
+            * public static HashMap<String, Object> updateMapForAllWithValue
+            *
+            * final HashMap<String, User> sharedWith,
+            * final String listId,
+            * final String owner,
+            * HashMap<String, Object> mapToUpdate,
+            * String propertyToUpdate,
+            * Object valueToUpdate)
+            *
+            * */
+
+            // return updateShoppingListData
             Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,
                     updateShoppingListData, "", shoppingListMap);
+
+
+
+
+
+
 
 
 

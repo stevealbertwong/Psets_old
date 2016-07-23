@@ -875,7 +875,8 @@ NEED TO:
 6. mainactivity and list item fragments
 
 Populate view - 1pt
-
+Trying to add a like button -1pt
+Still trying to add a like button -1pt
 
 DATABASE DESIGN OPTIONS
 1. generate id by push

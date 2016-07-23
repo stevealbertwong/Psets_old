@@ -8,6 +8,10 @@ import java.util.HashMap;
 
 /**
  * Defines the data structure for both Active and Archived ShoppingList objects.
+ *
+ *
+ *
+ * AddListDialogFragment -> Utils.updateMapForAllWithValue(null, listId, mEncodedEmail, updateShoppingListData, "", shoppingListMap);
  */
 
 public class ShoppingList {
@@ -15,9 +19,10 @@ public class ShoppingList {
     private String owner;
     private HashMap<String, Object> timestampLastChanged;
     private HashMap<String, Object> timestampCreated;
-
     private HashMap<String, Object> timestampLastChangedReverse;
     private HashMap<String, User> usersShopping;
+
+    // ++++++++LIKEBUTTON private String likeCount;
 
 
 
@@ -40,7 +45,8 @@ public class ShoppingList {
      * @param owner
      */
 
-    // takes 3 parameters -> store 6 instances, takes their value from somewhere else
+    // takes 3 parameters -> store 6 instances -> their value from somewhere else
+    // AddListDialogFragment -> ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail, timestampCreated);
     public ShoppingList(String listName, String owner, HashMap<String, Object> timestampCreated) {
         this.listName = listName;
         this.owner = owner;
@@ -64,7 +70,7 @@ public class ShoppingList {
 
 
 
-
+    // ++++++++LIKEBUTTON public String getLikeCount() { return likeCount; }
 
 
     public String getListName() {

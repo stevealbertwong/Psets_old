@@ -337,6 +337,8 @@ public class LoginActivity extends BaseActivity {
 
 
 
+
+
         /**
          * Trigger code as soon as the user logs in
          *
@@ -370,6 +372,8 @@ public class LoginActivity extends BaseActivity {
 
                 /* Go to main activity */
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                // Intent.FLAG_ACTIVITY_NEW_TASK -> If set, this activity will become the start of a new task on this history stack
+                // Intent.FLAG_ACTIVITY_CLEAR_TASK -> any existing task that would be associated with the activity to be cleared before the activity is started.
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();

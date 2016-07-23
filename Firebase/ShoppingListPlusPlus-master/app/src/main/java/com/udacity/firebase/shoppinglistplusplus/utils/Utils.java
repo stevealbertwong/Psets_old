@@ -67,6 +67,11 @@ public class Utils {
         return userEmail.replace(",", ".");
     }
 
+
+
+
+
+
     /**
      * Adds values to a pre-existing HashMap for updating a property for all of the ShoppingList copies.
      * The HashMap can then be used with {@link Firebase#updateChildren(Map)} to update the property
@@ -82,6 +87,7 @@ public class Utils {
      * @param valueToUpdate    The value to update
      * @return The updated HashMap with the new value inserted in all lists
      */
+
     public static HashMap<String, Object> updateMapForAllWithValue
     (final HashMap<String, User> sharedWith, final String listId,
      final String owner, HashMap<String, Object> mapToUpdate,
