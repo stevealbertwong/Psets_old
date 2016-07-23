@@ -22,8 +22,12 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
  * A simple {@link Fragment} subclass that shows a list of all shopping lists a user can see.
- * Use the {@link ShoppingListsFragment#newInstance} factory method to
- * create an instance of this fragment.
+ *
+ * 1. public constructor -> SectionPagerAdapter extends FragmentStatePagerAdapter; -> Fragment getItem(int position)
+ * 2. View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false)
+ * 3. 
+ *
+ *
  */
 public class ShoppingListsFragment extends Fragment {
     private String mEncodedEmail;

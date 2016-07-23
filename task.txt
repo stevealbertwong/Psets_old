@@ -864,9 +864,26 @@ passing mEncodedEmail from MainActivity to AddlistDialogFragment by newInstance(
 
 
 
+7-23
+to add message to another fragment -1pt
+NEED TO:
+1. update shoppinglist model
+2. update addshoppinglist() in addlistdialogfragment
+3. shoppinglistfragment
+4. activelistadapter
+5. layout.xml
+
+ 
+5. maybe mainactivity and list item fragments
 
 
 
+DATABASE DESIGN OPTIONS
+1. generate id by push
+2. denormalization or nesting
+3. uidmapping with username
+4. atomic write, multiple updates
+5. duplicate 
 
 
 Firebase Android Sample Instagram 

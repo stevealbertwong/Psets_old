@@ -46,8 +46,9 @@ public class AddListDialogFragment extends DialogFragment {
 
 
     /**
-     * Public static constructor that creates fragment and
-     * passes a bundle with encoded email
+     * Public static constructor that creates fragment and passes a bundle with encoded email
+     *
+     * Public constructor -> when you want to run fragment in MainActivity
      */
     // MainActivity: when + is clicked -> AddListDialogFragment.newInstance(mEncodedEmail); + dialog.show()->
     // pass stuff from MainActivity to your fragment
@@ -70,7 +71,7 @@ public class AddListDialogFragment extends DialogFragment {
 
 
     /**
-     * Initialize mEncodedEmail instance variables from data from bundle
+     * Get mEncodedEmail instance variables from bundle data from MainActivity
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +104,7 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
+    // this is the actually building of dialog before dialog.show()
     // Build AlertDialog + inflate dialog_add_list layout into View -> Builder.setView(View)
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -158,19 +160,19 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
+
+
+
+
     /**
      * Add new active list
      */
     public void addShoppingList() {
         String userEnteredName = mEditTextListName.getText().toString();
-
-        /**
-         * If EditText input is not empty
-         */
         if (!userEnteredName.equals("")) {
 
             /**
-             * Create Firebase references
+             * Atomic write: update multiple places in database, all the locations in our database are updated at the same time and the write command is sent as one operation to the server
              */
             // mEncodedEmail -> refers to a particular user
             Firebase userListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).
@@ -208,20 +210,17 @@ public class AddListDialogFragment extends DialogFragment {
             ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail,
                     timestampCreated);
 
+            // Jackson's ObjectMapper class -> convert a POJO style objects into Maps
             HashMap<String, Object> shoppingListMap = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(newShoppingList, Map.class);
 
             Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,
                     updateShoppingListData, "", shoppingListMap);
 
+
+
             updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId,
                     mEncodedEmail);
-
-
-
-
-
-            /* Do the update */
             firebaseRef.updateChildren(updateShoppingListData, new Firebase.CompletionListener() {
                 @Override
                 public void onComplete(FirebaseError firebaseError, Firebase firebase) {

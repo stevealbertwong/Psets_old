@@ -72,11 +72,6 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
      */
     @Override
     protected void populateView(View view, ShoppingList list) {
-
-        /**
-         * Grab the needed Textivews and strings
-         */
-
         // mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail);
         // mListView.setAdapter(mActiveListAdapter);
         // ShoppingList selectedList = mActiveListAdapter.getItem(position);
