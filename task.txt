@@ -872,10 +872,9 @@ NEED TO:
 3. shoppinglistfragment
 4. activelistadapter
 5. layout.xml
+6. mainactivity and list item fragments
 
- 
-5. maybe mainactivity and list item fragments
-
+Populate view - 1pt
 
 
 DATABASE DESIGN OPTIONS

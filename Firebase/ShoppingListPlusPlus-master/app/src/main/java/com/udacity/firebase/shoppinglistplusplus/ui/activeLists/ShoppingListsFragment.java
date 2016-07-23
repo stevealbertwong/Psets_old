@@ -25,7 +25,7 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
  *
  * 1. public constructor -> SectionPagerAdapter extends FragmentStatePagerAdapter; -> Fragment getItem(int position)
  * 2. View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false)
- * 3. 
+ * 3.
  *
  *
  */

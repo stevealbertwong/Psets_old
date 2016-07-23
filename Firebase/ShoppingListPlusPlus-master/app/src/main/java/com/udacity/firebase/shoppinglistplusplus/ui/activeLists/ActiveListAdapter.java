@@ -17,7 +17,10 @@ import com.udacity.firebase.shoppinglistplusplus.model.User;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
- * Populates the list_view_active_lists inside ShoppingListsFragment
+ * Populates the R.layout.list_view_active_lists inside R.layout.fragment_shopping_lists listView
+ * All the logic is inside ShoppingListsFragment
+ *
+ *
  */
 public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
     private String mEncodedEmail;
@@ -80,6 +83,9 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         final TextView textViewCreatedByUser = (TextView) view.findViewById(R.id.text_view_created_by_user);
         final TextView textViewUsersShopping = (TextView) view.findViewById(R.id.text_view_people_shopping_count);
 
+        // Firebase activeListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail);
+        // owner = mEncodedEmail
+        // AddListDialogFragment -> Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,updateShoppingListData, "", shoppingListMap);
         String ownerEmail = list.getOwner();
 
         /* Set the list name and owner */
