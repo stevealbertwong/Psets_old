@@ -89,12 +89,18 @@ public class Utils {
      */
 
     public static HashMap<String, Object> updateMapForAllWithValue
-    (final HashMap<String, User> sharedWith, final String listId,
-     final String owner, HashMap<String, Object> mapToUpdate,
-     String propertyToUpdate, Object valueToUpdate) {
+    (final HashMap<String, User> sharedWith,
+     final String listId,
+     final String owner,
+     HashMap<String, Object> mapToUpdate,
+     String propertyToUpdate,
+     Object valueToUpdate) {
 
+        // one owner's list
         mapToUpdate.put("/" + Constants.FIREBASE_LOCATION_USER_LISTS + "/" + owner + "/"
                 + listId + "/" + propertyToUpdate, valueToUpdate);
+
+        // multiple owners' list -> updating all shareWith users' lists
         if (sharedWith != null) {
             for (User user : sharedWith.values()) {
                 mapToUpdate.put("/" + Constants.FIREBASE_LOCATION_USER_LISTS + "/" + user.getEmail() + "/"

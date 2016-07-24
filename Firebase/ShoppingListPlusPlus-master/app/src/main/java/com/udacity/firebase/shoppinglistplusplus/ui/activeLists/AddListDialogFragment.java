@@ -179,9 +179,20 @@ public class AddListDialogFragment extends DialogFragment {
 
 
     /**
-     * 1. userList
-     * 2. firebaseRef
-     * 3.
+     * Atomic write: update multiple places in database, all the locations in our database are updated at the same time and the write command is sent as one operation to the server
+     *
+     * userListRef: https://stevenshoppinglist.firebaseio.com/userLists/wongkwunkit%40gmail%2Ccom/
+     * newListRef: https://stevenshoppinglist.firebaseio.com/userLists/wongkwunkit%40gmail%2Ccom/-KNHP8gu_L5rO5QScqe1
+     *
+     * write to userList
+     * 1. listId: KNHP8gu_L5rO5QScqe1
+     * 2. shoppingList (POJO->HashMap ObjectMapper().convertValue(newShoppingList, Map.class))
+     * - listName: userEnteredName
+     * - owner: mEncodedEmail
+     * - timestampCreated:{timestamp:1469187661027}
+     *
+     * HashMap <String,Object> updatedShopListData = Utils.updateMapForAllWithValue(
+     *
      *
      */
     public void addShoppingList() {
@@ -189,62 +200,51 @@ public class AddListDialogFragment extends DialogFragment {
         /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         int likeCount = 0;
         ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
-        if (!userEnteredName.equals("")) {
 
-            /**
-             * Atomic write: update multiple places in database, all the locations in our database are updated at the same time and the write command is sent as one operation to the server
-             */
+        if (!userEnteredName.equals("")) {
 
             Firebase userListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail);
             final Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL); // BuildConfig.UNIQUE_FIREBASE_ROOT_URL
+
+            /* Save listsRef.push() random Id */
             Firebase newListRef = userListsRef.push();
-            /* Save listsRef.push() to maintain same random Id */
             final String listId = newListRef.getKey();
 
 
 
-
-
-
-            /* HashMap for data to update */
+            /*
+            * (/userLists/wongkwunkit@gmail.com/KNHP8gu_L5rO5QScqe1/"",
+            *
+            * */
             HashMap<String, Object> updateShoppingListData = new HashMap<>();
 
-            /**
-             * Set raw version of date to the ServerValue.TIMESTAMP value and save into
-             * timestampCreatedMap
-             */
+
+            // all following creates: shoppingListMap(listName: userEnteredName, owner: mEncodedEmail, timestampCreated:{timestamp:1469187661027})
             HashMap<String, Object> timestampCreated = new HashMap<>();
             timestampCreated.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
-
-
-
-
-
-
-
-
-            // this.listName = listName; this.owner = owner; this.timestampCreated = timestampCreated;
+            /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+            // this.listName = listName; this.owner = owner; this.timestampCreated = timestampCreated; this.likeCount = likeCount;
             ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail,
-                    timestampCreated /* +++LIKEBUTTON+++ likeCount */);
-
-
-
-
+                    timestampCreated /* likeCount */);
             // Jackson's ObjectMapper class -> convert a POJO style objects into HashMap
             HashMap<String, Object> shoppingListMap = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(newShoppingList, Map.class);
 
+
+
+
             /*
-            * ATMOIC WRITE MAP
+            * 1. if multiple users sharing the list update all user's accounts' list
+            * final HashMap<String, User> sharedWith -> null no shared users
             *
-            * public static HashMap<String, Object> updateMapForAllWithValue
+            * 2. parameters to firebase ref -> /userLists/wongkwunkit@gmail.com/KNHP8gu_L5rO5QScqe1/"property"
+            * final String listId -> userListsRef.push()
+            * final String owner -> from AuthData -> layout -> MainActivity -> Fragment: mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL)
+            * HashMap<String, Object> mapToUpdate -> EMPTY HashMap<String, Object> updateShoppingListData
+            * String propertyToUpdate -> the last parameter in url: "" so we are talking to listId
             *
-            * final HashMap<String, User> sharedWith,
-            * final String listId,
-            * final String owner,
-            * HashMap<String, Object> mapToUpdate,
-            * String propertyToUpdate,
-            * Object valueToUpdate)
+            * 3. hashmap string, object -> return updateShoppingListData
+            * Object valueToUpdate -> shoppingListMap(listName: userEnteredName, owner: mEncodedEmail, timestampCreated:{timestamp:1469187661027})
             *
             * */
 
@@ -259,6 +259,12 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
+            /*
+            * updateShoppingListData
+            * ({"/userLists/wongkwunkit@gmail.com/KNHP8gu_L5rO5QScqe1/", shoppingListMap},
+            * {"/ownerMappings/KNHP8gu_L5rO5QScqe1", wongkwunkit@gmail.com})
+            *
+            * */
 
             updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId,
                     mEncodedEmail);

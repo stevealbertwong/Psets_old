@@ -881,6 +881,12 @@ Still trying to add a like button -1pt
 
 7-24
 like button -2pts
+addShoppingList() in addListDialogFragment -1pt
+Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,
+                    updateShoppingListData, "", shoppingListMap);
+updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId, mEncodedEmail);
+firebaseRef.updateChildren(updateShoppingListData)
+
 
 
 
