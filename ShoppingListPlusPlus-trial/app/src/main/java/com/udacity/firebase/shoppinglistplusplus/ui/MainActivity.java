@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -34,6 +35,8 @@ public class MainActivity extends BaseActivity {
     private Firebase mUserRef;
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private ValueEventListener mUserRefListener;
+    private TextView mLikeView;
+    private int points = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +157,15 @@ public class MainActivity extends BaseActivity {
         DialogFragment dialog = AddMealDialogFragment.newInstance();
         dialog.show(MainActivity.this.getFragmentManager(), "AddMealDialogFragment");
     }
+
+    /*++++++++++++++++++++++++++++++++++++ LIKEBUTTON ++++++++++++++++++++++++++++++++++++++++++++++++*/
+    public void addLike(View view) {
+        // add 1
+        mLikeView = (TextView) findViewById(R.id.text_view_likeCount);
+        points ++;
+        mLikeView.setText("Like:" + points);
+    }
+    /*++++++++++++++++++++++++++++++++++++ LIKEBUTTON ++++++++++++++++++++++++++++++++++++++++++++++++*/
 
     /**
      * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state

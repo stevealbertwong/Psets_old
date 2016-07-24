@@ -24,10 +24,10 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
  * A simple {@link Fragment} subclass that shows a list of all shopping lists a user can see.
  *
  * 1. public constructor -> SectionPagerAdapter extends FragmentStatePagerAdapter; -> Fragment getItem(int position)
- * 2. View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false)
- * 3. mListView.setOnItemClickListener -> ShoppingList selectedList = mActiveListAdapter.getItem(position); -> String listId = mActiveListAdapter.getRef(position).getKey();
- * 3. Instantiate Adapter -> mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail);
- *
+ * 2. Inflat layout to View: inflater.inflate(R.layout.fragment_shopping_lists, container, false)
+ * 3. Click Listener: mListView.setOnItemClickListener -> ShoppingList selectedList = mActiveListAdapter.getItem(position); -> String listId = mActiveListAdapter.getRef(position).getKey();
+ * 4. Instantiate Adapter: mActiveListAdapter = new ActiveListAdapter(getActivity(), ShoppingList.class, R.layout.single_active_list, orderedActiveUserListsRef, mEncodedEmail);
+ * 5. Set adapter to list view: mListView.setAdapter(mActiveListAdapter);
  *
  */
 public class ShoppingListsFragment extends Fragment {
@@ -102,6 +102,31 @@ public class ShoppingListsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // standard: load GUI layout from XML
         initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);
 
+
+        /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        // click logic
+
+        mButtonLike = (Button) findViewById(R.id.button_like);
+        mButtonLike.setOnItemClickListener(new AdapterView.OnItemClickListener() { @Override  public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+        Firebase mUserListsLikeCountRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail/listId/likeCount)
+        muserListsLikeCountRef.addChildEventListener(new ChildEventListener() {@Override public void onDataChange(DataSnapshot dataSnapshot) {
+        String likeCount = dataSnapshot.getValue();
+
+        int result = Integer.parseInt(likeCount);
+        result += 1;
+        String likeCount = Integer.toString(result);
+        mUserListsLikeCountRef.setValue(likeCount);
+
+
+
+
+        ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
+
+
+
         /**
          * Set interactive bits, such as click events and adapters
          * Fragment -> all click events happen in java not xml
@@ -114,7 +139,7 @@ public class ShoppingListsFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
 
-                // Adapter knows to build each list item layout, takes in raw data and creates layout for them
+                // Adapter build each list item layout -> takes in raw data and creates layout for them
                 // ?? there is no getItem() or getRef() + why does it return a model ShoppingList
                 // FirebaseListAdapter<ShoppingList>
                 ShoppingList selectedList = mActiveListAdapter.getItem(position);

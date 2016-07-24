@@ -84,8 +84,8 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         final TextView textViewUsersShopping = (TextView) view.findViewById(R.id.text_view_people_shopping_count);
 
         // ++++++++LIKEBUTTON TextView textViewLikeCount = (TextView) view.findViewById(R.id.text_view_like_count);
-        // ++++++++LIKEBUTTON String LikeCount = list.getCount();
-        // ++++++++LIKEBUTTON
+        // ++++++++LIKEBUTTON String likeCount = list.getCount();
+        // ++++++++LIKEBUTTON textViewLikeCount.setText(likeCount)
 
 
         // Firebase activeListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail);

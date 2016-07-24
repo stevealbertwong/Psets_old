@@ -22,8 +22,9 @@ public class ShoppingList {
     private HashMap<String, Object> timestampLastChangedReverse;
     private HashMap<String, User> usersShopping;
 
-    // ++++++++LIKEBUTTON private String likeCount;
-
+    /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+     private String likeCount;
+    ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 
 
@@ -47,11 +48,17 @@ public class ShoppingList {
 
     // takes 3 parameters -> store 6 instances -> their value from somewhere else
     // AddListDialogFragment -> ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail, timestampCreated);
-    public ShoppingList(String listName, String owner, HashMap<String, Object> timestampCreated) {
+
+    public ShoppingList(String listName, String owner, HashMap<String, Object> timestampCreated /* +++LIKEBUTTON+++ int likeCount */) {
         this.listName = listName;
         this.owner = owner;
+
+
         this.timestampCreated = timestampCreated;
 
+        /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        this.likeCount = likeCount;
+        ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
 
         // Whenever you're trying to set the "current time" on Firebase you should pass Firebase the Map constant ServerValue.TIMESTAMP

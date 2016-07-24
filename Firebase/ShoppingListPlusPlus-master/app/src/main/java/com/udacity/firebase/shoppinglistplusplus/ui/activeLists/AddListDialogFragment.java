@@ -180,12 +180,15 @@ public class AddListDialogFragment extends DialogFragment {
 
     /**
      * 1. userList
-     * 2.
+     * 2. firebaseRef
      * 3.
      *
      */
     public void addShoppingList() {
         String userEnteredName = mEditTextListName.getText().toString();
+        /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        int likeCount = 0;
+        ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
         if (!userEnteredName.equals("")) {
 
             /**
@@ -193,7 +196,7 @@ public class AddListDialogFragment extends DialogFragment {
              */
 
             Firebase userListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail);
-            final Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL);
+            final Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL); // BuildConfig.UNIQUE_FIREBASE_ROOT_URL
             Firebase newListRef = userListsRef.push();
             /* Save listsRef.push() to maintain same random Id */
             final String listId = newListRef.getKey();
@@ -219,18 +222,21 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
-            /* Build the shopping list */
+
             // this.listName = listName; this.owner = owner; this.timestampCreated = timestampCreated;
             ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail,
-                    timestampCreated);
+                    timestampCreated /* +++LIKEBUTTON+++ likeCount */);
 
-            // Jackson's ObjectMapper class -> convert a POJO style objects into Maps
+
+
+
+            // Jackson's ObjectMapper class -> convert a POJO style objects into HashMap
             HashMap<String, Object> shoppingListMap = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(newShoppingList, Map.class);
 
             /*
             * ATMOIC WRITE MAP
-            * 
+            *
             * public static HashMap<String, Object> updateMapForAllWithValue
             *
             * final HashMap<String, User> sharedWith,
@@ -256,6 +262,7 @@ public class AddListDialogFragment extends DialogFragment {
 
             updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId,
                     mEncodedEmail);
+
             firebaseRef.updateChildren(updateShoppingListData, new Firebase.CompletionListener() {
                 @Override
                 public void onComplete(FirebaseError firebaseError, Firebase firebase) {
