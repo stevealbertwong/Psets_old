@@ -20,7 +20,12 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 import java.util.HashMap;
 
 /**
+ * ShareWith -> means copy current list to other user's userLists + ShareWith index
+ * reason write multiple lists: adapter take only ONE (Firebase Ref and Model/DataStructure) instantiate and populate listView
+ *
  * Allows for you to check and un-check friends that you share the current list with
+ *
+ *
  */
 public class ShareListActivity extends BaseActivity {
     private static final String LOG_TAG = ShareListActivity.class.getSimpleName();
@@ -33,6 +38,10 @@ public class ShareListActivity extends BaseActivity {
     private HashMap<String, User> mSharedWithUsers;
 
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +52,10 @@ public class ShareListActivity extends BaseActivity {
         /* Get the push ID from the extra passed by ActiveListDetailsActivity */
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);
+
+
+
+
         if (mListId == null) {
             /* No point in continuing without a valid ID. */
             finish();
@@ -78,7 +91,20 @@ public class ShareListActivity extends BaseActivity {
                  */
                 if (shoppingList != null) {
                     mShoppingList = shoppingList;
+
+
+
+
+
+
                     mFriendAdapter.setShoppingList(mShoppingList);
+
+
+
+
+
+
+
                 } else {
                     finish();
                 }
@@ -93,9 +119,17 @@ public class ShareListActivity extends BaseActivity {
         });
 
 
+
+
+
+
         mSharedWithListener = mSharedWithRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
+
+
+
                 mSharedWithUsers = new HashMap<String, User>();
                 for (DataSnapshot currentUser : dataSnapshot.getChildren()) {
                     mSharedWithUsers.put(currentUser.getKey(), currentUser.getValue(User.class));
@@ -112,6 +146,11 @@ public class ShareListActivity extends BaseActivity {
         });
 
 
+
+
+
+
+
         /**
          * Set interactive bits, such as click events/adapters
          */
@@ -121,6 +160,13 @@ public class ShareListActivity extends BaseActivity {
         /* Set adapter for the listView */
         mListView.setAdapter(mFriendAdapter);
     }
+
+
+
+
+
+
+
 
     /**
      * Cleanup the adapter when activity is destroyed
@@ -134,6 +180,10 @@ public class ShareListActivity extends BaseActivity {
         mSharedWithRef.removeEventListener(mSharedWithListener);
     }
 
+
+
+
+
     /**
      * Link layout elements from XML and setup the toolbar
      */
@@ -146,6 +196,12 @@ public class ShareListActivity extends BaseActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
+
+
+
+
+
+
 
     /**
      * Launch AddFriendActivity to find and add user to current user's friends list

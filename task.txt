@@ -889,6 +889,9 @@ firebaseRef.updateChildren(updateShoppingListData)
 addFriendActivity -2pt
 
 
+7-25
+ShareListActivity -1pt
+
 
 
 DATABASE DESIGN OPTIONS
