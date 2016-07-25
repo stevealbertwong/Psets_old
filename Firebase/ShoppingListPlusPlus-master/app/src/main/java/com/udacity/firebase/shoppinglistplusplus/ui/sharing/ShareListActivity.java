@@ -25,6 +25,8 @@ import java.util.HashMap;
  *
  * Allows for you to check and un-check friends that you share the current list with
  *
+ * a for loop to copy entire ShareWith node into mSharedWithUsers HashMap then updates it
+ *
  *
  */
 public class ShareListActivity extends BaseActivity {
@@ -75,6 +77,8 @@ public class ShareListActivity extends BaseActivity {
         mSharedWithRef = new Firebase (Constants.FIREBASE_URL_LISTS_SHARED_WITH).child(mListId);
 
         /**
+         * Getting the most updated value from ShareWith and ActiveList
+         *
          * Add ValueEventListeners to Firebase references
          * to control get data and control behavior and visibility of elements
          */
@@ -91,19 +95,7 @@ public class ShareListActivity extends BaseActivity {
                  */
                 if (shoppingList != null) {
                     mShoppingList = shoppingList;
-
-
-
-
-
-
                     mFriendAdapter.setShoppingList(mShoppingList);
-
-
-
-
-
-
 
                 } else {
                     finish();
@@ -122,7 +114,7 @@ public class ShareListActivity extends BaseActivity {
 
 
 
-
+        // new Firebase (Constants.FIREBASE_URL_LISTS_SHARED_WITH).child(mListId);
         mSharedWithListener = mSharedWithRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -131,10 +123,16 @@ public class ShareListActivity extends BaseActivity {
 
 
                 mSharedWithUsers = new HashMap<String, User>();
+
+                // a for loop to copy entire ShareWith node into mSharedWithUsers HashMap then updates it
+                // for every User in DataSnapshot
+                // dataSnapshot.getChildren() -> get all the children of listId
                 for (DataSnapshot currentUser : dataSnapshot.getChildren()) {
                     mSharedWithUsers.put(currentUser.getKey(), currentUser.getValue(User.class));
                 }
                 mFriendAdapter.setSharedWithUsers(mSharedWithUsers);
+
+
             }
 
             @Override

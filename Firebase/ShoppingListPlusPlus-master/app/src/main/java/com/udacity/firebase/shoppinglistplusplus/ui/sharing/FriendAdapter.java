@@ -141,6 +141,13 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
 
     }
 
+
+
+
+
+
+
+
     /**
      * Public method that is used to pass ShoppingList object when it is loaded in ValueEventListener
      */
@@ -149,6 +156,10 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
         this.notifyDataSetChanged();
     }
 
+
+
+
+
     /**
      * Public method that is used to pass SharedUsers when they are loaded in ValueEventListener
      */
@@ -156,6 +167,11 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
         this.mSharedUsersList = sharedUsersList;
         this.notifyDataSetChanged();
     }
+
+
+
+
+
 
     /**
      * This method does the tricky job of adding or removing a friend from the sharedWith list.
