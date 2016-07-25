@@ -98,6 +98,8 @@ public class ShoppingListsFragment extends Fragment {
 
         /**
          * Initialize UI elements -> either this method or setContentView()
+         * i guess use inflater instead of setContentView -> fragment, when tab clicked -> onCreateView
+         * if intent to an Activity -> setContentView()
          */
         View rootView = inflater.inflate(R.layout.fragment_shopping_lists, container, false); // standard: load GUI layout from XML
         initializeScreen(rootView); // mListView = (ListView) rootView.findViewById(R.id.list_view_active_lists);

@@ -38,6 +38,8 @@ public class ShareListActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share_list);
 
+
+
         /* Get the push ID from the extra passed by ActiveListDetailsActivity */
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);

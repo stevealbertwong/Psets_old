@@ -14,7 +14,10 @@ import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
- * Represents the Add Friend screen and functionality
+ * 1. setContentView
+ * 2. clickListener when user type email to search
+ * 3. instantiate and set adapter
+ *
  */
 public class AddFriendActivity extends BaseActivity {
     private EditText mEditTextAddFriendEmail;
@@ -26,16 +29,13 @@ public class AddFriendActivity extends BaseActivity {
 
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friend);
-        /**
-         * Create Firebase references
-         */
+
+
+
         mUsersRef = new Firebase(Constants.FIREBASE_URL_USERS);
 
         /**
@@ -48,6 +48,7 @@ public class AddFriendActivity extends BaseActivity {
          */
 
         mEditTextAddFriendEmail.addTextChangedListener(new TextWatcher() {
+
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
         }
@@ -67,8 +68,11 @@ public class AddFriendActivity extends BaseActivity {
             if (mInput.equals("") || mInput.length() < 2) {
                 mListViewAutocomplete.setAdapter(null);
 
-            /* Define and set the adapter otherwise. */
+
             } else {
+
+
+
                 mFriendsAutocompleteAdapter = new AutocompleteFriendAdapter(AddFriendActivity.this, User.class,
                         R.layout.single_autocomplete_item, mUsersRef.orderByChild(Constants.FIREBASE_PROPERTY_EMAIL)
                         .startAt(mInput).endAt(mInput + "~").limitToFirst(5), mEncodedEmail);
@@ -81,6 +85,9 @@ public class AddFriendActivity extends BaseActivity {
 
     }
 
+
+
+
     @Override
     public void onDestroy() {
         super.onDestroy();
@@ -88,6 +95,12 @@ public class AddFriendActivity extends BaseActivity {
             mFriendsAutocompleteAdapter.cleanup();
         }
     }
+
+
+
+
+
+
 
     /**
      * Link layout elements from XML and setup the toolbar

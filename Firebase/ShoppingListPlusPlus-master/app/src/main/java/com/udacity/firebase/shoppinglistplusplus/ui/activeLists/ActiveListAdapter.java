@@ -20,6 +20,10 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
  * Populates the R.layout.list_view_active_lists inside R.layout.fragment_shopping_lists listView
  * All the logic is inside ShoppingListsFragment
  *
+ * Populates View
+ * 1. get all the textViews
+ * 2. get all the firebase -> list.getOwner();
+ * 3. textView.setText();
  *
  */
 public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
@@ -83,25 +87,23 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         final TextView textViewCreatedByUser = (TextView) view.findViewById(R.id.text_view_created_by_user);
         final TextView textViewUsersShopping = (TextView) view.findViewById(R.id.text_view_people_shopping_count);
 
-        // ++++++++LIKEBUTTON TextView textViewLikeCount = (TextView) view.findViewById(R.id.text_view_like_count);
-        // ++++++++LIKEBUTTON String likeCount = list.getCount();
-        // ++++++++LIKEBUTTON textViewLikeCount.setText(likeCount)
+        /* ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        TextView textViewLikeCount = (TextView) view.findViewById(R.id.text_view_like_count);
+        int likeCount = list.getCount();
+        textViewLikeCount.setText(likeCount);
+
+         ++++++++++++++++++++++++++++++++++++++++++++++++LIKEBUTTON++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
         // Firebase activeListsRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail);
         // owner = mEncodedEmail
         // AddListDialogFragment -> Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,updateShoppingListData, "", shoppingListMap);
         String ownerEmail = list.getOwner();
 
+
+
         /* Set the list name and owner */
         textViewListName.setText(list.getListName());
-
-
-
-
-
-
-
 
         /**
          * Show "1 person is shopping" if one person is shopping
@@ -113,6 +115,8 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
 
             // R.string.person_shopping vs R.string.people_shopping ??
             // textView.setText (char[] text, int start, int length)
+
+            // "%d person shopping"
             if (usersShopping == 1) {
                 textViewUsersShopping.setText(String.format(
                         mActivity.getResources().getString(R.string.person_shopping),
@@ -126,6 +130,8 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
             /* otherwise show nothing */
             textViewUsersShopping.setText("");
         }
+
+
 
 
 
@@ -152,12 +158,17 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
                 userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        // getValue(User.class) is to check if it is null VS user.getName() to actually get the value
                         User user = dataSnapshot.getValue(User.class);
 
                         if (user != null) {
                             textViewCreatedByUser.setText(user.getName());
                         }
                     }
+
+
+
+
 
                     @Override
                     public void onCancelled(FirebaseError firebaseError) {

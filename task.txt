@@ -886,6 +886,7 @@ Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,
                     updateShoppingListData, "", shoppingListMap);
 updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId, mEncodedEmail);
 firebaseRef.updateChildren(updateShoppingListData)
+addFriendActivity -2pt
 
 
 
