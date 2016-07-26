@@ -206,9 +206,6 @@ public class MainActivity extends BaseActivity {
             super(fm);
         }
 
-
-
-
         /**
          * Use positions (0 and 1) to find and instantiate fragments with newInstance()
          *
@@ -229,6 +226,18 @@ public class MainActivity extends BaseActivity {
                 case 1:
                     fragment = MealsFragment.newInstance();
                     break;
+                /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                case 2:
+                fragment = ProfileFragment.newInstance(); // could do profile edit
+
+                case 3:
+                fragment = PictureFragment.newInstance(); // family share instagram
+
+                case 4:
+                fragment = ContactFragment.newInstance();
+
+                 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+
                 default:
                     fragment = ShoppingListsFragment.newInstance(mEncodedEmail);
                     break;
@@ -238,9 +247,10 @@ public class MainActivity extends BaseActivity {
         }
 
 
+
         @Override
         public int getCount() {
-            return 2;
+            return 2; // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ return 5;
         }
 
 
@@ -257,6 +267,18 @@ public class MainActivity extends BaseActivity {
                 case 0:
                     return getString(R.string.pager_title_shopping_lists);
                 case 1:
+
+                    /* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                case 2:
+                return getString(R.string.pager_title_shopping_lists);
+
+                case 3:
+                return getString(R.string.pager_title_shopping_lists);
+
+                case 4:
+                return getString(R.string.pager_title_shopping_lists);
+
+                 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
                 default:
                     return getString(R.string.pager_title_meals);
             }

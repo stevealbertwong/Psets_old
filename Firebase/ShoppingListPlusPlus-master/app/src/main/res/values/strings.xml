@@ -3,10 +3,15 @@
 
     == Base Strings For the App ==
 
+    MainActivity Strings
+
      -->
     <string name="app_name">ShoppingList++</string>
     <string name="pager_title_shopping_lists">Shopping Lists</string>
     <string name="pager_title_meals">Meals</string>
+
+    <string name="pager_title_profile">Profile</string>
+
     <string name="remove_item_option">Remove Item</string>
     <string name="positive_button_create">Create</string>
     <string name="text_you">You</string>
