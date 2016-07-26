@@ -187,6 +187,7 @@ public class ShareListActivity extends BaseActivity {
 
 
 
+
         /**
          * Set interactive bits, such as click events/adapters
          */

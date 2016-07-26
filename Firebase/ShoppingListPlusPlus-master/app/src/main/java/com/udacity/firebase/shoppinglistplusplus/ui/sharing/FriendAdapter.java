@@ -42,6 +42,8 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
 
     /**
      * Public constructor that initializes private instance variables when adapter is created
+     *
+     * @param listId: used in looking up sharedWith listId node -> toggle share button to add or delete
      */
     public FriendAdapter(Activity activity, Class<User> modelClass, int modelLayout,
                          Query ref, String listId) {
@@ -57,23 +59,22 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
 
 
     /**
-     * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
-     * with items inflated from single_user_item.xml
-     * populateView also handles data changes and updates the listView accordingly
+     * Populates the view attached to the adapter (list_view_friends_autocomplete) with items inflated from single_user_item.xml
+     *
+     * 1. populateView loop through each User in userFriends node
+     * 2. loop through SharedWith node to check if users' friends is null in sharedWith node
      */
+
+    // populateView loop through each User in userFriends
+    // currentUserFriendsRef = Firebase(Constants.FIREBASE_URL_USER_FRIENDS).child(mEncodedEmail);
     @Override
     protected void populateView(View view, final User friend) {
-        ((TextView) view.findViewById(R.id.user_name)).setText(friend.getName());
-        final ImageButton buttonToggleShare = (ImageButton) view.findViewById(R.id.button_toggle_share);
-
-        final Firebase sharedFriendInShoppingListRef = new Firebase(Constants.FIREBASE_URL_LISTS_SHARED_WITH)
-                .child(mListId).child(friend.getEmail());
 
 
-
-
-        
         /**
+         * 1. (R.id.user_name).setText(friend.getName()) // friend = User
+         * 2. if (sharedFriendInShoppingList != null) -> buttonToggleShare.setImageResource(R.drawable.ic_shared_check)
+         *
          * Gets the value of the friend from the ShoppingList's sharedWith list of users
          * and then allows the friend to be toggled as shared with or not.
          *
@@ -82,18 +83,32 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
          * list)
          */
 
+        ((TextView) view.findViewById(R.id.user_name)).setText(friend.getName());
+
+
+        final ImageButton buttonToggleShare = (ImageButton) view.findViewById(R.id.button_toggle_share);
+
+
+        // Loop through ShareWith node -> Creates a new Firebase Ref or just opens up an existing one AND check if value is null
+        // sharedWith/-KNHP8gu_L5rO5QScqe1/wongkwunkit@gmail.com
+        final Firebase sharedFriendInShoppingListRef = new Firebase(Constants.FIREBASE_URL_LISTS_SHARED_WITH)
+                .child(mListId).child(friend.getEmail());
+
         ValueEventListener listener = sharedFriendInShoppingListRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
+
                 final User sharedFriendInShoppingList = snapshot.getValue(User.class);
 
                 /**
                  * If list is already being shared with this friend, set the buttonToggleShare
-                 * to remove selected friend from sharedWith onClick and change the
-                 * buttonToggleShare image to green
+                 * to remove selected friend from sharedWith
+                 *
+                 *
                  */
                 if (sharedFriendInShoppingList != null) {
                     buttonToggleShare.setImageResource(R.drawable.ic_shared_check);
+
 
 
                     buttonToggleShare.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +131,8 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
                             });
                         }
                     });
+
+
                 } else {
 
                     /**
@@ -152,6 +169,8 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
                                 firebaseError.getMessage());
             }
         });
+
+
         /* Add the listener to the HashMap so that it can be removed on cleanup */
         mLocationListenerMap.put(sharedFriendInShoppingListRef, listener);
 
@@ -190,6 +209,8 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
 
 
     /**
+     * Depth-path updates + Atomic writes
+     *
      * This method does the tricky job of adding or removing a friend from the sharedWith list.
      * @param addFriend This is true if the friend is being added, false is the friend is being removed.
      * @param friendToAddOrRemove This is the friend to either add or remove
@@ -207,14 +228,18 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
              * have one updateChildren call that both creates data and then updates that same data
              * because updateChildren has no way of knowing what was the intended update
              */
-            mShoppingList.setTimestampLastChangedToNow();
-            /* Make it a HashMap of the shopping list and user */
+            mShoppingList.setTimestampLastChangedToNow(); // for orderby
+
+            /* Convert shopping list and user POJO to HashMap */
             final HashMap<String, Object> shoppingListForFirebase = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(mShoppingList, Map.class);
 
             final HashMap<String, Object> friendForFirebase = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(friendToAddOrRemove, Map.class);
 
+
+
+            // add to activeLists NODE so user can see + shareWith NODE
             /* Add the friend to the shared list */
             updatedUserData.put("/" + Constants.FIREBASE_LOCATION_LISTS_SHARED_WITH + "/" + mListId +
                     "/" + friendToAddOrRemove.getEmail(), friendForFirebase);
@@ -222,6 +247,8 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
             /* Add that shopping list hashmap to the new user's active lists */
             updatedUserData.put("/" + Constants.FIREBASE_LOCATION_USER_LISTS + "/" + friendToAddOrRemove.getEmail()
                     + "/" + mListId, shoppingListForFirebase);
+
+
 
         } else {
             /* Remove the friend from the shared list */
@@ -241,6 +268,10 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
 
         return updatedUserData;
     }
+
+
+
+
 
     @Override
     public void cleanup() {

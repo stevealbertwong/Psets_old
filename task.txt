@@ -894,7 +894,7 @@ ShareListActivity -1pt
 
 7-26
 ShareListActivity -1pt
-
+FriendAdapter -1pt
 
 
 
