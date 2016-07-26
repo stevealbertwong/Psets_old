@@ -25,7 +25,21 @@ import java.util.HashMap;
  *
  * Allows for you to check and un-check friends that you share the current list with
  *
- * a for loop to copy entire ShareWith node into mSharedWithUsers HashMap then updates it
+ * 1. setContentView + getIntent()
+ * 2. initializeScreen()
+ *
+ * 3. for loop to copy entire ShareWith node into mSharedWithUsers HashMap then updates it
+ *      mFriendAdapter.setShoppingList(mShoppingList);
+ *
+ * 4. for (DataSnapshot currentUser : dataSnapshot.getChildren()) { mSharedWithUsers.put(currentUser.getKey(), currentUser.getValue(User.class));
+ *      mFriendAdapter.setSharedWithUsers(mSharedWithUsers);
+ *
+ * 5. public void onAddFriendPressed(View view) new Intent(ShareListActivity.this, AddFriendActivity.class);
+ *
+ *
+ * NOT checking SharedWith node to populateView for a user that has permission BUT ATOMIC WRITE
+ * -> double loop: loop through every listId in SharedWith
+ * for (DatasnapShot user = ref.getChildren) User.getKey() // return each SharedWith mEncodedEmail
  *
  *
  */
@@ -55,29 +69,41 @@ public class ShareListActivity extends BaseActivity {
         Intent intent = this.getIntent();
         mListId = intent.getStringExtra(Constants.KEY_LIST_ID);
 
-
-
-
         if (mListId == null) {
             /* No point in continuing without a valid ID. */
             finish();
             return;
         }
 
+
+
         /**
          * Link layout elements from XML and setup the toolbar
          */
         initializeScreen();
 
+
+
+
+
+
+
         /**
-         * Create Firebase references
+         * Copy wongkwunkit@gmail.com/mListId to xxx.gmail.com/mListId
          */
         Firebase currentUserFriendsRef = new Firebase(Constants.FIREBASE_URL_USER_FRIENDS).child(mEncodedEmail);
         mActiveListRef = new Firebase(Constants.FIREBASE_URL_USER_LISTS).child(mEncodedEmail).child(mListId);
         mSharedWithRef = new Firebase (Constants.FIREBASE_URL_LISTS_SHARED_WITH).child(mListId);
 
+
+
+
+
+
+
+
         /**
-         * Getting the most updated value from ShareWith and ActiveList
+         * Getting most updated value from ActiveList into FriendAdapter -> copy entire ShoppingList node into another user's mEncodedEmail
          *
          * Add ValueEventListeners to Firebase references
          * to control get data and control behavior and visibility of elements
@@ -89,8 +115,7 @@ public class ShareListActivity extends BaseActivity {
                 ShoppingList shoppingList = dataSnapshot.getValue(ShoppingList.class);
 
                 /**
-                 * Saving the most recent version of current shopping list into mShoppingList
-                 * and pass it to setShoppingList() if present
+                 * Saving the most recent version of current shopping list into mShoppingList and pass it to setShoppingList()
                  * finish() the activity otherwise
                  */
                 if (shoppingList != null) {
@@ -101,6 +126,12 @@ public class ShareListActivity extends BaseActivity {
                     finish();
                 }
             }
+
+
+
+
+
+
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {
@@ -134,6 +165,13 @@ public class ShareListActivity extends BaseActivity {
 
 
             }
+
+
+
+
+
+
+
 
             @Override
             public void onCancelled(FirebaseError firebaseError) {

@@ -24,6 +24,8 @@ import java.util.Map;
 
 /**
  * Populates the list_view_friends_share inside ShareListActivity
+ *
+ *
  */
 public class FriendAdapter extends FirebaseListAdapter<User> {
     private ShoppingList mShoppingList;
@@ -32,6 +34,10 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
     private Firebase mFirebaseRef;
     private HashMap<String, User> mSharedUsersList;
     private HashMap <Firebase, ValueEventListener> mLocationListenerMap;
+
+
+
+
 
 
     /**
@@ -46,6 +52,10 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
         mLocationListenerMap = new HashMap<Firebase, ValueEventListener>();
     }
 
+
+
+
+
     /**
      * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
      * with items inflated from single_user_item.xml
@@ -59,6 +69,10 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
         final Firebase sharedFriendInShoppingListRef = new Firebase(Constants.FIREBASE_URL_LISTS_SHARED_WITH)
                 .child(mListId).child(friend.getEmail());
 
+
+
+
+        
         /**
          * Gets the value of the friend from the ShoppingList's sharedWith list of users
          * and then allows the friend to be toggled as shared with or not.
@@ -80,6 +94,8 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
                  */
                 if (sharedFriendInShoppingList != null) {
                     buttonToggleShare.setImageResource(R.drawable.ic_shared_check);
+
+
                     buttonToggleShare.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
