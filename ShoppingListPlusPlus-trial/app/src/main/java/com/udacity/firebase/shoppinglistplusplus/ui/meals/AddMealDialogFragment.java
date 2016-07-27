@@ -85,6 +85,9 @@ public class AddMealDialogFragment extends DialogFragment {
         return builder.create();
     }
 
+
+
+
     /**
      * Add new meal
      */
