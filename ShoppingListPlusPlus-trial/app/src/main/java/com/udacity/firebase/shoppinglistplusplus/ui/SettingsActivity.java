@@ -57,6 +57,11 @@ public class SettingsActivity extends PreferenceActivity {
             return true;
         }
 
+
+
+
+
+
         private void bindPreferenceSummaryToValue(Preference preference) {
         /* Set the listener to watch for value changes. */
             preference.setOnPreferenceChangeListener(this);
@@ -66,6 +71,11 @@ public class SettingsActivity extends PreferenceActivity {
                             .getDefaultSharedPreferences(preference.getContext())
                             .getString(preference.getKey(), ""));
         }
+
+
+
+
+
 
         /**
          * Sets preference summary to appropriate value

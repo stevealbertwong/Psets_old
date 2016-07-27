@@ -132,7 +132,7 @@ public class MainActivity extends BaseActivity {
          * Create SectionPagerAdapter, set it as adapter to viewPager with setOffscreenPageLimit(2)
          **/
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(3);
         viewPager.setAdapter(adapter);
         /**
          * Setup the mTabLayout with view pager
@@ -171,7 +171,9 @@ public class MainActivity extends BaseActivity {
 
 
 
-    
+
+
+
     /**
      * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state
      */
@@ -201,6 +203,9 @@ public class MainActivity extends BaseActivity {
                 case 1:
                     fragment = MealsFragment.newInstance();
                     break;
+                case 2:
+                    fragment = MealsFragment.newInstance();
+                    break;
                 default:
                     fragment = ShoppingListsFragment.newInstance(mEncodedEmail);
                     break;
@@ -212,7 +217,7 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         /**
@@ -226,6 +231,9 @@ public class MainActivity extends BaseActivity {
                 case 0:
                     return getString(R.string.pager_title_shopping_lists);
                 case 1:
+                    return getString(R.string.pager_title_meals);
+                case 2:
+                    return getString(R.string.pager_title_meals);
                 default:
                     return getString(R.string.pager_title_meals);
             }

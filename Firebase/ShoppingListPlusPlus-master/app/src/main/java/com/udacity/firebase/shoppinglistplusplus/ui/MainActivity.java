@@ -258,6 +258,12 @@ public class MainActivity extends BaseActivity {
 
 
 
+
+
+
+
+
+
         /**
          * Set string resources as titles for each fragment by it's position
          *

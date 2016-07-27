@@ -12,7 +12,7 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
- * SettingsActivity represents preference screen and functionality
+ * SettingsActivity represents preference screen: sort by
  */
 public class SettingsActivity extends PreferenceActivity {
 
@@ -25,6 +25,11 @@ public class SettingsActivity extends PreferenceActivity {
                 .replace(android.R.id.content, new SortPreferenceFragment())
                 .commit();
     }
+
+
+
+
+
 
     /**
      * This fragment shows the preferences for the first header.

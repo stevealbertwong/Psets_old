@@ -5,8 +5,8 @@
 
      -->
     <string name="app_name">愛</string>
-    <string name="pager_title_shopping_lists">Shopping Lists</string>
-    <string name="pager_title_meals">Meals</string>
+    <string name="pager_title_shopping_lists">资讯</string>
+    <string name="pager_title_meals">消息</string>
     <string name="remove_item_option">Remove Item</string>
     <string name="positive_button_create">Create</string>
     <string name="text_you">You</string>
