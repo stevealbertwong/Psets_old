@@ -56,9 +56,7 @@ public class MealsFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
+    public void onActivityCreated(Bundle savedInstanceState) {super.onActivityCreated(savedInstanceState);}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

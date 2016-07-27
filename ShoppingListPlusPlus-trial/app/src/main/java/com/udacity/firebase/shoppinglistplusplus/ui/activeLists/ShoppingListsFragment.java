@@ -30,9 +30,13 @@ public class ShoppingListsFragment extends Fragment {
     private ActiveListAdapter mActiveListAdapter;
     private ListView mListView;
 
+
+
     public ShoppingListsFragment() {
         /* Required empty public constructor */
     }
+
+
 
     /**
      * Create fragment and pass bundle with data as it's arguments
@@ -41,10 +45,14 @@ public class ShoppingListsFragment extends Fragment {
     public static ShoppingListsFragment newInstance(String encodedEmail) {
         ShoppingListsFragment fragment = new ShoppingListsFragment();
         Bundle args = new Bundle();
+        // save parameters in the state as framework destory and recreate fragment wont lose parameters
+        // the arguments supplied here will be retained across fragment destroy and creation.
         args.putString(Constants.KEY_ENCODED_EMAIL, encodedEmail);
         fragment.setArguments(args);
         return fragment;
     }
+
+
 
     /**
      * Initialize instance variables with data from bundle
