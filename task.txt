@@ -898,6 +898,15 @@ FriendAdapter -1pt
 FrontEnd -1pt
 
 
+
+7-27
+Camera -1pt
+
+
+
+
+
+
 DATABASE DESIGN OPTIONS
 1. generate id by push
 2. denormalization or nesting

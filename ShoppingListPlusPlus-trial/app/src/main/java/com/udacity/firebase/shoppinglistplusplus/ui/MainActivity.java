@@ -167,6 +167,11 @@ public class MainActivity extends BaseActivity {
     }
     /*++++++++++++++++++++++++++++++++++++ LIKEBUTTON ++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+
+
+
+
+    
     /**
      * SectionPagerAdapter class that extends FragmentStatePagerAdapter to save fragments state
      */

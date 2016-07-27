@@ -147,6 +147,8 @@ public class MainActivity extends BaseActivity {
 
         /**
          * Create SectionPagerAdapter, set it as adapter to viewPager with setOffscreenPageLimit(2)
+         *
+         * FragmentManager fm = getSupportFragmentManager()
          **/
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
         viewPager.setOffscreenPageLimit(2);
