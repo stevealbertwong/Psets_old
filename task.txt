@@ -903,6 +903,7 @@ FrontEnd -1pt
 Camera take picture and retrieve picture from file -3pt
 fragment into3 -1pt
 InstagramFragment -1pt
+stuck at taking pictures inside fragment -1pt
 
 
 
