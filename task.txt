@@ -907,6 +907,8 @@ stuck at taking pictures inside fragment -1pt
 Solved fragment to start Camera Activity -1pt
 
 
+7-29
+stuck with actionbar
 
 
 
