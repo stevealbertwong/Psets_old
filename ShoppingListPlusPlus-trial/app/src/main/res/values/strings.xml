@@ -4,7 +4,7 @@
     == Base Strings For the App ==
 
      -->
-    <string name="app_name">愛</string>
+    <string name="app_name">致爱</string>
     <string name="pager_title_shopping_lists">资讯</string>
     <string name="pager_title_meals">消息</string>
     <string name="remove_item_option">Remove Item</string>
@@ -183,6 +183,13 @@
     <string name="toast_is_already_your_friend">%s is already your friend!</string>
     <string name="toast_you_cant_add_yourself">You can\'t add yourself as a friend.</string>
 
+    <!--
+
+    == Camera Strings ==
+
+    -->
+    <!-- Activity Titles -->
+    <string name="title_activity_camera">Camera</string>
 
     <!--
 

@@ -908,7 +908,8 @@ Solved fragment to start Camera Activity -1pt
 
 
 7-29
-stuck with actionbar
+stuck with actionbar -1pt
+instagram fragment -1pt
 
 
 

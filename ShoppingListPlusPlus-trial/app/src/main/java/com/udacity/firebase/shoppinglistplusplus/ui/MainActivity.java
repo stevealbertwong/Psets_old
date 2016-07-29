@@ -67,8 +67,9 @@ public class MainActivity extends BaseActivity {
                  */
                 if (user != null) {
                     /* Assumes that the first word in the user's name is the user's first name. */
+                    // split whenever there is space -> return an array of strings -> get the first one
                     String firstName = user.getName().split("\\s+")[0];
-                    String title = firstName + "'s Lists";
+                    String title = firstName + "你好！";
                     setTitle(title);
                 }
             }

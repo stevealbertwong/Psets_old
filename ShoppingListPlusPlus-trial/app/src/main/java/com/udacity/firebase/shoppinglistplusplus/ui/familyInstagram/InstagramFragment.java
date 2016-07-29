@@ -1,15 +1,14 @@
 package com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram;
 
-import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.udacity.firebase.shoppinglistplusplus.R;
-import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AddFriendActivity;
 
 /**
  * Created by SteveAndrewWong on 7/27/16.
@@ -63,7 +62,7 @@ public class InstagramFragment extends Fragment {
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent takePictureIntent = new Intent(getActivity(), AddFriendActivity.class);
+                Intent takePictureIntent = new Intent(getActivity(), CameraActivity.class);
                 startActivity(takePictureIntent);
             }
 
