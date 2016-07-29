@@ -8,27 +8,15 @@
         android:layout_weight="1"
         android:id="@+id/image_view_1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-
+        android:layout_height="wrap_content"
+        android:src="@drawable/pic_instagram"/>
+    <TextView
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/button_take_picture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="take picture"
-            android:onClick="takePictureClick"/>
-        <Button
-            android:layout_weight="1"
-            android:id="@+id/button_get_picture"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="get picture"
-            android:onClick="getPictureClick"/>
-    </LinearLayout>
+        android:text="Enter"
+        android:textSize="150dp"/>
+
+
 
 </LinearLayout>

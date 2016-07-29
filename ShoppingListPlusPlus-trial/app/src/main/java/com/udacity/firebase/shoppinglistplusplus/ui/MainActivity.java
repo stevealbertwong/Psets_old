@@ -23,6 +23,7 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.User;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.AddListDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.ShoppingListsFragment;
+import com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram.InstagramFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.AddMealDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.MealsFragment;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
@@ -204,7 +205,7 @@ public class MainActivity extends BaseActivity {
                     fragment = MealsFragment.newInstance();
                     break;
                 case 2:
-                    fragment = MealsFragment.newInstance();
+                    fragment = InstagramFragment.newInstance();
                     break;
                 default:
                     fragment = ShoppingListsFragment.newInstance(mEncodedEmail);
@@ -238,5 +239,7 @@ public class MainActivity extends BaseActivity {
                     return getString(R.string.pager_title_meals);
             }
         }
+
+
     }
 }
