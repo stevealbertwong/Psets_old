@@ -912,6 +912,8 @@ stuck with actionbar -1pt
 instagram fragment -1pt
 arduino -2pts
 
+7-30
+tablayout + image storage with Firebase -1pt
 
 
 

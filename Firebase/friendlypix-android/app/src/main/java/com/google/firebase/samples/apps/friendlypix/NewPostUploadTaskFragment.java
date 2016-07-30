@@ -60,6 +60,11 @@ public class NewPostUploadTaskFragment extends Fragment {
     private Bitmap selectedBitmap;
     private Bitmap thumbnail;
 
+
+
+
+
+    /* Constructor */
     public NewPostUploadTaskFragment() {
         // Required empty public constructor
     }
@@ -67,6 +72,13 @@ public class NewPostUploadTaskFragment extends Fragment {
     public static NewPostUploadTaskFragment newInstance() {
         return new NewPostUploadTaskFragment();
     }
+
+
+
+
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,6 +132,19 @@ public class NewPostUploadTaskFragment extends Fragment {
         uploadTask.execute();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
     class UploadPostTask extends AsyncTask<Void, Void, Void> {
         private WeakReference<Bitmap> bitmapReference;
         private WeakReference<Bitmap> thumbnailReference;
@@ -143,6 +168,12 @@ public class NewPostUploadTaskFragment extends Fragment {
 
         }
 
+
+
+
+
+
+
         @Override
         protected Void doInBackground(Void... params) {
             Bitmap fullSize = bitmapReference.get();
@@ -150,6 +181,8 @@ public class NewPostUploadTaskFragment extends Fragment {
             if (fullSize == null || thumbnail == null) {
                 return null;
             }
+
+            // from DatabaseReference to photo reference
             FirebaseStorage storageRef = FirebaseStorage.getInstance();
             StorageReference photoRef = storageRef.getReferenceFromUrl("gs://" + getString(R.string.google_storage_bucket));
 

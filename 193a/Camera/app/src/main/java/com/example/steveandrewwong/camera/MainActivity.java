@@ -80,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+            // taken photo is encoded in the return Intent delivered to onActivityResult
+            // taken photo is encoded as a small bitmap stored in Extra under the key "data"
             bitmap = (Bitmap) data.getExtras().get("data");
             imageView = (ImageView) findViewById(R.id.image_view_1);
             imageView.setImageBitmap(bitmap);
@@ -123,4 +124,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    /*
+     * 1. decided external public storage or internal file to write to
+     * 2. create a collision-resistant file name using a date-time stamp + save path in member variable
+     *
+    * */
+
+
 }
+
