@@ -8,6 +8,13 @@
         android:required="true"/>
 -->
 
+    <!-- Because the directory provided by getExternalStoragePublicDirectory() is shared among all apps,
+    reading and writing to it requires the READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE permissions, respectively.
+    The write permission implicitly allows reading, so if you need to write to the external storage then you need to
+    request only one permission -->
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"

@@ -915,6 +915,7 @@ arduino -2pts
 7-30
 tablayout + image storage with Firebase -1pt
 android guide on saving files of taken pictures from camera -1pt
+saving pictures to firebase -1pt
 
 
 
