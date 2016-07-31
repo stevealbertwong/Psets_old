@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.view.View;
@@ -31,8 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Uri mCurrentPhotoUri;
     public PhotoTaker mPhotoTaker;
     public Firebase firebase;
-
-
+    String mCurrentPhotoPath;
 
     /*
      * 1. decided external public storage or internal file to write to
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         imageView = (ImageView) findViewById(R.id.image_view_1);
-        mPhotoTaker = new PhotoTaker(this);
+
 
         previewStoredFirebaseImage();
 
@@ -66,35 +66,56 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void takePictureClick(View view) {
-        takePhoto();
-
-    }
-
-    private void takePhoto() {
-
-//        Toast.makeText(getApplicationContext(),
-//
-//                "Sorry! Couldn't create a new image file", Toast.LENGTH_SHORT)
-//
-//                .show();
 
 
-        // ImageFactory -> File imageFile  = File.createTempFile (uniqueTimeStampedFileName, .jpg, directoryToStored)
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        // File imageFile  = File.createTempFile (uniqueTimeStampedFileName, .jpg, directoryToStored)
         File placeholderFile = ImageFactory.newFile();
 
+
+        // take picture and stored in the Uri of newly created File
         mCurrentPhotoUri = Uri.fromFile(placeholderFile);
+        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCurrentPhotoUri);
 
-        if (!mPhotoTaker.takePhoto(placeholderFile)) {
-
-            Toast.makeText(getApplicationContext(),
-
-                    "Sorry! Couldn't create a new image file", Toast.LENGTH_SHORT)
-
-                    .show();
-
-        }
+        startActivityForResult(takePictureIntent, REQUEST_CODE_TO_TAKEPICTURE);
 
     }
+
+
+
+
+
+//    private void takePhoto() {
+//
+////        Toast.makeText(getApplicationContext(),
+////
+////                "Sorry! Couldn't create a new image file", Toast.LENGTH_SHORT)
+////
+////                .show();
+//
+//
+//        // ImageFactory -> File imageFile  = File.createTempFile (uniqueTimeStampedFileName, .jpg, directoryToStored)
+//        File placeholderFile = ImageFactory.newFile();
+//
+//        mCurrentPhotoUri = Uri.fromFile(placeholderFile);
+//
+//        if (!mPhotoTaker.takePhoto(placeholderFile)) {
+//
+//            Toast.makeText(getApplicationContext(),
+//
+//                    "Sorry! Couldn't create a new image file", Toast.LENGTH_SHORT)
+//
+//                    .show();
+//
+//        }
+//
+//    }
+
+
+
+
+
 
 
 
