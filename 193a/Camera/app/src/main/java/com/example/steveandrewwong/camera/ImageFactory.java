@@ -24,12 +24,12 @@ public class ImageFactory {
         // Create an unique image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        // external public directory or private directory + the RIGHT DIRECTORY NAME
+        // external public directory or private directory
         File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        // Create the storage directory if it does not exist
         if (!storageDir.exists()){
             storageDir.mkdirs();
-
-            }
+        }
 
 
 

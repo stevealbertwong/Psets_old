@@ -35,8 +35,16 @@ public class MainActivity extends AppCompatActivity {
     String mCurrentPhotoPath;
 
     /*
-     * 1. decided external public storage or internal file to write to
+     * 1. AndroidManifest.xml -> decided external public storage or internal file to write to
      * 2. create a collision-resistant file name using a date-time stamp + save path in member variable
+     *
+     *      File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+     *      File imageFile  = File.createTempFile (uniqueTimeStampedFileName, .jpg, directoryToStored)
+     *
+     * 3. get the Uri of that File + store the picture into that File's location with Uri
+     *
+     *      mCurrentPhotoUri = Uri.fromFile(placeholderFile);
+     *      takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCurrentPhotoUri);
      *
     * */
 
@@ -72,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
 
         // File imageFile  = File.createTempFile (uniqueTimeStampedFileName, .jpg, directoryToStored)
         File placeholderFile = ImageFactory.newFile();
-
-
         // take picture and stored in the Uri of newly created File
         mCurrentPhotoUri = Uri.fromFile(placeholderFile);
         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCurrentPhotoUri);
@@ -119,20 +125,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    // reading from Firebase
     private void previewStoredFirebaseImage() {
-
         firebase.child("pic").addValueEventListener(new ValueEventListener() {
 
             @Override
-
             public void onDataChange(DataSnapshot snapshot) {
-
-
                 String base64Image = (String) snapshot.getValue();
-
                 if (base64Image != null ) {
-
                     byte[] imageAsBytes = Base64.decode(base64Image.getBytes(), Base64.DEFAULT);
 
                     imageView.setImageBitmap(
@@ -140,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
                             BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length)
 
                     );
-
                     System.out.println("Downloaded image with length: " + imageAsBytes.length);
                 }
             }
@@ -155,14 +154,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     public void getPictureClick(View view) {
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         startActivityForResult(intent, REQUEST_CODE_TO_GETPICTURE);
-
-
     }
 
 
@@ -238,7 +237,21 @@ public class MainActivity extends AppCompatActivity {
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
 
-                imageView.setImageBitmap(bitmap);
+                //imageView.setImageBitmap(bitmap);
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+
+                byte[] bytes = baos.toByteArray();
+
+                String base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+                // we finally have our base64 string version of the image, save it.
+
+                firebase.child("pic").setValue(base64Image);
+
+                System.out.println("Stored image with length: " + bytes.length);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -250,27 +263,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-
-
+    // viewing it from PhotoUri.getPath()
     private void previewCapturedImage() {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
 
-        // downsizing image as it throws OutOfMemory Exception for larger
-
-        // images
-
+        // downsizing image as it throws OutOfMemory Exception for larger images
         options.inSampleSize = 8;
-
         Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoUri.getPath(), options);
-
         imageView.setImageBitmap(bitmap);
-
     }
-
-
-
 
 
 
@@ -278,9 +280,7 @@ public class MainActivity extends AppCompatActivity {
     private void storeImageToFirebase() {
 
         BitmapFactory.Options options = new BitmapFactory.Options();
-
         options.inSampleSize = 8; // shrink it down otherwise we will use stupid amounts of memory
-
         Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhotoUri.getPath(), options);
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

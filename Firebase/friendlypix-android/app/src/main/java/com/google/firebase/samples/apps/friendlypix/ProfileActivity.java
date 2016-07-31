@@ -71,6 +71,10 @@ public class ProfileActivity extends BaseActivity implements
 
     private static final int RC_SIGN_IN = 103;
 
+
+
+
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,16 +95,32 @@ public class ProfileActivity extends BaseActivity implements
                                 .build())
                 .build();
 
+
+
+
+
+
+        /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
         mSignInUi = (ViewGroup) findViewById(R.id.sign_in_ui);
         mProfileUi = (ViewGroup) findViewById(R.id.profile);
 
         mProfilePhoto = (CircleImageView) findViewById(R.id.profile_user_photo);
         mProfileUsername = (TextView) findViewById(R.id.profile_user_name);
 
+        /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
         findViewById(R.id.launch_sign_in).setOnClickListener(this);
         findViewById(R.id.show_feeds_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
+
+
     }
+
+
+
+
+
+
 
     @Override
     public void onClick(View v) {
@@ -114,12 +134,20 @@ public class ProfileActivity extends BaseActivity implements
                 Auth.GoogleSignInApi.signOut(mGoogleApiClient);
                 showSignedOutUI();
                 break;
+
+            /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
             case R.id.show_feeds_button:
                 Intent feedsIntent = new Intent(this, FeedsActivity.class);
                 startActivity(feedsIntent);
                 break;
+            /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
         }
     }
+
+
+
+
+
 
     private void launchSignInIntent() {
         Intent intent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
@@ -179,23 +207,41 @@ public class ProfileActivity extends BaseActivity implements
             showSignedOutUI();
         }
     }
+
+
+
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     private void showSignedInUI(FirebaseUser firebaseUser) {
         Log.d(TAG, "Showing signed in UI");
         mSignInUi.setVisibility(View.GONE);
         mProfileUi.setVisibility(View.VISIBLE);
         mProfileUsername.setVisibility(View.VISIBLE);
         mProfilePhoto.setVisibility(View.VISIBLE);
+
+
         if (firebaseUser.getDisplayName() != null) {
             mProfileUsername.setText(firebaseUser.getDisplayName());
         }
 
+
+
+
         if (firebaseUser.getPhotoUrl() != null) {
             GlideUtil.loadProfileIcon(firebaseUser.getPhotoUrl().toString(), mProfilePhoto);
         }
+
+
+
+
+
+
         Map<String, Object> updateValues = new HashMap<>();
         updateValues.put("displayName", firebaseUser.getDisplayName() != null ? firebaseUser.getDisplayName() : "Anonymous");
         updateValues.put("photoUrl", firebaseUser.getPhotoUrl() != null ? firebaseUser.getPhotoUrl().toString() : null);
 
+
+        // baseRef/people/Uid -> displayName : Anonymous, photoUrl : null
         FirebaseUtil.getPeopleRef().child(firebaseUser.getUid()).updateChildren(
                 updateValues,
                 new DatabaseReference.CompletionListener() {
@@ -209,6 +255,12 @@ public class ProfileActivity extends BaseActivity implements
                     }
                 });
     }
+
+    /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+
+
 
     private void showSignedOutUI() {
         Log.d(TAG, "Showing signed out UI");

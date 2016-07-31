@@ -919,7 +919,11 @@ saving pictures to firebase -2pts
 
 7-31
 stuck in camera 
-Camera bug is not solvable since we are accessing the wrong directory
+Camera bug is not solvable since we are accessing the wrong directory -2pts
+Firebase instagram sample - ProfileActivity but i am not using Glide -2pts
+
+
+
 
 
 

@@ -70,6 +70,12 @@ public class PostsFragment extends Fragment {
         return fragment;
     }
 
+
+
+
+
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,12 +91,19 @@ public class PostsFragment extends Fragment {
         return rootView;
     }
 
+
+
+
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
+
+
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
         if (savedInstanceState != null) {
@@ -216,6 +229,10 @@ public class PostsFragment extends Fragment {
         mRecyclerView.setAdapter(mAdapter);
     }
 
+
+
+
+
     private FirebaseRecyclerAdapter<Post, PostViewHolder> getFirebaseRecyclerAdapter(Query query) {
         return new FirebaseRecyclerAdapter<Post, PostViewHolder>(
                 Post.class, R.layout.post_item, PostViewHolder.class, query) {
@@ -232,6 +249,11 @@ public class PostsFragment extends Fragment {
             }
         };
     }
+
+
+
+
+
 
     private void setupPost(final PostViewHolder postViewHolder, final Post post, final int position, final String inPostKey) {
         postViewHolder.setPhoto(post.getThumb_url());
@@ -310,6 +332,13 @@ public class PostsFragment extends Fragment {
         }
         return scrollPosition;
     }
+
+
+
+
+
+
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -321,6 +350,12 @@ public class PostsFragment extends Fragment {
         void onPostComment(String postKey);
         void onPostLike(String postKey);
     }
+
+
+
+
+
+
 
     @Override
     public void onAttach(Context context) {

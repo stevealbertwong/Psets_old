@@ -50,6 +50,9 @@
         tools:context=".ProfileActivity"
         tools:showIn="@layout/activity_profile">
 
+
+
+
         <RelativeLayout
             android:id="@+id/sign_in_ui"
             android:layout_width="match_parent"
@@ -63,6 +66,10 @@
                 android:text="Google Sign-In"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </RelativeLayout>
+
+
+
+
 
         <LinearLayout
             android:orientation="vertical"
@@ -101,5 +108,6 @@
                 android:text="@string/sign_out_button_text"
                 style="@style/Widget.AppCompat.Button.Colored"/>
         </LinearLayout>
+
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

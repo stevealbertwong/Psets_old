@@ -12,6 +12,17 @@
     android:paddingLeft="@dimen/margin_small"
     android:paddingStart="@dimen/margin_small">
 
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_user_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_action_like"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"
+        />
+
     <ImageView
         android:id="@+id/iv_user_image"
         android:layout_width="wrap_content"
