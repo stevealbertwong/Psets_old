@@ -265,6 +265,12 @@ public class NewPostUploadTaskFragment extends Fragment {
         }
     }
 
+
+
+
+
+
+
     class LoadResizedBitmapTask extends AsyncTask<Uri, Void, Bitmap> {
         private int mMaxDimension;
 

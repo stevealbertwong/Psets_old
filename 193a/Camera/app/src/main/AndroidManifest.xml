@@ -13,7 +13,8 @@
     The write permission implicitly allows reading, so if you need to write to the external storage then you need to
     request only one permission -->
 
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
 
     <application
