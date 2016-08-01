@@ -111,7 +111,7 @@ public class PostsFragment extends Fragment {
     * 2. Set up Adapter
     *       mAdapter = getFirebaseRecyclerAdapter(allPostsQuery);
     *
-    *       
+    *
     *
     *
     *
@@ -137,6 +137,10 @@ public class PostsFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
+
+
+
+
         // Restore saved layout position and manager type
         if (savedInstanceState != null) {
             mRecyclerViewPosition = (int) savedInstanceState
@@ -144,15 +148,6 @@ public class PostsFragment extends Fragment {
             mRecyclerView.scrollToPosition(mRecyclerViewPosition);
             // TODO: RecyclerView only restores position properly for some tabs.
         }
-
-
-
-
-
-
-
-
-
 
 
 
@@ -165,6 +160,11 @@ public class PostsFragment extends Fragment {
                 // getBaseRef()-> return FirebaseDatabase.getInstance().getReference();
                 Query allPostsQuery = FirebaseUtil.getPostsRef();
                 mAdapter = getFirebaseRecyclerAdapter(allPostsQuery);
+
+
+
+
+                // refresh feed page whenever there is new data gets inserted -> but i guess it is not happening
                 mAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
                     @Override
                     public void onItemRangeInserted(int positionStart, int itemCount) {

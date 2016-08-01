@@ -37,6 +37,7 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
     /**
      * Public constructor that initializes private instance variables when adapter is created
      */
+    // A Query sorts and filters the data at a database location so only a subset of the child data is included.
     public ActiveListItemAdapter(Activity activity, Class<ShoppingListItem> modelClass, int modelLayout,
                                  Query ref, String listId, String encodedEmail) {
         super(activity, modelClass, modelLayout, ref);
