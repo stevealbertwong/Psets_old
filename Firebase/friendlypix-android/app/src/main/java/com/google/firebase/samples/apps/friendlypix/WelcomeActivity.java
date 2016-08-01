@@ -28,7 +28,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -53,11 +52,14 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         int id = v.getId();
         switch (id) {
             case R.id.explore_button:
+
+
                 mAuth.signInAnonymously().addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                     @Override
                     public void onSuccess(AuthResult authResult) {
                         Intent feedsIntent = new Intent(WelcomeActivity.this, FeedsActivity.class);
                         startActivity(feedsIntent);
+
                     }
                 }).addOnFailureListener( new OnFailureListener() {
                     @Override
@@ -68,6 +70,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 });
                 break;
+
             case R.id.sign_in_button:
                 Intent signInIntent = new Intent(this, ProfileActivity.class);
                 startActivity(signInIntent);

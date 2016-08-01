@@ -55,8 +55,16 @@ public class PostsFragment extends Fragment {
     private OnPostSelectedListener mListener;
 
 
+
+
+
     private RecyclerView mRecyclerView;
+    // this Adapter is of type RecycleView and holds PostViewHolder
     private RecyclerView.Adapter<PostViewHolder> mAdapter;
+
+
+
+
 
     public PostsFragment() {
         // Required empty public constructor
@@ -95,6 +103,29 @@ public class PostsFragment extends Fragment {
 
 
 
+    /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    *
+    * 1. Configure Recycler View
+    *       mRecyclerView.setLayoutManager(linearLayoutManager);
+    *
+    * 2. Set up Adapter
+    *       mAdapter = getFirebaseRecyclerAdapter(allPostsQuery);
+    *
+    *       
+    *
+    *
+    *
+    *
+    *
+    *
+    *
+    *
+    * ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+
+
+
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -106,17 +137,32 @@ public class PostsFragment extends Fragment {
 
         mRecyclerView.setLayoutManager(linearLayoutManager);
 
+        // Restore saved layout position and manager type
         if (savedInstanceState != null) {
-            // Restore saved layout manager type.
             mRecyclerViewPosition = (int) savedInstanceState
                     .getSerializable(KEY_LAYOUT_POSITION);
             mRecyclerView.scrollToPosition(mRecyclerViewPosition);
             // TODO: RecyclerView only restores position properly for some tabs.
         }
 
+
+
+
+
+
+
+
+
+
+
+
+
         switch (getArguments().getInt(KEY_TYPE)) {
             case TYPE_FEED:
                 Log.d(TAG, "Restoring recycler view position (all): " + mRecyclerViewPosition);
+
+                // public static DatabaseReference getPostsRef() -> {return getBaseRef().child("posts");}
+                // getBaseRef()-> return FirebaseDatabase.getInstance().getReference();
                 Query allPostsQuery = FirebaseUtil.getPostsRef();
                 mAdapter = getFirebaseRecyclerAdapter(allPostsQuery);
                 mAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
@@ -127,6 +173,14 @@ public class PostsFragment extends Fragment {
                     }
                 });
                 break;
+
+
+
+
+
+
+
+
             case TYPE_HOME:
                 Log.d(TAG, "Restoring recycler view position (following): " + mRecyclerViewPosition);
 
@@ -200,6 +254,19 @@ public class PostsFragment extends Fragment {
                     }
                 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+                // for loop get all posts' key
                 FirebaseUtil.getFeedRef().child(FirebaseUtil.getCurrentUserId())
                         .addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
@@ -209,6 +276,11 @@ public class PostsFragment extends Fragment {
                                     Log.d(TAG, "adding post key: " + snapshot.getKey());
                                     postPaths.add(snapshot.getKey());
                                 }
+
+
+
+
+
                                 mAdapter = new FirebasePostQueryAdapter(postPaths,
                                         new FirebasePostQueryAdapter.OnSetupViewListener() {
                                     @Override
@@ -226,8 +298,25 @@ public class PostsFragment extends Fragment {
             default:
                 throw new RuntimeException("Illegal post fragment type specified.");
         }
+
+
+
+
         mRecyclerView.setAdapter(mAdapter);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -304,6 +393,23 @@ public class PostsFragment extends Fragment {
             }
         });
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void onDestroy() {

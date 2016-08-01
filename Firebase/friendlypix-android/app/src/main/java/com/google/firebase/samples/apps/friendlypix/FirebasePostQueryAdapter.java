@@ -16,18 +16,15 @@
 
 package com.google.firebase.samples.apps.friendlypix;
 
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.samples.apps.friendlypix.Models.Post;
 
@@ -39,6 +36,12 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
     private List<String> mPostPaths;
     private OnSetupViewListener mOnSetupViewListener;
 
+
+
+
+
+
+
     public FirebasePostQueryAdapter(List<String> paths, OnSetupViewListener onSetupViewListener) {
         if (paths == null || paths.isEmpty()) {
             mPostPaths = new ArrayList<>();
@@ -47,6 +50,10 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
         }
         mOnSetupViewListener = onSetupViewListener;
     }
+
+
+
+
 
     @Override
     public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -89,11 +96,20 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
         holder.mPostListener = postListener;
     }
 
+
+
+
+
+
     @Override
     public void onViewRecycled(PostViewHolder holder) {
         super.onViewRecycled(holder);
         holder.mPostRef.removeEventListener(holder.mPostListener);
     }
+
+
+
+
 
     @Override
     public int getItemCount() {

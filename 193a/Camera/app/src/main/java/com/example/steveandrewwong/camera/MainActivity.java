@@ -132,14 +132,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 String base64Image = (String) snapshot.getValue();
+
                 if (base64Image != null ) {
                     byte[] imageAsBytes = Base64.decode(base64Image.getBytes(), Base64.DEFAULT);
 
                     imageView.setImageBitmap(
-
                             BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length)
-
                     );
+
                     System.out.println("Downloaded image with length: " + imageAsBytes.length);
                 }
             }
@@ -234,21 +234,25 @@ public class MainActivity extends AppCompatActivity {
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
+
+                // get image from Intent/data as input stream from content folder + decode the stream into bitmap
+                // Stream -> preconnected input and output communication channels[1] between a computer program and its environment
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
 
                 //imageView.setImageBitmap(bitmap);
 
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
 
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                // compress(Bitmap.CompressFormat format, int quality, OutputStream stream)
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 
                 byte[] bytes = baos.toByteArray();
 
+                // we finally have our base64 string version of the image -> every 2 bytes become an alphabet
+                // Byte Array -> String
                 String base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
-
-                // we finally have our base64 string version of the image, save it.
-
                 firebase.child("pic").setValue(base64Image);
 
                 System.out.println("Stored image with length: " + bytes.length);

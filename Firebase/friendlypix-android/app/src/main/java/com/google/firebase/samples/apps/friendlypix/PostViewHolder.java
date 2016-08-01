@@ -24,7 +24,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
@@ -45,6 +44,12 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     private TextView mNumLikesView;
     public String mPostKey;
     public ValueEventListener mLikeListener;
+
+
+
+
+
+
 
     public PostViewHolder(View itemView) {
         super(itemView);
@@ -71,9 +76,18 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
+
+
+
+
+
     public void setPhoto(String url) {
         GlideUtil.loadImage(url, mPhotoView);
     }
+
+
+
+
 
     public void setIcon(String url, final String authorId) {
         GlideUtil.loadProfileIcon(url, mIconView);
@@ -106,6 +120,10 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
     }
 
 
+
+
+
+
     public void setText(final String text) {
         if (text == null || text.isEmpty()) {
             mPostTextView.setVisibility(View.GONE);
@@ -126,6 +144,9 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
             });
         }
     }
+
+
+
 
     public void setTimestamp(String timestamp) {
         mTimestampView.setText(timestamp);
