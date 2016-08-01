@@ -305,7 +305,7 @@ public class PostsFragment extends Fragment {
 
 
 
-
+                                // ****************************************************************
                                 mAdapter = new FirebasePostQueryAdapter(postPaths,
                                         new FirebasePostQueryAdapter.OnSetupViewListener() {
                                     @Override
@@ -372,11 +372,18 @@ public class PostsFragment extends Fragment {
 
 
 
+
+
+
+
     private void setupPost(final PostViewHolder postViewHolder, final Post post, final int position, final String inPostKey) {
         postViewHolder.setPhoto(post.getThumb_url());
         postViewHolder.setText(post.getText());
         postViewHolder.setTimestamp(DateUtils.getRelativeTimeSpanString(
                 (long) post.getTimestamp()).toString());
+
+
+
         final String postKey;
         if (mAdapter instanceof FirebaseRecyclerAdapter) {
             postKey = ((FirebaseRecyclerAdapter) mAdapter).getRef(position).getKey();
@@ -384,9 +391,19 @@ public class PostsFragment extends Fragment {
             postKey = inPostKey;
         }
 
+
+
         Author author = post.getAuthor();
+
+
         postViewHolder.setAuthor(author.getFull_name(), author.getUid());
         postViewHolder.setIcon(author.getProfile_picture(), author.getUid());
+
+
+
+
+
+
 
         ValueEventListener likeListener = new ValueEventListener() {
             @Override
@@ -404,6 +421,12 @@ public class PostsFragment extends Fragment {
 
             }
         };
+
+
+
+
+
+
         FirebaseUtil.getLikesRef().child(postKey).addValueEventListener(likeListener);
         postViewHolder.mLikeListener = likeListener;
 

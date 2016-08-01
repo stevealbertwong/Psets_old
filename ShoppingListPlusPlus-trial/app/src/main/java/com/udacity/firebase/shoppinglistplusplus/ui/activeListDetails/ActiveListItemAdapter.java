@@ -34,6 +34,11 @@ public class ActiveListItemAdapter extends FirebaseListAdapter<ShoppingListItem>
     private String mEncodedEmail;
     private HashMap<String, User> mSharedWithUsers;
 
+
+
+
+
+
     /**
      * Public constructor that initializes private instance variables when adapter is created
      */

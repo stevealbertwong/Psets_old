@@ -55,6 +55,11 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
 
+
+
+
+
+
     @Override
     public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         // create a new view
@@ -72,6 +77,13 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
         mPostPaths.add(path);
         notifyItemInserted(mPostPaths.size());
     }
+
+
+
+
+
+
+
 
     @Override
     public void onBindViewHolder(final PostViewHolder holder, int position) {
@@ -101,6 +113,9 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
 
+
+
+
     @Override
     public void onViewRecycled(PostViewHolder holder) {
         super.onViewRecycled(holder);
@@ -115,6 +130,10 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
     public int getItemCount() {
         return mPostPaths.size();
     }
+
+
+
+
 
     public interface OnSetupViewListener {
         void onSetupView(PostViewHolder holder, Post post, int position, String postKey);
