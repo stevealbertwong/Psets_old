@@ -35,7 +35,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -149,6 +148,10 @@ public class NewPostActivity extends BaseActivity implements
             }
         });
     }
+
+
+
+
 
     @AfterPermissionGranted(RC_CAMERA_PERMISSIONS)
     private void showImagePicker() {

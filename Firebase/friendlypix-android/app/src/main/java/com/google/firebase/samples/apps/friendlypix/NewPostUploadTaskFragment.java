@@ -196,6 +196,7 @@ public class NewPostUploadTaskFragment extends Fragment {
             ByteArrayOutputStream fullSizeStream = new ByteArrayOutputStream();
             fullSize.compress(Bitmap.CompressFormat.JPEG, 90, fullSizeStream);
             byte[] bytes = fullSizeStream.toByteArray();
+
             fullSizeRef.putBytes(bytes).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {

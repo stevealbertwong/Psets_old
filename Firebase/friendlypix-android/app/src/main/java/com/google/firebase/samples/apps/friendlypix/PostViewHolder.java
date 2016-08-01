@@ -27,6 +27,12 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
+
+
+
+
+
+
 public class PostViewHolder extends RecyclerView.ViewHolder {
     private final View mView;
     private PostClickListener mListener;
@@ -61,13 +67,19 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
         mTimestampView = (TextView) itemView.findViewById(R.id.post_timestamp);
         mNumLikesView = (TextView) itemView.findViewById(R.id.post_num_likes);
 
+
+
         itemView.findViewById(R.id.post_comment_icon).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mListener.showComments();
             }
         });
+
+
+
         mLikeIcon = (ImageView) itemView.findViewById(R.id.post_like_icon);
+
         mLikeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

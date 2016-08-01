@@ -926,6 +926,7 @@ succeeded running Firebase Sample instagram -1pt
 8-1
 Firebase Sample Instagram PostFragment -2pts
 RecyclerView, FirebaseRecyclerAdapter, Viewholder review -1pt
+FirebasePostQueryAdapter, PostFragment, PostViewHolder -1pt
 
 
 
