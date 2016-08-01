@@ -111,8 +111,16 @@ public class PostsFragment extends Fragment {
     * 2. Set up Adapter
     *       mAdapter = getFirebaseRecyclerAdapter(allPostsQuery);
     *
+    * 3. Get Feed
     *
+    *       FirebaseUtil.getPeopleRef().child(followedUserId).child("posts").orderByKey().startAt(lastKey).addChildEventListener(new ChildEventListener()
     *
+    *       for (DataSnapshot snapshot : dataSnapshot.getChildren())
+    *       {postPaths.add(snapshot.getKey());}
+    *
+    *       mAdapter = new FirebasePostQueryAdapter(postPaths, new FirebasePostQueryAdapter.OnSetupViewListener() {
+    *       public void onSetupView(PostViewHolder holder, Post post, int position, String postKey) {
+    *               setupPost(holder, post, position, postKey);}
     *
     *
     *
@@ -151,7 +159,7 @@ public class PostsFragment extends Fragment {
 
 
 
-
+        // NOT FINISHED FEED TAB
         switch (getArguments().getInt(KEY_TYPE)) {
             case TYPE_FEED:
                 Log.d(TAG, "Restoring recycler view position (all): " + mRecyclerViewPosition);
@@ -180,11 +188,16 @@ public class PostsFragment extends Fragment {
 
 
 
-
+            // GET FEED *****
             case TYPE_HOME:
                 Log.d(TAG, "Restoring recycler view position (following): " + mRecyclerViewPosition);
 
+
+
+
                 FirebaseUtil.getCurrentUserRef().child("following").addChildEventListener(new ChildEventListener() {
+
+                    // get followed user ID + last updated feed
                     @Override
                     public void onChildAdded(final DataSnapshot followedUserSnapshot, String s) {
                         String followedUserId = followedUserSnapshot.getKey();
@@ -194,16 +207,25 @@ public class PostsFragment extends Fragment {
                         }
                         Log.d(TAG, "followed user id: " + followedUserId);
                         Log.d(TAG, "last key: " + lastKey);
+
+
+
+
+                        // TOO COMPLICATED
+                        // multiple writes to updates FEEDRef and CURRENTUSERRef
                         FirebaseUtil.getPeopleRef().child(followedUserId).child("posts")
                                 .orderByKey().startAt(lastKey).addChildEventListener(new ChildEventListener() {
                             @Override
                             public void onChildAdded(final DataSnapshot postSnapshot, String s) {
                                 HashMap<String, Object> addedPost = new HashMap<String, Object>();
                                 addedPost.put(postSnapshot.getKey(), true);
+
+
                                 FirebaseUtil.getFeedRef().child(FirebaseUtil.getCurrentUserId())
                                         .updateChildren(addedPost).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
+
                                         FirebaseUtil.getCurrentUserRef().child("following")
                                                 .child(followedUserSnapshot.getKey())
                                                 .setValue(postSnapshot.getKey());
@@ -271,9 +293,12 @@ public class PostsFragment extends Fragment {
                         .addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(DataSnapshot dataSnapshot) {
+
                                 final List<String> postPaths = new ArrayList<>();
                                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                     Log.d(TAG, "adding post key: " + snapshot.getKey());
+
+
                                     postPaths.add(snapshot.getKey());
                                 }
 
@@ -289,6 +314,9 @@ public class PostsFragment extends Fragment {
                                     }
                                 });
                             }
+
+
+
                             @Override
                             public void onCancelled(DatabaseError firebaseError) {
 

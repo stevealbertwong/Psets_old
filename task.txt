@@ -924,7 +924,7 @@ Firebase instagram sample - ProfileActivity but i am not using Glide -2pts
 succeeded running Firebase Sample instagram -1pt
 
 8-1
-Firebase Sample Instagram PostFragment -1pt
+Firebase Sample Instagram PostFragment -2pts
 
 
 
