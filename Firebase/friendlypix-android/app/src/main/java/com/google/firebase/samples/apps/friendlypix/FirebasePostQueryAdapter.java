@@ -49,7 +49,7 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
 
-
+    // public constructor
     public FirebasePostQueryAdapter(List<String> paths, OnSetupViewListener onSetupViewListener) {
         if (paths == null || paths.isEmpty()) {
             mPostPaths = new ArrayList<>();
@@ -67,7 +67,7 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
 
-    // return the holder with inflated item layout
+    // create a new PostViewHolder with inflated item layout
     @Override
     public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 

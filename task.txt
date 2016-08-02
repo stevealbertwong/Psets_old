@@ -932,7 +932,7 @@ FirebasePostQueryAdapter, PostFragment, PostViewHolder -1pt
 8-2
 FirebaseRecyclerAdapter -1pt
 RecyclerView.Adapter -1pt
-
+PostViewHolder -1pt
 
 
 

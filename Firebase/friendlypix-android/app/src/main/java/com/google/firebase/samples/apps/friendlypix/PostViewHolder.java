@@ -56,7 +56,8 @@ public class PostViewHolder extends RecyclerView.ViewHolder {
 
 
 
-
+    // Initialized in Recycler.Adapter -> onCreateViewHolder(ViewGroup parent, int viewType)
+    // View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
     public PostViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
