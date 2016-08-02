@@ -70,6 +70,14 @@ public class NewPostActivity extends BaseActivity implements
     };
 
 
+
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +93,10 @@ public class NewPostActivity extends BaseActivity implements
             mTaskFragment = new NewPostUploadTaskFragment();
             fm.beginTransaction().add(mTaskFragment, TAG_TASK_FRAGMENT).commit();
         }
+
+
+
+
 
         mImageView = (ImageView) findViewById(R.id.new_post_picture);
 
@@ -132,6 +144,10 @@ public class NewPostActivity extends BaseActivity implements
         });
     }
 
+
+
+
+
     @Override
     public void onPostUploaded(final String error) {
         NewPostActivity.this.runOnUiThread(new Runnable() {
@@ -153,6 +169,11 @@ public class NewPostActivity extends BaseActivity implements
 
 
 
+
+
+
+    // launch a single Intent to select images from either the Gallery or the Camera
+    // allow user to select camera or gallery for image
     @AfterPermissionGranted(RC_CAMERA_PERMISSIONS)
     private void showImagePicker() {
         // Check for camera permissions
@@ -163,6 +184,10 @@ public class NewPostActivity extends BaseActivity implements
             return;
         }
 
+
+
+
+
         // Choose file storage location
         File file = new File(getExternalCacheDir(), UUID.randomUUID().toString());
         mFileUri = Uri.fromFile(file);
@@ -171,15 +196,25 @@ public class NewPostActivity extends BaseActivity implements
         final List<Intent> cameraIntents = new ArrayList<Intent>();
         final Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         final PackageManager packageManager = getPackageManager();
+
+        // Retrieve all activities that can be performed for the given intent.
+        // take multiple images
         final List<ResolveInfo> listCam = packageManager.queryIntentActivities(captureIntent, 0);
         for (ResolveInfo res : listCam){
             final String packageName = res.activityInfo.packageName;
             final Intent intent = new Intent(captureIntent);
+            // explicit intent provides the exact class to be run -> Explicitly set the component to handle the intent
+            // If left with the default value of null, the system will determine the appropriate class to use based on the other fields (action, data, type, categories) in the Intent.
             intent.setComponent(new ComponentName(packageName, res.activityInfo.name));
+            // The name of the application package to handle the intent, or null to allow any application package.
             intent.setPackage(packageName);
+            //  save the image with your application's data (instead of in the Media Gallery location), you want to provide a file-based URI referring to the target location
             intent.putExtra(MediaStore.EXTRA_OUTPUT, mFileUri);
             cameraIntents.add(intent);
         }
+
+
+
 
         // Image Picker
         Intent pickerIntent = new Intent(Intent.ACTION_PICK,
@@ -191,6 +226,12 @@ public class NewPostActivity extends BaseActivity implements
                 Parcelable[cameraIntents.size()]));
         startActivityForResult(chooserIntent, TC_PICK_IMAGE);
     }
+
+
+
+
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -226,6 +267,12 @@ public class NewPostActivity extends BaseActivity implements
         }
         super.onDestroy();
     }
+
+
+
+
+
+
 
     @Override
     public void onBitmapResized(Bitmap resizedBitmap, int mMaxDimension) {

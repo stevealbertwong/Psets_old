@@ -929,6 +929,9 @@ RecyclerView, FirebaseRecyclerAdapter, Viewholder review -1pt
 FirebasePostQueryAdapter, PostFragment, PostViewHolder -1pt
 
 
+8-2
+FirebaseRecyclerAdapter -1pt
+
 
 
 
