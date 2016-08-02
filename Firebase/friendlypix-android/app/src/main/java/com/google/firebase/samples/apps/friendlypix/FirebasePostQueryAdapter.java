@@ -31,7 +31,15 @@ import com.google.firebase.samples.apps.friendlypix.Models.Post;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/*
+* This generic version of RecyclerView.Adapter retrieves data primatively through Snapshot
+* THIS IS HOW FIREBASERECYCLERADAPTER actually work.
+*
+*
+* */
 public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolder> {
+
     private final String TAG = "PostQueryAdapter";
     private List<String> mPostPaths;
     private OnSetupViewListener mOnSetupViewListener;
@@ -59,14 +67,17 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
 
-
+    // return the holder with inflated item layout
     @Override
     public PostViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // create a new view
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.post_item, parent, false);
+
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.post_item, parent, false);
         return new PostViewHolder(v);
     }
+
+
+
+
 
     public void setPaths(List<String> postPaths) {
         mPostPaths = postPaths;
@@ -84,9 +95,11 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
 
-
+    // populates data into item through holder
     @Override
     public void onBindViewHolder(final PostViewHolder holder, int position) {
+
+        // get the data model based on position
         DatabaseReference ref = FirebaseUtil.getPostsRef().child(mPostPaths.get(position));
         // TODO: Fix this so async event won't bind the wrong view post recycle.
         ValueEventListener postListener = new ValueEventListener() {
@@ -107,6 +120,8 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
         holder.mPostRef = ref;
         holder.mPostListener = postListener;
     }
+
+
 
 
 

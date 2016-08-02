@@ -118,12 +118,13 @@ public class PostsFragment extends Fragment {
     *       for (DataSnapshot snapshot : dataSnapshot.getChildren())
     *       {postPaths.add(snapshot.getKey());}
     *
+    *
+    *
+    * 4. Set Adapter
     *       mAdapter = new FirebasePostQueryAdapter(postPaths, new FirebasePostQueryAdapter.OnSetupViewListener() {
     *       public void onSetupView(PostViewHolder holder, Post post, int position, String postKey) {
     *               setupPost(holder, post, position, postKey);}
-    *
-    *
-    *
+    *       mRecyclerView.setAdapter(mAdapter);
     *
     *
     *
@@ -306,6 +307,7 @@ public class PostsFragment extends Fragment {
 
 
                                 // ****************************************************************
+                                // postPaths -> Query
                                 mAdapter = new FirebasePostQueryAdapter(postPaths,
                                         new FirebasePostQueryAdapter.OnSetupViewListener() {
                                     @Override
@@ -363,6 +365,7 @@ public class PostsFragment extends Fragment {
 
                 Post.class, R.layout.post_item, PostViewHolder.class, query) {
 
+            // Post -> an instance of Post.class populated with data from Ref
             @Override
             public void populateViewHolder(final PostViewHolder postViewHolder,
                                            final Post post, final int position) {
@@ -381,11 +384,7 @@ public class PostsFragment extends Fragment {
 
 
 
-
-
-
-
-
+    // Helper method for populateViewHolder
     private void setupPost(final PostViewHolder postViewHolder, final Post post, final int position, final String inPostKey) {
         postViewHolder.setPhoto(post.getThumb_url());
         postViewHolder.setText(post.getText());
