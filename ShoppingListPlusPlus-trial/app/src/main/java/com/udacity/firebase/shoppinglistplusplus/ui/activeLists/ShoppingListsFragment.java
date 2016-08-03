@@ -108,7 +108,10 @@ public class ShoppingListsFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+
         final SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        // (String key, String defValue)
         String sortOrder = sharedPref.getString(Constants.KEY_PREF_SORT_ORDER_LISTS, Constants.ORDER_BY_KEY);
 
         Query orderedActiveUserListsRef;
@@ -126,9 +129,14 @@ public class ShoppingListsFragment extends Fragment {
              * Sort active by lists by name or datelastChanged. Otherwise
              * depending on what's been selected in SettingsActivity
              */
-
             orderedActiveUserListsRef = activeListsRef.orderByChild(sortOrder);
         }
+
+
+
+
+
+
 
         /**
          * Create the adapter with selected sort order

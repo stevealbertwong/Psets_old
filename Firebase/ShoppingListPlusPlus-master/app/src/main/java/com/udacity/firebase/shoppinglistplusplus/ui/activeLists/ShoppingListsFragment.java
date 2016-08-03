@@ -177,6 +177,8 @@ public class ShoppingListsFragment extends Fragment {
 
     /**
      * Updates the order of mListView onResume to handle sortOrderChanges properly
+     *
+     * Called when activity is first created + loaded -> other ongoing actions that should only run when activity is visible on screen
      */
     @Override
     public void onResume() {

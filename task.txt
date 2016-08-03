@@ -936,7 +936,16 @@ PostViewHolder -1pt
 You should be ashamed that you want local girls.
 
 8-3
-ContactFragment
+ContactFragment -2pts
+
+
+Recycler.Adapter<viewHolder> - (List<String> paths, OnSetupViewListener onSetupViewListener, Context context, List<Contact> contacts) parameters are anything related to ACTUAL data + onCreateViewHolder: viewHolder(inflate(layout) + onBindViewHolder: viewHolder.mTextView.setText(mContactsArray.get(position).getName())
+
+FirebaseRecyclerAdapter<User.class, viewHolder> - (User.class, layout, viewHolder, ref) + populateViewHolder(viewHolder, postActualDataPopulated, position)  
+
+FirebaseListAdapter<User.class> - (activity, User.class, layout, ref) + populateView
+
+ArrayListAdapter(activity, layout, ArrayList) + populateView
 
 
 

@@ -33,6 +33,7 @@ public class ShareListActivity extends BaseActivity {
     private HashMap<String, User> mSharedWithUsers;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

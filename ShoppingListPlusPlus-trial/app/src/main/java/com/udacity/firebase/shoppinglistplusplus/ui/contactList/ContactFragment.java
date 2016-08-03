@@ -2,13 +2,13 @@ package com.udacity.firebase.shoppinglistplusplus.ui.contactList;
 
 
 import android.os.Bundle;
-
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.firebase.client.Firebase;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
@@ -46,6 +46,16 @@ public class ContactFragment extends Fragment {
         return super.onCreateView(inflater, container, savedInstanceState);
 
 
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Firebase contactListRef = new Firebase(Constants.FIREBASE_URL_USERS);
+        //TODO: create adapter + listView.setView
     }
 }
 
