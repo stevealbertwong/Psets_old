@@ -7,11 +7,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.firebase.client.Firebase;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.User;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
+
+
 
 /**
  * Created by SteveAndrewWong on 8/2/16.
@@ -24,19 +27,19 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 public class ContactFragment extends Fragment {
     private String mEncodedEmail;
     ContactAdapter mContactListAdapter;
+    private ListView mListViewUserContact;
 
     public ContactFragment(){
 
     }
 
-    public ContactFragment newInstance(String mEncodedEmail){
+    public static ContactFragment newInstance(String mEncodedEmail){
         ContactFragment fragment = new ContactFragment();
         Bundle args = new Bundle();
-        
+        args.putString(Constants.KEY_ENCODED_EMAIL, mEncodedEmail);
+        fragment.setArguments(args);
         return fragment;
     }
-
-
 
 
     @Override
@@ -49,10 +52,11 @@ public class ContactFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
 
 
-
+        View rootView = inflater.inflate(R.layout.fragment_contact_lists, container, false);
+        mListViewUserContact = (ListView) rootView.findViewById(R.id.list_view_user_contact);
+        return rootView;
 
     }
 
@@ -66,6 +70,7 @@ public class ContactFragment extends Fragment {
         // getActivity() in a Fragment returns the Activity the Fragment is currently associated
         mContactListAdapter = new ContactAdapter(getActivity(), User.class,
                 R.layout.single_user_contact, contactListRef);
+        mListViewUserContact.setAdapter(mContactListAdapter);
         }
 
 

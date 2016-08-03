@@ -4,10 +4,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.sharing.AddFriendActivity">
 
-
-
     <ListView
-        android:id="@+id/list_view_friends_autocomplete"
+        android:id="@+id/list_view_user_contact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/til_add_friend_email"

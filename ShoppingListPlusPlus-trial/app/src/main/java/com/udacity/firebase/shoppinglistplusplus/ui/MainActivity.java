@@ -23,6 +23,7 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.User;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.AddListDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.activeLists.ShoppingListsFragment;
+import com.udacity.firebase.shoppinglistplusplus.ui.contactList.ContactFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram.InstagramFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.AddMealDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.MealsFragment;
@@ -134,7 +135,7 @@ public class MainActivity extends BaseActivity {
          * Create SectionPagerAdapter, set it as adapter to viewPager with setOffscreenPageLimit(2)
          **/
         SectionPagerAdapter adapter = new SectionPagerAdapter(getSupportFragmentManager());
-        viewPager.setOffscreenPageLimit(3);
+        viewPager.setOffscreenPageLimit(4);
         viewPager.setAdapter(adapter);
         /**
          * Setup the mTabLayout with view pager
@@ -211,6 +212,7 @@ public class MainActivity extends BaseActivity {
                     fragment = InstagramFragment.newInstance();
                     break;
                 case 3:
+                    fragment = ContactFragment.newInstance(mEncodedEmail);
                     break;
                 case 4:
                     break;
@@ -225,7 +227,7 @@ public class MainActivity extends BaseActivity {
 
         @Override
         public int getCount() {
-            return 3;
+            return 4;
         }
 
         /**
@@ -241,6 +243,8 @@ public class MainActivity extends BaseActivity {
                 case 1:
                     return getString(R.string.pager_title_meals);
                 case 2:
+                    return getString(R.string.pager_title_meals);
+                case 3:
                     return getString(R.string.pager_title_meals);
                 default:
                     return getString(R.string.pager_title_meals);
