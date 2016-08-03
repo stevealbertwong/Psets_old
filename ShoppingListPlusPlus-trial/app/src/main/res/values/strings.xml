@@ -34,7 +34,7 @@
     <string name="hint_add_shopping_list">Create a list</string>
 
     <!-- List of Shopping Lists Strings -->
-    <string name="created_by">Created by </string>
+    <string name="created_by">用户 </string>
     <string name="person_shopping">%d person shopping</string>
     <string name="people_shopping">%d people shopping</string>
 

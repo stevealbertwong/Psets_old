@@ -933,8 +933,10 @@ FirebasePostQueryAdapter, PostFragment, PostViewHolder -1pt
 FirebaseRecyclerAdapter -1pt
 RecyclerView.Adapter -1pt
 PostViewHolder -1pt
+You should be ashamed that you want local girls.
 
-
+8-3
+ContactFragment
 
 
 

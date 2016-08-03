@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.sharing.AddFriendActivity">
+
+
+
+    <ListView
+        android:id="@+id/list_view_friends_autocomplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/til_add_friend_email"
+        android:layout_below="@+id/app_bar"
+        android:layout_centerHorizontal="true"
+        android:scrollbars="vertical"/>
+
+
+
+</RelativeLayout>

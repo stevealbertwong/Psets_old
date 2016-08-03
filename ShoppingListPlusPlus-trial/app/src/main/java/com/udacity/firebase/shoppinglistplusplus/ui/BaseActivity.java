@@ -58,6 +58,7 @@ public abstract class BaseActivity extends AppCompatActivity implements
 
         /**
          * Getting mProvider and mEncodedEmail from SharedPreferences
+         * Shared Preferences allow you to save and retrieve data in the form of key,value pair.
          */
         final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(BaseActivity.this);
         /* Get mEncodedEmail and mProvider from SharedPreferences, use null as default value */

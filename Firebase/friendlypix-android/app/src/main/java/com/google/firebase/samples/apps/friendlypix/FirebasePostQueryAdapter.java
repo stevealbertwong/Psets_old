@@ -96,6 +96,7 @@ public class FirebasePostQueryAdapter extends RecyclerView.Adapter<PostViewHolde
 
 
     // populates data into item through holder
+    // like populatesView + populateViewHolder
     @Override
     public void onBindViewHolder(final PostViewHolder holder, int position) {
 

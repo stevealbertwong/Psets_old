@@ -160,6 +160,8 @@ public class MainActivity extends BaseActivity {
         dialog.show(MainActivity.this.getFragmentManager(), "AddMealDialogFragment");
     }
 
+
+
     /*++++++++++++++++++++++++++++++++++++ LIKEBUTTON ++++++++++++++++++++++++++++++++++++++++++++++++*/
     public void addLike(View view) {
         // add 1
@@ -207,6 +209,10 @@ public class MainActivity extends BaseActivity {
                     break;
                 case 2:
                     fragment = InstagramFragment.newInstance();
+                    break;
+                case 3:
+                    break;
+                case 4:
                     break;
                 default:
                     fragment = ShoppingListsFragment.newInstance(mEncodedEmail);
