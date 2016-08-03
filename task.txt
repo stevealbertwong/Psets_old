@@ -937,7 +937,7 @@ You should be ashamed that you want local girls.
 
 8-3
 ContactFragment -2pts
-
+ContactAdapter -1pt
 
 Recycler.Adapter<viewHolder> - (List<String> paths, OnSetupViewListener onSetupViewListener, Context context, List<Contact> contacts) parameters are anything related to ACTUAL data + onCreateViewHolder: viewHolder(inflate(layout) + onBindViewHolder: viewHolder.mTextView.setText(mContactsArray.get(position).getName())
 

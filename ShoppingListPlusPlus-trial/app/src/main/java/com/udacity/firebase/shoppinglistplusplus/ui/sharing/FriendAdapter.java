@@ -46,6 +46,13 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
         mLocationListenerMap = new HashMap<Firebase, ValueEventListener>();
     }
 
+
+
+
+
+
+
+
     /**
      * Protected method that populates the view attached to the adapter (list_view_friends_autocomplete)
      * with items inflated from single_user_item.xml
@@ -146,8 +153,18 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
 
 
 
+
+
+
+
+
+
     /**
-     * Public method that is used to pass ShoppingList object when it is loaded in ValueEventListener
+     * For ValueEventListener reload refresh ShoppingList on data changed
+     *
+     * mActiveListRef.addValueEventListener(new ValueEventListener(){onDataChanged}
+     * ShoppingList shoppingList = dataSnapshot.getValue(ShoppingList.class);
+     * mFriendAdapter.setShoppingList(mShoppingList);
      */
     public void setShoppingList(ShoppingList shoppingList) {
         this.mShoppingList = shoppingList;
@@ -165,6 +182,10 @@ public class FriendAdapter extends FirebaseListAdapter<User> {
         this.mSharedUsersList = sharedUsersList;
         this.notifyDataSetChanged();
     }
+
+
+
+
 
     /**
      * This method does the tricky job of adding or removing a friend from the sharedWith list.

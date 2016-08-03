@@ -32,6 +32,8 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         this.mActivity = activity;
     }
 
+
+
     /**
      * Protected method that populates the view attached to the adapter (list_view_active_lists)
      * with items inflated from single_active_list.xml
@@ -51,6 +53,9 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
 
         /* Set the list name and owner */
         textViewListName.setText(list.getListName());
+
+
+
 
         /**
          * Show "1 person is shopping" if one person is shopping
@@ -73,6 +78,10 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
             textViewUsersShopping.setText("");
         }
 
+
+
+
+
         /**
          * Set "Created by" text to "You" if current user is owner of the list
          * Set "Created by" text to userName if current user is NOT owner of the list
@@ -82,6 +91,7 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
                 textViewCreatedByUser.setText(mActivity.getResources().getString(R.string.text_you));
             } else {
                 Firebase userRef = new Firebase(Constants.FIREBASE_URL_USERS).child(ownerEmail);
+
                 /* Get the user's name */
                 userRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

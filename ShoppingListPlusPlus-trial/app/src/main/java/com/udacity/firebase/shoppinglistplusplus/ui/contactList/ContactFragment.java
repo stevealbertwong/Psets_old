@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.firebase.client.Firebase;
+import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.User;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
@@ -21,6 +23,7 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
  */
 public class ContactFragment extends Fragment {
     private String mEncodedEmail;
+    ContactAdapter mContactListAdapter;
 
     public ContactFragment(){
 
@@ -28,9 +31,12 @@ public class ContactFragment extends Fragment {
 
     public ContactFragment newInstance(String mEncodedEmail){
         ContactFragment fragment = new ContactFragment();
-        this.mEncodedEmail = mEncodedEmail;
+        Bundle args = new Bundle();
+        
         return fragment;
     }
+
+
 
 
     @Override
@@ -55,7 +61,16 @@ public class ContactFragment extends Fragment {
         super.onResume();
 
         Firebase contactListRef = new Firebase(Constants.FIREBASE_URL_USERS);
+
         //TODO: create adapter + listView.setView
-    }
+        // getActivity() in a Fragment returns the Activity the Fragment is currently associated
+        mContactListAdapter = new ContactAdapter(getActivity(), User.class,
+                R.layout.single_user_contact, contactListRef);
+        }
+
+
+
+
+
 }
 
