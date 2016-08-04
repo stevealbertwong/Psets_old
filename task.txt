@@ -950,6 +950,11 @@ FirebaseListAdapter<User.class> - (activity, User.class, layout, ref) + populate
 ArrayListAdapter(activity, layout, ArrayList) + populateView
 
 
+8-4
+InstagramFragment CameraActivity -1pt 
+
+
+
 
 
 
