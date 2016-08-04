@@ -3,18 +3,23 @@ package com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Instagram;
 
 /**
  * Created by SteveAndrewWong on 7/27/16.
  */
 public class InstagramFragment extends Fragment {
     ImageView mImageView;
+    private RecyclerView mRecyclerView;
 //    Button mButtomTakePicture;
 //    Button mButtomGetPicture;
 //    private static final int REQUEST_CODE_TO_TAKEPICTURE = 1;
@@ -40,13 +45,27 @@ public class InstagramFragment extends Fragment {
         return fragment;
     }
 
+
+
+
+
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {super.onActivityCreated(savedInstanceState);}
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        // TODO: loop through all listId to get
+        FirebaseRecyclerAdapter
+
+        Fi<Instagram, InstagramViewHolder> = new
+
+
+
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -57,7 +76,7 @@ public class InstagramFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_instagram, container, false);
-        initializeScreen(rootView);
+        mImageView = (ImageView) rootView.findViewById(R.id.image_view_1);
 
         mImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +89,9 @@ public class InstagramFragment extends Fragment {
         });
 
         // TODO: initialize a recycler view to display pictures from Firebase
-
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_instagram);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
 
         return rootView;
@@ -91,11 +112,7 @@ public class InstagramFragment extends Fragment {
 
 
 
-    private void initializeScreen(View rootView){
-        mImageView = (ImageView) rootView.findViewById(R.id.image_view_1);
 
-
-    }
 
 
 }

@@ -8,9 +8,11 @@ import android.provider.MediaStore;
 import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.Instagram;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
@@ -121,9 +123,17 @@ public class CameraActivity extends BaseActivity {
                 HashMap<String, Object> instagramUpdateChild = new HashMap<>();
                 instagramUpdateChild.put("/" + Constants.FIREBASE_LOCATION_INSTAGRAM + "/" + listId, instagramHashMap);
 
-                firebaseRef.updateChildren(instagramUpdateChild);
+                firebaseRef.updateChildren(instagramUpdateChild, new Firebase.CompletionListener() {
+                            @Override
+                            public void onComplete(FirebaseError firebaseError, Firebase firebase) {
+                                imageView.setImageBitmap(bitmap);
+                                Toast.makeText(getApplicationContext(), "相片上儲成功", Toast.LENGTH_SHORT).show();
 
-                imageView.setImageBitmap(bitmap);
+                            }
+                        });
+
+
+
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
