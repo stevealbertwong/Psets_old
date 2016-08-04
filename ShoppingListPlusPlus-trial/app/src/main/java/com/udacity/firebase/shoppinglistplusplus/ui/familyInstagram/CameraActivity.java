@@ -8,8 +8,10 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.firebase.client.Firebase;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
+import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -22,6 +24,7 @@ public class CameraActivity extends BaseActivity {
     private static final int REQUEST_CODE_TO_TAKEPICTURE = 1;
     private static final int REQUEST_CODE_TO_GETPICTURE = 2;
     private Bitmap bitmap;
+    private Firebase mInstagramRef;
 
 
 
@@ -30,8 +33,11 @@ public class CameraActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instagram);
+        mInstagramRef = new Firebase(Constants.FIREBASE_URL_INSTAGRAM);
 
         imageView = (ImageView) findViewById(R.id.image_view_1);
+
+        previewStoredFirebaseImage();
 
 //        if (!hasCamera()) {
 //            button.setEnabled(false);
@@ -46,6 +52,7 @@ public class CameraActivity extends BaseActivity {
 
         startActivityForResult(takePictureIntent, REQUEST_CODE_TO_TAKEPICTURE);
     }
+
     public void getPictureClick(View view) {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -54,32 +61,28 @@ public class CameraActivity extends BaseActivity {
         startActivityForResult(intent, REQUEST_CODE_TO_GETPICTURE);
     }
 
+    public void previewStoredFirebaseImage() {
 
-
-
-
+    }
 
 
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
-//        InputStream stream = null;
+        // IGNORE THIS************
         // take picture activity is finished -> 1. get bitmap data 2. set imageView
         if (requestCode == REQUEST_CODE_TO_TAKEPICTURE) {
 
             // Image captured and saved to fileUri specified in the Intent
-//            Toast.makeText(this, "Image saved to:\n" +
-//                    data.getData(), Toast.LENGTH_LONG).show();
-
-
-
-
+            // Toast.makeText(this, "Image saved to:\n" + data.getData(), Toast.LENGTH_LONG).show();
             bitmap = (Bitmap) data.getExtras().get("data");
             imageView = (ImageView) findViewById(R.id.image_view_1);
             imageView.setImageBitmap(bitmap);
         }
 
+
+        // START HERE*************
         if (requestCode == REQUEST_CODE_TO_GETPICTURE) {
             try {
                 InputStream stream = null;
@@ -89,8 +92,11 @@ public class CameraActivity extends BaseActivity {
                 }
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
+                // TODO: save to Firebase + show progress bar + toast photo uploaded successfully
 
-                imageView.setImageBitmap(bitmap);
+
+
+                // imageView.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

@@ -35,12 +35,14 @@
             android:id="@+id/user_info"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:gravity="center"/>
         <TextView
             android:id="@+id/user_email"
             android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center"/>
     </LinearLayout>
 
 

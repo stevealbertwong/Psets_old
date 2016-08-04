@@ -69,6 +69,8 @@ public class InstagramFragment extends Fragment {
 
         });
 
+        // TODO: initialize a recycler view to display pictures from Firebase
+
 
 
         return rootView;

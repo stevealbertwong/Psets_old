@@ -19,6 +19,8 @@ public final class Constants {
     public static final String FIREBASE_LOCATION_UID_MAPPINGS = "uidMappings";
     public static final String FIREBASE_LOCATION_OWNER_MAPPINGS = "ownerMappings";
 
+    public static final String FIREBASE_LOCATION_INSTAGRAM = "instagram";
+
 
 
     /**
@@ -45,6 +47,8 @@ public final class Constants {
     public static final String FIREBASE_URL_USER_LISTS = FIREBASE_URL + "/" + FIREBASE_LOCATION_USER_LISTS;
     public static final String FIREBASE_URL_USER_FRIENDS = FIREBASE_URL + "/" + FIREBASE_LOCATION_USER_FRIENDS;
     public static final String FIREBASE_URL_LISTS_SHARED_WITH = FIREBASE_URL + "/" + FIREBASE_LOCATION_LISTS_SHARED_WITH;
+
+    public static final String FIREBASE_URL_INSTAGRAM = FIREBASE_URL + "/" + FIREBASE_LOCATION_INSTAGRAM;
 
     /**
      * Constants for bundles, extras and shared preferences keys
