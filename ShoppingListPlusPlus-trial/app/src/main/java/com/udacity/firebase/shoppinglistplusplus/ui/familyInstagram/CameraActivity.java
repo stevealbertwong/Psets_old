@@ -9,14 +9,18 @@ import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.firebase.client.Firebase;
 import com.udacity.firebase.shoppinglistplusplus.R;
+import com.udacity.firebase.shoppinglistplusplus.model.Instagram;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by SteveAndrewWong on 7/29/16.
@@ -26,7 +30,7 @@ public class CameraActivity extends BaseActivity {
     private static final int REQUEST_CODE_TO_TAKEPICTURE = 1;
     private static final int REQUEST_CODE_TO_GETPICTURE = 2;
     private Bitmap bitmap;
-    private Firebase mInstagramRef;
+
 
 
 
@@ -35,7 +39,7 @@ public class CameraActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instagram);
-        mInstagramRef = new Firebase(Constants.FIREBASE_URL_INSTAGRAM);
+
 
         imageView = (ImageView) findViewById(R.id.image_view_1);
 
@@ -105,21 +109,21 @@ public class CameraActivity extends BaseActivity {
                 // TODO: save to Firebase in String Base64Image + show progress bar + toast photo uploaded successfully
                 String base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
 
+                Firebase firebaseRef = new Firebase(Constants.FIREBASE_URL); // for updateChildren(path, object)
+                Firebase mInstagramRef = new Firebase(Constants.FIREBASE_URL_INSTAGRAM); // for pushId
 
+                Firebase newRef = mInstagramRef.push();
+                String listId = newRef.getKey();
 
+                Instagram instagramPOJO = new Instagram(mEncodedEmail, base64Image);
+                HashMap<String, Object> instagramHashMap = (HashMap<String, Object>) new ObjectMapper().convertValue(instagramPOJO, Map.class);
 
+                HashMap<String, Object> instagramUpdateChild = new HashMap<>();
+                instagramUpdateChild.put("/" + Constants.FIREBASE_LOCATION_INSTAGRAM + "/" + listId, instagramHashMap);
 
+                firebaseRef.updateChildren(instagramUpdateChild);
 
-
-
-
-
-
-
-
-
-
-                // imageView.setImageBitmap(bitmap);
+                imageView.setImageBitmap(bitmap);
 
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
