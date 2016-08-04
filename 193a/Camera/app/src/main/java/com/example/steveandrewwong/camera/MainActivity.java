@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity {
                     bitmap.recycle();
                 }
 
-                // get image from Intent/data as input stream from content folder + decode the stream into bitmap
+                // get image from Intent/data as input stream from content folder/Environment + decode the stream into bitmap
                 // Stream -> preconnected input and output communication channels[1] between a computer program and its environment
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);

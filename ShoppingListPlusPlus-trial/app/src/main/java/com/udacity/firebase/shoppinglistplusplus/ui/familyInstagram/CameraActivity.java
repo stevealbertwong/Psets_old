@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -13,6 +14,7 @@ import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
@@ -90,9 +92,30 @@ public class CameraActivity extends BaseActivity {
                 if (bitmap != null) {
                     bitmap.recycle();
                 }
+                // get image from Intent/data as input stream from content folder/Environment + decode the stream into bitmap
+                // Stream -> preconnected input and output communication channels[1] between a computer program and its environment
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
-                // TODO: save to Firebase + show progress bar + toast photo uploaded successfully
+
+                // convert Bitmap to ByteArray
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); // (format, quality, outputstream)
+                byte[] bytes = baos.toByteArray();
+
+                // TODO: save to Firebase in String Base64Image + show progress bar + toast photo uploaded successfully
+                String base64Image = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

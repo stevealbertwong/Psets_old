@@ -952,7 +952,7 @@ ArrayListAdapter(activity, layout, ArrayList) + populateView
 
 8-4
 InstagramFragment CameraActivity -1pt 
-
+Firebase setValue vs updateChildren -1pt
 
 
 
