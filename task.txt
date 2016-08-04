@@ -962,6 +962,7 @@ Finish up saving into Firebase -2pts
 
 
 
+
 DATABASE DESIGN OPTIONS
 1. generate id by push
 2. denormalization or nesting
