@@ -49,6 +49,8 @@ public class ContactFragment extends Fragment {
         mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

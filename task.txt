@@ -970,6 +970,7 @@ Primitivly implement FirebaseRecyclerAdapter: manually loop through all Datasnap
 	DatabaseReference ref = FirebaseUtil.getPostsRef().child(mPostPaths.get(position))
 	mOnSetupViewListener.onSetupView(holder, post, holder.getAdapterPosition(),dataSnapshot.getKey());
 
+Chat Activity -2pts
 
 
 

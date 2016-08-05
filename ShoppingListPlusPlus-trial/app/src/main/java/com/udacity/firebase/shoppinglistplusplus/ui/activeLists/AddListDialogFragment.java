@@ -112,7 +112,7 @@ public class AddListDialogFragment extends DialogFragment {
 
 
 
-    
+
     /**
      * Add new active list
      */

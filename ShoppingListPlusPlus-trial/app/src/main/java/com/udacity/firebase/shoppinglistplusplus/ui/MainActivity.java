@@ -206,7 +206,7 @@ public class MainActivity extends BaseActivity {
                     fragment = ShoppingListsFragment.newInstance(mEncodedEmail);
                     break;
                 case 1:
-                    fragment = MealsFragment.newInstance();
+                    fragment = MealsFragment.newInstance(mEncodedEmail);
                     break;
                 case 2:
                     fragment = InstagramFragment.newInstance();

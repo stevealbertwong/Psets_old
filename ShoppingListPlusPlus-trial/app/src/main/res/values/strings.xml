@@ -81,6 +81,8 @@
     <string name="title_activity_meal_details">Meal Details</string>
     <string name="title_activity_add_items_from_meal">Add Meal</string>
 
+    <string name="title_activity_chat_details">Chat Details</string>
+
     <!-- Add, Edit and Remove Meal Dialogs -->
     <string name="hint_add_meal">Create a meal</string>
     <string name="dialog_title_remove_meal">Remove meal</string>
