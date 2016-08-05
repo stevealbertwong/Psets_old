@@ -16,10 +16,13 @@ import android.widget.TextView;
 import com.udacity.firebase.shoppinglistplusplus.R;
 
 /**
- * Adds a new meal
+ *
  */
 public class AddMealDialogFragment extends DialogFragment {
     EditText editTextMealName;
+
+
+
 
     /**
      * Public static constructor that creates fragment and
@@ -40,6 +43,10 @@ public class AddMealDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
     }
 
+
+
+
+
     /**
      * Open the keyboard automatically when the dialog fragment is opened
      */
@@ -48,6 +55,12 @@ public class AddMealDialogFragment extends DialogFragment {
         super.onActivityCreated(savedInstanceState);
         getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
+
+
+
+
+
+
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {

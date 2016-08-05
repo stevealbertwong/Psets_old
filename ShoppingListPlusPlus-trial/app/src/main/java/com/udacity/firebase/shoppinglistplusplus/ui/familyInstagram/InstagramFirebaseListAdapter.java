@@ -1,10 +1,16 @@
 package com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.firebase.client.Query;
 import com.firebase.ui.FirebaseListAdapter;
+import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.Instagram;
 
 /**
@@ -21,8 +27,16 @@ public class InstagramFirebaseListAdapter extends FirebaseListAdapter<Instagram>
     protected void populateView(View v, Instagram model) {
         super.populateView(v, model);
         String ownerName = model.getOwnerName();
-        String pictureBase64 = model.getPicture();
+        String imageBase64 = model.getPicture();
 
+        // String to Byte to Byte Array to Bitmap
+        byte[] imageBitArray = Base64.decode(imageBase64.getBytes(), Base64.DEFAULT);
+        Bitmap imageBitMap = BitmapFactory.decodeByteArray(imageBitArray, 0, imageBitArray.length);
+
+        ImageView mImageView = (ImageView) v.findViewById(R.id.image_view_instagram);
+        TextView textView = (TextView) v.findViewById(R.id.text_view_instagram);
+        textView.setText(ownerName);
+        mImageView.setImageBitmap(imageBitMap);
 
     }
 }

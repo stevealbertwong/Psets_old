@@ -32,6 +32,9 @@ public class AddListDialogFragment extends DialogFragment {
     String mEncodedEmail;
     EditText mEditTextListName;
 
+
+
+
     /**
      * Public static constructor that creates fragment and
      * passes a bundle with data into it when adapter is created
@@ -98,6 +101,18 @@ public class AddListDialogFragment extends DialogFragment {
         return builder.create();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+    
     /**
      * Add new active list
      */
