@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/pic_instagram"/>
 
-    <android.support.v7.widget.RecyclerView
+    <ListView
         android:layout_weight="5"
-        android:id="@+id/recycler_view_instagram"
+        android:id="@+id/list_view_instagram"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />

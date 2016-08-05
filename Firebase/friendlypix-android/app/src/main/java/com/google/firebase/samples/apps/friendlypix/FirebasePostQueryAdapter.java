@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 /*
 * This generic version of RecyclerView.Adapter retrieves data primatively through Snapshot
 * THIS IS HOW FIREBASERECYCLERADAPTER actually work.

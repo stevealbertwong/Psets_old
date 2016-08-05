@@ -3,23 +3,27 @@ package com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 
-
+import com.firebase.client.Firebase;
+import com.firebase.ui.FirebaseListAdapter;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.Instagram;
+import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
  * Created by SteveAndrewWong on 7/27/16.
  */
 public class InstagramFragment extends Fragment {
     ImageView mImageView;
-    private RecyclerView mRecyclerView;
+    private ListView mListView;
+    FirebaseListAdapter<Instagram> mInstagramFirebaseListAdapter;
+
+
 //    Button mButtomTakePicture;
 //    Button mButtomGetPicture;
 //    private static final int REQUEST_CODE_TO_TAKEPICTURE = 1;
@@ -54,15 +58,12 @@ public class InstagramFragment extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
+
+
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-        // TODO: loop through all listId to get
-        FirebaseRecyclerAdapter
-
-        Fi<Instagram, InstagramViewHolder> = new
-
 
 
     }
@@ -88,10 +89,9 @@ public class InstagramFragment extends Fragment {
 
         });
 
-        // TODO: initialize a recycler view to display pictures from Firebase
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view_instagram);
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        // TODO: initialize a list view to display pictures from Firebase
+        mListView = (ListView) rootView.findViewById(R.id.list_view_instagram);
+
 
 
         return rootView;
@@ -103,6 +103,14 @@ public class InstagramFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+
+        Firebase instagramRef = new Firebase(Constants.FIREBASE_URL_INSTAGRAM);
+        mInstagramFirebaseListAdapter = new InstagramFirebaseListAdapter(getActivity(), Instagram.class, R.layout.single_instagram, instagramRef);
+        mListView.setAdapter(mInstagramFirebaseListAdapter);
+
+
+
+
     }
 
     @Override

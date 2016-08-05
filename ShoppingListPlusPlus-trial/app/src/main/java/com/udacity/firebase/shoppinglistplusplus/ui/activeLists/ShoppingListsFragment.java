@@ -54,6 +54,12 @@ public class ShoppingListsFragment extends Fragment {
 
 
 
+
+
+
+
+
+
     /**
      * Initialize instance variables with data from bundle
      */
@@ -64,6 +70,10 @@ public class ShoppingListsFragment extends Fragment {
             mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
         }
     }
+
+
+
+
 
 
 
@@ -104,6 +114,14 @@ public class ShoppingListsFragment extends Fragment {
 
         return rootView;
     }
+
+
+
+
+
+
+
+
     /**
      * Updates the order of mListView onResume to handle sortOrderChanges properly
      */

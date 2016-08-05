@@ -958,6 +958,18 @@ Firebase setValue vs updateChildren -1pt
 Finish up saving into Firebase -2pts
 FirebaseRecyclerAdapter + ViewHolder + onCreatedViewHolder + onBinderViewHolder -1pt
 
+soccer cleats start afresh
+
+
+8-5
+
+Primitivly implement FirebaseRecyclerAdapter: manually loop through all DatasnapShot to getkey() -> put inan ArrayList<String> -> manually get position add value listener or loop through the list to add  
+	
+	for (DataSnapshot snapshot : dataSnapshot.getChildren())
+	final List<String> postPaths.add(snapshot.getKey());
+	DatabaseReference ref = FirebaseUtil.getPostsRef().child(mPostPaths.get(position))
+	mOnSetupViewListener.onSetupView(holder, post, holder.getAdapterPosition(),dataSnapshot.getKey());
+
 
 
 

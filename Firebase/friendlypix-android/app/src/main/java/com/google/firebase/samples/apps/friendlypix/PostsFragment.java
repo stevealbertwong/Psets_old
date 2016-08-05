@@ -439,6 +439,11 @@ public class PostsFragment extends Fragment {
         FirebaseUtil.getLikesRef().child(postKey).addValueEventListener(likeListener);
         postViewHolder.mLikeListener = likeListener;
 
+
+
+
+
+
         postViewHolder.setPostClickListener(new PostViewHolder.PostClickListener() {
             @Override
             public void showComments() {
