@@ -971,7 +971,7 @@ Primitivly implement FirebaseRecyclerAdapter: manually loop through all Datasnap
 	mOnSetupViewListener.onSetupView(holder, post, holder.getAdapterPosition(),dataSnapshot.getKey());
 
 Chat Activity -2pts
-
+Arduino bluetooth -1pt
 
 
 
