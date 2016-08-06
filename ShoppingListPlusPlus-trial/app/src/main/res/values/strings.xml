@@ -89,6 +89,8 @@
     <string name="dialog_message_are_you_sure_remove_meal">Are you sure you want to remove this meal?</string>
     <string name="hint_enter_meal_name">Enter meal name</string>
 
+    <string name="hint_send_message">發出</string>
+
 
     <!--
 

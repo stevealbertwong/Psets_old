@@ -56,6 +56,10 @@ public class AddListDialogFragment extends DialogFragment {
         mEncodedEmail = getArguments().getString(Constants.KEY_ENCODED_EMAIL);
     }
 
+
+
+
+
     /**
      * Open the keyboard automatically when the dialog fragment is opened
      */
@@ -74,6 +78,13 @@ public class AddListDialogFragment extends DialogFragment {
         View rootView = inflater.inflate(R.layout.dialog_add_list, null);
         mEditTextListName = (EditText) rootView.findViewById(R.id.edit_text_list_name);
 
+
+
+
+
+
+
+
         /**
          * Call addShoppingList() when user taps "Done" keyboard action
          */
@@ -86,6 +97,8 @@ public class AddListDialogFragment extends DialogFragment {
                 return true;
             }
         });
+
+
 
         /* Inflate and set the layout for the dialog */
         /* Pass null as the parent view because its going in the dialog layout*/
@@ -136,8 +149,15 @@ public class AddListDialogFragment extends DialogFragment {
             /* Save listsRef.push() to maintain same random Id */
             final String listId = newListRef.getKey();
 
+
+
+
+
             /* HashMap for data to update */
             HashMap<String, Object> updateShoppingListData = new HashMap<>();
+
+
+
 
             /**
              * Set raw version of date to the ServerValue.TIMESTAMP value and save into
@@ -146,15 +166,31 @@ public class AddListDialogFragment extends DialogFragment {
             HashMap<String, Object> timestampCreated = new HashMap<>();
             timestampCreated.put(Constants.FIREBASE_PROPERTY_TIMESTAMP, ServerValue.TIMESTAMP);
 
+
+
+
+
             /* Build the shopping list */
             ShoppingList newShoppingList = new ShoppingList(userEnteredName, mEncodedEmail,
                     timestampCreated);
 
+
+
+
+
             HashMap<String, Object> shoppingListMap = (HashMap<String, Object>)
                     new ObjectMapper().convertValue(newShoppingList, Map.class);
 
+
+
+
+
             Utils.updateMapForAllWithValue(null, listId, mEncodedEmail,
                     updateShoppingListData, "", shoppingListMap);
+
+
+
+
 
             updateShoppingListData.put("/" + Constants.FIREBASE_LOCATION_OWNER_MAPPINGS + "/" + listId,
                     mEncodedEmail);

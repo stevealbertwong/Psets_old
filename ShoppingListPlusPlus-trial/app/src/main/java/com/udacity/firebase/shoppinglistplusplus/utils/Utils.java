@@ -81,6 +81,7 @@ public class Utils {
 
         mapToUpdate.put("/" + Constants.FIREBASE_LOCATION_USER_LISTS + "/" + owner + "/"
                 + listId + "/" + propertyToUpdate, valueToUpdate);
+
         if (sharedWith != null) {
             for (User user : sharedWith.values()) {
                 mapToUpdate.put("/" + Constants.FIREBASE_LOCATION_USER_LISTS + "/" + user.getEmail() + "/"

@@ -21,6 +21,8 @@ public final class Constants {
 
     public static final String FIREBASE_LOCATION_INSTAGRAM = "instagram";
 
+    public static final String FIREBASE_LOCATION_CHATS = "chats";
+
 
 
     /**
@@ -37,7 +39,6 @@ public final class Constants {
     public static final String FIREBASE_PROPERTY_USER_HAS_LOGGED_IN_WITH_PASSWORD = "hasLoggedInWithPassword";
     public static final String FIREBASE_PROPERTY_TIMESTAMP_LAST_CHANGED_REVERSE = "timestampLastChangedReverse";
 
-
     /**
      * Constants for Firebase URL
      */
@@ -49,6 +50,8 @@ public final class Constants {
     public static final String FIREBASE_URL_LISTS_SHARED_WITH = FIREBASE_URL + "/" + FIREBASE_LOCATION_LISTS_SHARED_WITH;
 
     public static final String FIREBASE_URL_INSTAGRAM = FIREBASE_URL + "/" + FIREBASE_LOCATION_INSTAGRAM;
+
+    public static final String FIREBASE_URL_CHATS = FIREBASE_URL + "/" + FIREBASE_LOCATION_CHATS;
 
     /**
      * Constants for bundles, extras and shared preferences keys

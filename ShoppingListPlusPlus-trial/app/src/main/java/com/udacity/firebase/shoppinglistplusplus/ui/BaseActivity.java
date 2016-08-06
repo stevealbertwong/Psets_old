@@ -11,7 +11,10 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -30,11 +33,11 @@ import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
  */
 public abstract class BaseActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener {
-    protected String mProvider, mEncodedEmail;
+    protected String mProvider, mEncodedEmail, mUserSignUpName;
     /* Client used to interact with Google APIs. */
     protected GoogleApiClient mGoogleApiClient;
     protected Firebase.AuthStateListener mAuthListener;
-    protected Firebase mFirebaseRef;
+    protected Firebase mFirebaseRef, mUserSignUpNameRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,22 @@ public abstract class BaseActivity extends AppCompatActivity implements
         /* Get mEncodedEmail and mProvider from SharedPreferences, use null as default value */
         mEncodedEmail = sp.getString(Constants.KEY_ENCODED_EMAIL, null);
         mProvider = sp.getString(Constants.KEY_PROVIDER, null);
+
+
+        mUserSignUpNameRef = new Firebase(Constants.FIREBASE_URL_USERS).child(mEncodedEmail).child("name");
+        mUserSignUpNameRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                mUserSignUpName = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+
+            }
+        });
+
+
 
 
         if (!((this instanceof LoginActivity) || (this instanceof CreateAccountActivity))) {
