@@ -209,7 +209,7 @@ public class MainActivity extends BaseActivity {
                     fragment = MealsFragment.newInstance(mEncodedEmail);
                     break;
                 case 2:
-                    fragment = InstagramFragment.newInstance();
+                    fragment = InstagramFragment.newInstance(mUserSignUpName);
                     break;
                 case 3:
                     fragment = ContactFragment.newInstance(mEncodedEmail);
@@ -241,11 +241,11 @@ public class MainActivity extends BaseActivity {
                 case 0:
                     return getString(R.string.pager_title_shopping_lists);
                 case 1:
-                    return getString(R.string.pager_title_meals);
+                    return "短信";
                 case 2:
-                    return getString(R.string.pager_title_meals);
+                    return "家庭分享";
                 case 3:
-                    return getString(R.string.pager_title_meals);
+                    return "联系人";
                 default:
                     return getString(R.string.pager_title_meals);
             }

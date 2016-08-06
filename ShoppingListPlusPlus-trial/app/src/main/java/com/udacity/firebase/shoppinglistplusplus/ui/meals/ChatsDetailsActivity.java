@@ -1,10 +1,12 @@
 package com.udacity.firebase.shoppinglistplusplus.ui.meals;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,7 +16,6 @@ import com.firebase.client.Firebase;
 import com.udacity.firebase.shoppinglistplusplus.R;
 import com.udacity.firebase.shoppinglistplusplus.model.Chat;
 import com.udacity.firebase.shoppinglistplusplus.ui.BaseActivity;
-import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AutocompleteFriendAdapter;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 import java.util.HashMap;
@@ -26,8 +27,7 @@ import java.util.Map;
 public class ChatsDetailsActivity extends BaseActivity {
 
     private EditText mEditTextChatMessages;
-    private AutocompleteFriendAdapter mFriendsAutocompleteAdapter;
-    private String mInput;
+    private ChatDetailsAdapter chatDetailsAdapter;
     private ListView mListViewChatMessages;
     private Firebase mChatsEncodedEmailRef;
     private String mSelectedUserEmail;
@@ -75,7 +75,7 @@ public class ChatsDetailsActivity extends BaseActivity {
 
                         HashMap<String, Object> updateChildrenNode = new HashMap<>();
 
-                        Chat mChatPOJO = new Chat(chatMessage, mEncodedEmail);
+                        Chat mChatPOJO = new Chat(chatMessage, mUserSignUpName);
                         HashMap<String, Object> mChatObject = (HashMap<String, Object>)
                                 new ObjectMapper().convertValue(mChatPOJO, Map.class);
 
@@ -87,6 +87,11 @@ public class ChatsDetailsActivity extends BaseActivity {
                         firebaseRef.updateChildren(updateChildrenNode);
 
                     }
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow((null == getCurrentFocus()) ? null : getCurrentFocus().getWindowToken(),
+                            InputMethodManager.RESULT_UNCHANGED_SHOWN);
+
+                    mEditTextChatMessages.setText("");
                 }
 
                 return true;
@@ -94,7 +99,16 @@ public class ChatsDetailsActivity extends BaseActivity {
 
         });
 
+
+
+
         // TODO: create list view adapter + initialize
+        Firebase chatRef = new Firebase(Constants.FIREBASE_URL_CHATS).child(mEncodedEmail);
+
+        chatDetailsAdapter = new ChatDetailsAdapter(ChatsDetailsActivity.this, Chat.class, R.layout.single_chat, chatRef);
+        mListViewChatMessages.setAdapter(chatDetailsAdapter);
+
+
 
 
 

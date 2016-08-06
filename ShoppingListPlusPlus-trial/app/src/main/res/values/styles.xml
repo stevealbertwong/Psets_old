@@ -39,10 +39,10 @@
     </style>
 
     <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
-        <item name="tabIndicatorColor">#0000FF</item>
+        <item name="tabIndicatorColor">#FFC0CB</item>
         <item name="tabIndicatorHeight">3dp</item>
         <item name="android:textSize">50sp</item>
-        <item name="tabSelectedTextColor">#0000FF</item>
+        <item name="tabSelectedTextColor">#FFC0CB</item>
 
     </style>
 </resources>

@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:hint="@string/hint_enter_username"
+                android:hint="昵称"
                 android:inputType="textCapWords"
                 android:padding="@dimen/edit_text_padding"
                 android:textColor="@color/black"
@@ -55,7 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:hint="@string/hint_enter_email"
+                android:hint="電郵"
                 android:inputType="textEmailAddress"
                 android:padding="@dimen/edit_text_padding"
                 android:textColor="@color/black"
@@ -66,10 +66,10 @@
         <Button
             android:id="@+id/btn_create_account_final"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/input_field_height"
+            android:layout_height="50dp"
             android:background="@color/primary"
             android:onClick="onCreateAccountPressed"
-            android:text="@string/title_activity_create_account"
+            android:text="注册"
             android:textColor="@android:color/white"
             android:textSize="@dimen/login_buttons_text_size" />
 

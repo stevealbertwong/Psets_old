@@ -16,7 +16,8 @@
         style="@style/ListItemText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textSize="80dp"/>
 
     <TextView
         android:id="@+id/text_view_bought_by"
@@ -41,11 +42,10 @@
 
     <ImageButton
         android:id="@+id/button_remove_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_vertical"
-        android:background="@android:color/transparent"
+        android:background="@drawable/ic_action_remove"
         android:contentDescription="@string/remove_item_option"
-        android:src="@drawable/ic_action_remove"
         android:visibility="visible" />
 </LinearLayout>

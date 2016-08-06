@@ -22,6 +22,7 @@ public class InstagramFragment extends Fragment {
     ImageView mImageView;
     private ListView mListView;
     FirebaseListAdapter<Instagram> mInstagramFirebaseListAdapter;
+    private String mUserSignUpName;
 
 
 //    Button mButtomTakePicture;
@@ -34,10 +35,11 @@ public class InstagramFragment extends Fragment {
 
     }
 
-    public static InstagramFragment newInstance(){
+    public static InstagramFragment newInstance(String mUserSignUpName){
         InstagramFragment fragment = new InstagramFragment();
         // the arguments supplied here will be retained across fragment destroy and creation.
         Bundle args = new Bundle();
+        args.putString("USERSIGNUPNAME", mUserSignUpName);
         fragment.setArguments(args);
         /* @Override
         public Fragment getItem(int position) {
@@ -71,6 +73,7 @@ public class InstagramFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mUserSignUpName = getArguments().getString("USERSIGNUPNAME");
     }
 
     @Override
@@ -105,8 +108,10 @@ public class InstagramFragment extends Fragment {
         super.onResume();
 
         Firebase instagramRef = new Firebase(Constants.FIREBASE_URL_INSTAGRAM);
-        mInstagramFirebaseListAdapter = new InstagramFirebaseListAdapter(getActivity(), Instagram.class, R.layout.single_instagram, instagramRef);
+        mInstagramFirebaseListAdapter = new InstagramFirebaseListAdapter(getActivity(), Instagram.class, R.layout.single_instagram, instagramRef, mUserSignUpName);
         mListView.setAdapter(mInstagramFirebaseListAdapter);
+
+
 
 
 

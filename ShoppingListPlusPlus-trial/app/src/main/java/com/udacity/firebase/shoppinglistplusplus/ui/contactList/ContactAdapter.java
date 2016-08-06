@@ -29,7 +29,7 @@ public class ContactAdapter extends FirebaseListAdapter<User> {
         TextView textViewUserEmail = (TextView) v.findViewById(R.id.user_email);
 
         textViewUserInfo.setText(userName);
-        textViewUserEmail.setText(userEmail);
+        textViewUserEmail.setText("電郵" + userEmail);
 
 
     }

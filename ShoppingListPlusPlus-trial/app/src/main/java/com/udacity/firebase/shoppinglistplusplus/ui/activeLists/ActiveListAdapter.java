@@ -65,13 +65,11 @@ public class ActiveListAdapter extends FirebaseListAdapter<ShoppingList> {
         if (list.getUsersShopping() != null) {
             int usersShopping = list.getUsersShopping().size();
             if (usersShopping == 1) {
-                textViewUsersShopping.setText(String.format(
-                        mActivity.getResources().getString(R.string.person_shopping),
-                        usersShopping));
+                textViewUsersShopping.setText(
+                        usersShopping + "個人正在瀏覽");
             } else {
-                textViewUsersShopping.setText(String.format(
-                        mActivity.getResources().getString(R.string.people_shopping),
-                        usersShopping));
+                textViewUsersShopping.setText(
+                        usersShopping + "個人正在瀏覽");
             }
         } else {
             /* otherwise show nothing */

@@ -17,10 +17,11 @@ import com.udacity.firebase.shoppinglistplusplus.model.Instagram;
  * Created by SteveAndrewWong on 8/4/16.
  */
 public class InstagramFirebaseListAdapter extends FirebaseListAdapter<Instagram> {
+    private String mUserSignUpName;
 
-
-    public InstagramFirebaseListAdapter(Activity activity, Class<Instagram> modelClass, int modelLayout, Query ref) {
+    public InstagramFirebaseListAdapter(Activity activity, Class<Instagram> modelClass, int modelLayout, Query ref, String mUserSignUpName) {
         super(activity, modelClass, modelLayout, ref);
+        this.mUserSignUpName = mUserSignUpName;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class InstagramFirebaseListAdapter extends FirebaseListAdapter<Instagram>
 
         ImageView mImageView = (ImageView) v.findViewById(R.id.image_view_instagram);
         TextView textView = (TextView) v.findViewById(R.id.text_view_instagram);
-        textView.setText(ownerName);
+        textView.setText("作者：" + ownerName);
         mImageView.setImageBitmap(imageBitMap);
 
     }

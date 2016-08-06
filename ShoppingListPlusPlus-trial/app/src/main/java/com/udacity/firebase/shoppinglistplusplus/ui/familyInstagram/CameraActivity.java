@@ -103,6 +103,7 @@ public class CameraActivity extends BaseActivity {
                 stream = getContentResolver().openInputStream(data.getData());
                 bitmap = BitmapFactory.decodeStream(stream);
 
+
                 // convert Bitmap to ByteArray
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos); // (format, quality, outputstream)
