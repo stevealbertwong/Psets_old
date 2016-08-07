@@ -977,6 +977,8 @@ Arduino bluetooth -1pt
 write to firebase of chats -4pts
 UI -2pts
 
+8-7
+neural nets
 
 
 
