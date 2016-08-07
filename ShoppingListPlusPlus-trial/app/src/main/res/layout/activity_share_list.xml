@@ -36,16 +36,17 @@
             style="@style/HeaderText"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="@string/text_add_friend" />
+            android:text="加親友參與討論"
+            android:textSize="30dp"/>
 
         <ImageButton
             android:id="@+id/btn_add_friend"
-            android:layout_width="@dimen/lists_row_height"
-            android:layout_height="@dimen/lists_row_height"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_vertical"
-            android:background="@android:color/transparent"
+            android:background="@drawable/icon_add_friend2"
             android:onClick="onAddFriendPressed"
-            android:src="@drawable/icon_add_friend2" />
+             />
     </LinearLayout>
 
 </LinearLayout>

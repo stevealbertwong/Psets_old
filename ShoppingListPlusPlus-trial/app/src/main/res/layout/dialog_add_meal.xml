@@ -13,7 +13,7 @@
         android:id="@+id/edit_text_meal_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/hint_add_meal"
+        android:hint="信息"
         android:imeOptions="actionDone|flagNoExtractUi"
         android:inputType="textCapWords"
         android:textColor="@color/black"

@@ -27,6 +27,7 @@ import com.udacity.firebase.shoppinglistplusplus.ui.contactList.ContactFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.familyInstagram.InstagramFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.AddMealDialogFragment;
 import com.udacity.firebase.shoppinglistplusplus.ui.meals.MealsFragment;
+import com.udacity.firebase.shoppinglistplusplus.ui.sharing.AddFriendActivity;
 import com.udacity.firebase.shoppinglistplusplus.utils.Constants;
 
 /**
@@ -141,6 +142,10 @@ public class MainActivity extends BaseActivity {
          * Setup the mTabLayout with view pager
          */
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_forum);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_chat);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_home);
+        tabLayout.getTabAt(3).setIcon(R.drawable.ic_contact);
     }
 
     /**
@@ -168,7 +173,12 @@ public class MainActivity extends BaseActivity {
         // add 1
         mLikeView = (TextView) findViewById(R.id.text_view_likeCount);
         points ++;
-        mLikeView.setText("Like:" + points);
+        mLikeView.setText("讚:" + points);
+    }
+
+    public void showAddFriendActivity(View view) {
+        Intent intent = new Intent(this, AddFriendActivity.class);
+        startActivity(intent);
     }
     /*++++++++++++++++++++++++++++++++++++ LIKEBUTTON ++++++++++++++++++++++++++++++++++++++++++++++++*/
 

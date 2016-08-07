@@ -162,10 +162,10 @@ public class ActiveListDetailsActivity extends BaseActivity {
                 if (usersShopping != null && usersShopping.size() != 0 &&
                         usersShopping.containsKey(mEncodedEmail)) {
                     mShopping = true;
-                    mButtonShopping.setText(getString(R.string.button_stop_shopping));
+                    mButtonShopping.setText("下線");
                     mButtonShopping.setBackgroundColor(ContextCompat.getColor(ActiveListDetailsActivity.this, R.color.dark_grey));
                 } else {
-                    mButtonShopping.setText(getString(R.string.button_start_shopping));
+                    mButtonShopping.setText("顯示上線");
                     mButtonShopping.setBackgroundColor(ContextCompat.getColor(ActiveListDetailsActivity.this, R.color.primary_dark));
                     mShopping = false;
 
@@ -405,16 +405,17 @@ public class ActiveListDetailsActivity extends BaseActivity {
             if (mShopping) {
                 switch (numberOfUsersShopping) {
                     case 1:
-                        usersShoppingText = getString(R.string.text_you_are_shopping);
+                        usersShoppingText = "你正在線";
                         break;
                     case 2:
                         usersShoppingText = String.format(
-                                getString(R.string.text_you_and_other_are_shopping),
+                                "你和$s正在線",
                                 usersWhoAreNotYou.get(0));
                         break;
+
                     default:
                         usersShoppingText = String.format(
-                                getString(R.string.text_you_and_number_are_shopping),
+                                "你和%d個人正在線",
                                 usersWhoAreNotYou.size());
                 }
                 /**
@@ -426,19 +427,16 @@ public class ActiveListDetailsActivity extends BaseActivity {
             } else {
                 switch (numberOfUsersShopping) {
                     case 1:
-                        usersShoppingText = String.format(
-                                getString(R.string.text_other_is_shopping),
-                                usersWhoAreNotYou.get(0));
+                        usersShoppingText = String.format("$s正在線", usersWhoAreNotYou.get(0));
                         break;
                     case 2:
                         usersShoppingText = String.format(
-                                getString(R.string.text_other_and_other_are_shopping),
+                                "%1$s和%2$s正在線",
                                 usersWhoAreNotYou.get(0),
                                 usersWhoAreNotYou.get(1));
                         break;
                     default:
-                        usersShoppingText = String.format(
-                                getString(R.string.text_other_and_number_are_shopping),
+                        usersShoppingText = String.format("%1$s和%2%d個人正在線",
                                 usersWhoAreNotYou.get(0),
                                 usersWhoAreNotYou.size() - 1);
                 }

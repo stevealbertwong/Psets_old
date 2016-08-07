@@ -32,11 +32,12 @@
                 android:layout_gravity="start"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:hint="多少人正在瀏覽"
-                android:textSize="@dimen/list_item_text_size" />
+                android:hint="0人正在瀏覽"
+                android:textSize="12dp" />
 
             <Button
                 android:id="@+id/button_shopping"
+                android:textSize="20dp"
                 style="@style/ShoppingButton"
                 android:layout_gravity="end"
                 android:onClick="toggleShopping"
