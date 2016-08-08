@@ -981,8 +981,8 @@ UI -2pts
 neural nets -2pt
 finish up the app -3pts
 order arduino
-naive bayes classifier -2pts
-
+naive bayes classifier movie review just positive and negative -2pts
+naive-bayes classifier in python to classify category of walmart from calculating each word's occurence each category description - srinath, facebook, google, cmu -2pts 
 
 
 
