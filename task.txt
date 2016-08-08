@@ -985,6 +985,12 @@ naive bayes classifier movie review just positive and negative -2pts
 naive-bayes classifier in python to classify category of walmart from calculating each word's occurence each category description - srinath, facebook, google, cmu -2pts 
 
 
+8-8
+change package name + record demo -4pts
+
+
++6pts
+
 
 DATABASE DESIGN OPTIONS
 1. generate id by push
