@@ -989,11 +989,11 @@ naive-bayes classifier in python to classify category of walmart from calculatin
 change package name + record demo -4pts
 
 
-+6pts
+
 
 
 8-10
-machine learning sendtex -2pts
+machine learning sendtex -3pts
 	Quandl.get("WIKI/GOOGL")
 	df[["Adj. Open", "Adj. High", "Adj. Low", "Adj. Volume"]]
 	df["HL_PCT"] = (df["Adj.High"]-df["Adj.Close"])/df["Adj.Open"]*100
@@ -1004,6 +1004,23 @@ machine learning sendtex -2pts
 	df("label") = df[forecast_col].shift(-forecast_out)
 	df.dropna(implace=True)
 
+	# convert Dataframe into Array: X->features array, y->label
+	X = np.array(df.drop(['label'],1))
+	X = preprocessing.scale(X)
+	y = np.array(df(['label']))
+	
+	# split df into 80% training and 20% testing
+	X_train, X_test, y_train, y_test = cross.validation.train_test_split(X, y, test_size=0.2)
+	
+	# pick classifer: LinearRegression(), svm(kernal=poly)
+	classifer = LinearRegression()
+	classifer.fit(X_train, y_train)
+	accuracy = classifer.score(X_test, y_test)
+	print(accuracy)
+
+
+
++7pts
 
 
 
