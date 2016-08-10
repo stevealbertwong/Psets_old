@@ -1007,9 +1007,6 @@ machine learning sendtex -2pts
 
 
 
-
-
-
 DATABASE DESIGN OPTIONS
 1. generate id by push
 2. denormalization or nesting
