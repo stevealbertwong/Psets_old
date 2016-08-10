@@ -992,6 +992,24 @@ change package name + record demo -4pts
 +6pts
 
 
+8-10
+machine learning sendtex -2pts
+	Quandl.get("WIKI/GOOGL")
+	df[["Adj. Open", "Adj. High", "Adj. Low", "Adj. Volume"]]
+	df["HL_PCT"] = (df["Adj.High"]-df["Adj.Close"])/df["Adj.Open"]*100
+	df.fillna(-9999999, inplace=True)
+
+	forecast_col = "Adj. Close"
+	forecast_out = int(math.ceil(0.01*len(df)))
+	df("label") = df[forecast_col].shift(-forecast_out)
+	df.dropna(implace=True)
+
+
+
+
+
+
+
 DATABASE DESIGN OPTIONS
 1. generate id by push
 2. denormalization or nesting
