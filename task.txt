@@ -1029,12 +1029,14 @@ activation function e.g. sigmoid allows neural nets to model non-linear patterns
 
 Jeff Heaton
 Neural network calculation -1pt
+Neural network is only a way to calculate the weight given input features and output label
 
-
+UT neural nets -1pt
+Hairbobo sample app -2pts
 
  
 
-+7pts
++9pts
 
 
 
