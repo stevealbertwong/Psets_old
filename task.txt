@@ -1021,6 +1021,19 @@ machine learning sendtex -3pts
 
 cs109 probability -1pt
 
+8-11
+Neural network basic intuition
+
+Neural nets welch labs -1pt
+activation function e.g. sigmoid allows neural nets to model non-linear patterns that simplier model may miss.
+
+Jeff Heaton
+Neural network calculation -1pt
+
+
+
+ 
+
 +7pts
 
 
