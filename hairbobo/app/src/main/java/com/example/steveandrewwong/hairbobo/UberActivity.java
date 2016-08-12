@@ -1,45 +1,26 @@
 package com.example.steveandrewwong.hairbobo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.GridView;
 
-public class MainActivity extends AppCompatActivity {
-    GridView gridView;
-
-    static final String[] HAIR = new String[] {
-            "guy", "dye","kid", "Blackberry" };
-
+/**
+ * Created by SteveAndrewWong on 8/11/16.
+ */
+public class UberActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.uber_profile);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Other hair dresser options?", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-
-
-
-        gridView = (GridView) findViewById(R.id.gridView_photo);
-        gridView.setAdapter(new PostGridViewAdapter(this, HAIR));
-
     }
 
 
@@ -60,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_trend) {
-            Intent intent = new Intent(MainActivity.this, HairCategoryActivity.class);
+            Intent intent = new Intent(UberActivity.this, HairCategoryActivity.class);
             startActivity(intent);
             return true;
         }
 
         if (id == R.id.action_personalbarber) {
-            Intent intent = new Intent(MainActivity.this, UberActivity.class);
+            Intent intent = new Intent(UberActivity.this, UberActivity.class);
             startActivity(intent);
             return true;
         }

@@ -18,6 +18,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <activity
+            android:name=".HairCategoryActivity"
+            android:label="人氣髪型"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+
+        <activity
+            android:name=".UberActivity"
+            android:label="髪型師UBER"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
     </application>
 
 </manifest>
