@@ -14,8 +14,11 @@ import android.widget.GridView;
 public class MainActivity extends AppCompatActivity {
     GridView gridView;
 
-    static final String[] HAIR = new String[] {
-            "guy", "dye","kid", "Blackberry" };
+    static final String[] UserNameLocation = new String[] {
+            "philip, 旺角", "philip, 旺角 ","winnie, 銅鑼灣", "winnie, 銅鑼灣 ", "阿明, 旺角", "BB, 銅鑼灣", "琪哥, 旺角", "琪哥, 旺角 " };
+
+    static final String[] LikeHastag = new String[] {
+            "Like:56 #beckham Aug-2016", "Like:56 #beckham Aug-2016","Like:86 #andylau Aug-2016", "Like:86 #andylau Aug-2016", "Like:56 #bride", "Like:56 #girlhair", "Like:56 #dye", "Like:56 #curly" };
 
 
     @Override
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         gridView = (GridView) findViewById(R.id.gridView_photo);
-        gridView.setAdapter(new PostGridViewAdapter(this, HAIR));
+        gridView.setAdapter(new PostGridViewAdapter(this, UserNameLocation, LikeHastag));
 
     }
 

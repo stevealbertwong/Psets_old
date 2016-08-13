@@ -15,10 +15,12 @@ public class PostGridViewAdapter extends BaseAdapter {
 
     private Context context;
     private final String[] mobileValues;
+    private final String[] likeHashtag;
 
-    public PostGridViewAdapter(Context context, String[] mobileValues) {
+    public PostGridViewAdapter(Context context, String[] mobileValues, String[] likeHashtag) {
         this.context = context;
         this.mobileValues = mobileValues;
+        this.likeHashtag = likeHashtag;
     }
 
 
@@ -47,6 +49,11 @@ public class PostGridViewAdapter extends BaseAdapter {
                 .findViewById(R.id.user_name_location);
         textViewName.setText(mobileValues[position]);
 
+
+        TextView textViewLike = (TextView) gridView
+                .findViewById(R.id.like_hashtag_date);
+        textViewLike.setText(likeHashtag[position]);
+
         // set image based on selected text
         ImageView imageView = (ImageView) gridView
                 .findViewById(R.id.image_haircut);
@@ -56,14 +63,22 @@ public class PostGridViewAdapter extends BaseAdapter {
 
         String mobile = mobileValues[position];
 
-        if (mobile.equals("guy")) {
+        if (mobile.equals("philip, 旺角")) {
+            imageView.setImageResource(R.drawable.beckham);
+        } else if (mobile.equals("philip, 旺角 ")) {
+            imageView.setImageResource(R.drawable.image2);
+        } else if (mobile.equals("winnie, 銅鑼灣")) {
+            imageView.setImageResource(R.drawable.andy2);
+        } else if (mobile.equals("winnie, 銅鑼灣 ")) {
             imageView.setImageResource(R.drawable.image_guy);
-        } else if (mobile.equals("dye")) {
-            imageView.setImageResource(R.drawable.image_dye);
-        } else if (mobile.equals("kid")) {
-            imageView.setImageResource(R.drawable.image_kid);
-        } else {
-            imageView.setImageResource(R.drawable.image_dye);
+        } else if (mobile.equals("阿明, 旺角")) {
+            imageView.setImageResource(R.drawable.hairstyle_bride);
+        } else if (mobile.equals("BB, 銅鑼灣")) {
+            imageView.setImageResource(R.drawable.image9);
+        } else if (mobile.equals("琪哥, 旺角")) {
+            imageView.setImageResource(R.drawable.image5);
+        } else if (mobile.equals("琪哥, 旺角 ")) {
+            imageView.setImageResource(R.drawable.image6);
         }
 
 

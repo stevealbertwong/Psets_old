@@ -18,8 +18,8 @@ public class HairCategoryActivity extends AppCompatActivity {
 
     GridView gridView;
 
-    static final String[] HAIR_CATEGORY = new String[] {"波波頭",
-            "女生長髪", "女生短髪","小童", "染髪", "新娘", "男生1", "男生2" };
+    static final String[] HAIR_CATEGORY = new String[] {"波波頭", "染髪", "小童", "譚詠麟", "許冠傑","陳百強", "鄧麗君", "梅艷芳",
+            "張曼玉", "BillGates,SteveJobs", "女生長髪", "女生短髪", "出街頭", "curly", "新娘", "男生Eason", "男生Eason ", "男生Andy", "Dope", "Braid", "返工"  };
 
 
     @Override

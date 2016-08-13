@@ -1038,8 +1038,10 @@ Hairbobo sample app -2pts
 8-12
 Square Error Cost function
 Gradient Descent 3pts
+Partial derivatives-1pt
+Gradient Descent intuition -1pt
 
-+11pts
++12pts
 
 
 
