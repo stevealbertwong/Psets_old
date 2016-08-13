@@ -1034,9 +1034,12 @@ Neural network is only a way to calculate the weight given input features and ou
 UT neural nets -1pt
 Hairbobo sample app -2pts
 
- 
 
-+9pts
+8-12
+Square Error Cost function
+Gradient Descent 3pts
+
++11pts
 
 
 
