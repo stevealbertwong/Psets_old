@@ -1046,6 +1046,17 @@ Gradient Descent intuition -1pt
 
 8-13
 Matlab 229 assign1 plotData.m -1pt
+hypothesis(x) = theta0 + theta1*x -2pts
+to find theta0 and theta1 -> you need to minimize cost function by derivatives and lest square method
+J(theta0, theta1) = 1/2m sum(h(x)-y)^2 where square to ensure positivity, division by 2 easy to calculate
+cost function J(theta0, theta1) calculates the difference between h(x) vs y for each theta0 and theta1
+transition from graph h(x) to J(theta) 
+J(theta) x axis is theta + it is convex since the difference between h(x) and y increases quadrically when slope theta increases
+gradient descent: core idea is differentiate J(theta) and theta to the their rate of change -> 1. if it is big, then means slope or theta is big so much deduction 2. determine positive and negative so that it knows which way to go to reach minimum of J(theta) 
+
+
+ 
+
 
 
 DATABASE DESIGN OPTIONS
