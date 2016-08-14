@@ -1054,7 +1054,10 @@ transition from graph h(x) to J(theta)
 J(theta) x axis is theta + it is convex since the difference between h(x) and y increases quadrically when slope theta increases
 gradient descent: core idea is differentiate J(theta) and theta to the their rate of change -> 1. if it is big, then means slope or theta is big so much deduction 2. determine positive and negative so that it knows which way to go to reach minimum of J(theta) 
 
-
+assign1 -2pts
+computeCost.m
+gradientDescent.m
+differentiate in matlab
  
 
 

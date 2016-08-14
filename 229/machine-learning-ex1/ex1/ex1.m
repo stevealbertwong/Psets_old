@@ -39,8 +39,11 @@ pause;
 %% ======================= Part 2: Plotting =======================
 fprintf('Plotting Data ...\n')
 
+% load the data into matrix "data" then copy it into 2 vectors 
+% aesthetically appealing as you could always refer it as 
 data = load('ex1data1.txt');
-X = data(:, 1); y = data(:, 2); % read comma separated data
+X = data(:, 1); % copy first column data into X (for reading comma separated data)
+y = data(:, 2); % second col into y
 m = length(y); % number of training examples
 
 % Plot Data
@@ -59,6 +62,7 @@ theta = zeros(2, 1); % initialize fitting parameters
 % Some gradient descent settings
 iterations = 1500;
 alpha = 0.01;
+
 
 % compute and display initial cost
 computeCost(X, y, theta)
@@ -86,6 +90,8 @@ fprintf('For population = 70,000, we predict a profit of %f\n',...
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
+
+
 
 %% ============= Part 4: Visualizing J(theta_0, theta_1) =============
 fprintf('Visualizing J(theta_0, theta_1) ...\n')
