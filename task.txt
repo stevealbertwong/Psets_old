@@ -1044,6 +1044,9 @@ Gradient Descent intuition -1pt
 +12pts
 
 
+8-13
+Matlab 229 assign1 plotData.m -1pt
+
 
 DATABASE DESIGN OPTIONS
 1. generate id by push
