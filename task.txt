@@ -2,9 +2,9 @@
 63: Caltec, Carneige Mellon, Princeton, Harvard
 56: Columbia, Cornell, UPenn, Maryland, Michigan, Georgia Tech, Waterloo
 51: UChicago, UT, Washington, UIUC, UCLA, RIT, Harvey Mudd, Middlebury
-47: Northwestern, Duke, JohnHopkins, UVA, Vanderbilt, USC, Lehigh, UCSD, Rugters
-42: UMassAmherst, UNC, Buffalo, Davis, Arizona, Florida, Purdue, Stony Brook
-35: Temple, Penn State, Drexel, Worcester Polytech, Virginia Tech, College of New Jersey, New Jersey Institute of Technology, SMU, UT Dallas, Binghamton  
+47: Northwestern, Duke, JohnHopkins, UVA, Vanderbilt, USC, Lehigh, UCSD, Florida
+42: UMassAmherst, UNC, Buffalo, Davis, Arizona, FSU, Purdue, Stony Brook, VT, Rugters
+35: Temple, Penn State, Drexel, Worcester Polytech, TCNJ, NJIT, SMU, UT Dallas, SUNY Binghamton  
 
 >10: A+
 9: A
@@ -1059,6 +1059,10 @@ assign1 -2pts
 computeCost.m
 gradientDescent.m
 differentiate in matlab
+
+8-15
+finished assign1 -2pts
+backpropagation -1pt
  
 +12pts
 

@@ -28,12 +28,12 @@ clear ; close all; clc
 
 %% ==================== Part 1: Basic Function ====================
 % Complete warmUpExercise.m 
-fprintf('Running warmUpExercise ... \n');
-fprintf('5x5 Identity Matrix: \n');
-warmUpExercise()
-
-fprintf('Program paused. Press enter to continue.\n');
-pause;
+% fprintf('Running warmUpExercise ... \n');
+% fprintf('5x5 Identity Matrix: \n');
+% warmUpExercise()
+% 
+% fprintf('Program paused. Press enter to continue.\n');
+% pause;
 
 
 %% ======================= Part 2: Plotting =======================
@@ -70,9 +70,14 @@ computeCost(X, y, theta)
 % run gradient descent
 theta = gradientDescent(X, y, theta, alpha, iterations);
 
+
 % print theta to screen
 fprintf('Theta found by gradient descent: ');
 fprintf('%f %f \n', theta(1), theta(2));
+
+
+
+
 
 % Plot the linear fit
 hold on; % keep previous plot visible
@@ -97,17 +102,22 @@ pause;
 fprintf('Visualizing J(theta_0, theta_1) ...\n')
 
 % Grid over which we will calculate J
-theta0_vals = linspace(-10, 10, 100);
-theta1_vals = linspace(-1, 4, 100);
+theta0_vals = linspace(-10, 10, 100); % linearly spaced vector: between -10, 10 generate row vector of 100 equally divided points differ by 0.2
+theta1_vals = linspace(-1, 4, 100); % differ by 5/100 -> 0.05
 
-% initialize J_vals to a matrix of 0's
+% initialize J_vals to a matrix/2-D grid of 0's row:100, col:100
 J_vals = zeros(length(theta0_vals), length(theta1_vals));
 
-% Fill out J_vals
+% Try every theta0(-10 to 10) theta1(-1 to 5) -> see cost difference
+% between h(x) and y
+% J_vals-> 100by100 2-D grid storing "cost" (i.e. difference between h(x)
+% and y) with respect to theta0, theta1
 for i = 1:length(theta0_vals)
     for j = 1:length(theta1_vals)
-	  t = [theta0_vals(i); theta1_vals(j)];    
-	  J_vals(i,j) = computeCost(X, y, t);
+      % trying out every theta0 from -10 to 10
+      % trying out every theta1 from -1 to 4
+	  t = [theta0_vals(i); theta1_vals(j)]; 
+	  J_vals(i,j) = computeCost(X, y, t); % function J = computeCost(X, y, theta)
     end
 end
 
